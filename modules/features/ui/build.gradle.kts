@@ -8,6 +8,7 @@ plugins {
     kotlin("multiplatform")
     id("ru.astrainteractive.gradleplugin.java.core")
     id("ru.astrainteractive.gradleplugin.android.core")
+    id("ru.astrainteractive.gradleplugin.android.compose")
 }
 
 kotlin {
@@ -56,10 +57,4 @@ kotlin {
 }
 android {
     namespace = "${projectInfo.group}.features.ui.splash"
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.kotlin.compilerExtensionVersion.get()
-    }
-    buildFeatures {
-        compose = true
-    }
 }
