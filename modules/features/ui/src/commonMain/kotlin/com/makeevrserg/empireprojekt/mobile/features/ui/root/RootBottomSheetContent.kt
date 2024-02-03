@@ -9,7 +9,7 @@ import androidx.compose.runtime.getValue
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
 import com.makeevrserg.empireprojekt.mobile.core.ui.rememberDeclarativeModalBottomSheetState
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.features.root.modal.RootBottomSheetComponent
+import com.makeevrserg.empireprojekt.mobile.features.modal.presentation.RootBottomSheetComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.InfoScreen
 
 @OptIn(ExperimentalMaterialApi::class)

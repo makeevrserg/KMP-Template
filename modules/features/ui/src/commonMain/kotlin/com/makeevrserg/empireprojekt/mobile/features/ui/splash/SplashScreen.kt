@@ -17,8 +17,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.asPainter
 import com.makeevrserg.empireprojekt.mobile.core.ui.components.navBarsPadding
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.features.logic.splash.SplashComponent
-import com.makeevrserg.empireprojekt.mobile.features.root.RootComponent
-import com.makeevrserg.empireprojekt.mobile.features.root.screen.RootScreenComponent
+import com.makeevrserg.empireprojekt.mobile.features.root.presentation.RootComponent
 import com.makeevrserg.empireprojekt.mobile.resources.MR
 import kotlinx.coroutines.flow.collectLatest
 

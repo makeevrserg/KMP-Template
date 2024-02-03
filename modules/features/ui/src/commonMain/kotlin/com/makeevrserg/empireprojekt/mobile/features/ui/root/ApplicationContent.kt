@@ -8,8 +8,8 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.slide
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
-import com.makeevrserg.empireprojekt.mobile.features.root.RootComponent
-import com.makeevrserg.empireprojekt.mobile.features.root.screen.DefaultRootScreenComponent
+import com.makeevrserg.empireprojekt.mobile.features.root.presentation.RootComponent
+import com.makeevrserg.empireprojekt.mobile.features.screen.presentation.RootScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.splash.SplashScreenComponent
 
 @Composable
@@ -25,7 +25,7 @@ fun ApplicationContent(
     ) { configuration ->
 
         when (val screen = configuration.instance) {
-            is DefaultRootScreenComponent.Configuration.Splash -> SplashScreenComponent(
+            is RootScreenComponent.Child.Splash -> SplashScreenComponent(
                 rootComponent = rootComponent,
                 splashComponent = screen.splashComponent
             )
