@@ -1,7 +1,7 @@
-package com.makeevrserg.empireprojekt.mobile.features.logic.splash.di
+package com.makeevrserg.empireprojekt.mobile.features.splash.di
 
-import com.makeevrserg.empireprojekt.mobile.features.logic.splash.data.SplashComponentRepository
-import com.makeevrserg.empireprojekt.mobile.features.logic.splash.data.SplashComponentRepositoryImpl
+import com.makeevrserg.empireprojekt.mobile.features.splash.data.SplashComponentRepository
+import com.makeevrserg.empireprojekt.mobile.features.splash.data.SplashComponentRepositoryImpl
 import kotlinx.coroutines.CoroutineScope
 import ru.astrainteractive.klibs.kdi.Module
 import ru.astrainteractive.klibs.kdi.Provider

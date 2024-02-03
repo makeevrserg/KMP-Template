@@ -1,7 +1,7 @@
-package com.makeevrserg.empireprojekt.mobile.features.logic.splash
+package com.makeevrserg.empireprojekt.mobile.features.splash.presentation
 
 import com.arkivanov.decompose.ComponentContext
-import com.makeevrserg.empireprojekt.mobile.features.logic.splash.di.SplashComponentModule
+import com.makeevrserg.empireprojekt.mobile.features.splash.di.SplashComponentModule
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.launch

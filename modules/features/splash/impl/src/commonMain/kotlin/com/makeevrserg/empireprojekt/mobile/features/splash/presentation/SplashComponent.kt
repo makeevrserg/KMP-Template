@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.features.logic.splash
+package com.makeevrserg.empireprojekt.mobile.features.splash.presentation
 
 import kotlinx.coroutines.flow.Flow
 

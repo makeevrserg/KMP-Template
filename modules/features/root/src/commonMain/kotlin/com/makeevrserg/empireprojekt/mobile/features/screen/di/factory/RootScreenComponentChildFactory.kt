@@ -1,7 +1,7 @@
 package com.makeevrserg.empireprojekt.mobile.features.screen.di.factory
 
 import com.arkivanov.decompose.ComponentContext
-import com.makeevrserg.empireprojekt.mobile.features.logic.splash.DefaultSplashComponent
+import com.makeevrserg.empireprojekt.mobile.features.splash.presentation.DefaultSplashComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.di.RootModule
 import com.makeevrserg.empireprojekt.mobile.features.screen.presentation.RootScreenComponent
 import ru.astrainteractive.klibs.kdi.Factory

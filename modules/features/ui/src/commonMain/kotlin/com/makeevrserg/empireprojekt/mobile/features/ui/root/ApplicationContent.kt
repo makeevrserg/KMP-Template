@@ -10,7 +10,7 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stac
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
 import com.makeevrserg.empireprojekt.mobile.features.root.presentation.RootComponent
 import com.makeevrserg.empireprojekt.mobile.features.screen.presentation.RootScreenComponent
-import com.makeevrserg.empireprojekt.mobile.features.ui.splash.SplashScreenComponent
+import com.makeevrserg.empireprojekt.mobile.features.splash.ui.SplashScreenComponent
 
 @Composable
 fun ApplicationContent(

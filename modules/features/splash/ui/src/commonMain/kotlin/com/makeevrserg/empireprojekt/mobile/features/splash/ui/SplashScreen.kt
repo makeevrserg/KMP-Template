@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.features.ui.splash
+package com.makeevrserg.empireprojekt.mobile.features.splash.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -16,7 +16,7 @@ import androidx.compose.ui.layout.ContentScale
 import com.makeevrserg.empireprojekt.mobile.core.ui.asPainter
 import com.makeevrserg.empireprojekt.mobile.core.ui.components.navBarsPadding
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.features.logic.splash.SplashComponent
+import com.makeevrserg.empireprojekt.mobile.features.splash.presentation.SplashComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.presentation.RootComponent
 import com.makeevrserg.empireprojekt.mobile.resources.MR
 import kotlinx.coroutines.flow.collectLatest

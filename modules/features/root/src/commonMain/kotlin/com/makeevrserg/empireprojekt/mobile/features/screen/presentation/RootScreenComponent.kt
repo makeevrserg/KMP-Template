@@ -5,7 +5,7 @@ import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.backhandler.BackHandlerOwner
 import com.arkivanov.essenty.parcelable.Parcelable
 import com.arkivanov.essenty.parcelable.Parcelize
-import com.makeevrserg.empireprojekt.mobile.features.logic.splash.SplashComponent
+import com.makeevrserg.empireprojekt.mobile.features.splash.presentation.SplashComponent
 
 interface RootScreenComponent : BackHandlerOwner {
     val childStack: Value<ChildStack<*, Child>>

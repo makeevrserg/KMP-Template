@@ -1,6 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.features.root.di
 
-import com.makeevrserg.empireprojekt.mobile.features.logic.splash.di.SplashComponentModule
+import com.makeevrserg.empireprojekt.mobile.features.splash.di.SplashComponentModule
 import com.makeevrserg.empireprojekt.mobile.services.core.di.CoreModule
 import ru.astrainteractive.klibs.kdi.Module
 import ru.astrainteractive.klibs.kdi.Provider
