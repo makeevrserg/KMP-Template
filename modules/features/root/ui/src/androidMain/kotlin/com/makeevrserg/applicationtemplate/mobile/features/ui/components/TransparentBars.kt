@@ -13,6 +13,14 @@ actual fun TransparentBars(isDarkTheme: Boolean) {
             color = Color.Transparent,
             darkIcons = !isDarkTheme
         )
+        systemUiController.setStatusBarColor(
+            color = Color.Transparent,
+            darkIcons = !isDarkTheme
+        )
+        systemUiController.setNavigationBarColor(
+            color = Color.Transparent,
+            darkIcons = !isDarkTheme
+        )
         onDispose {}
     }
 }

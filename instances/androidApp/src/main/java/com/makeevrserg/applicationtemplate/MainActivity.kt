@@ -3,12 +3,13 @@ package com.makeevrserg.applicationtemplate
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.core.view.WindowCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.arkivanov.decompose.defaultComponentContext
 import com.makeevrserg.applicationtemplate.application.App.Companion.asMyApplication
 import com.makeevrserg.applicationtemplate.mobile.features.modal.ui.RootBottomSheetContent
@@ -16,7 +17,6 @@ import com.makeevrserg.applicationtemplate.mobile.features.root.di.RootModule
 import com.makeevrserg.applicationtemplate.mobile.features.root.presentation.DefaultRootComponent
 import com.makeevrserg.applicationtemplate.mobile.features.screen.ui.RootScreenContent
 import com.makeevrserg.applicationtemplate.mobile.features.theme.ui.ApplicationTheme
-import com.makeevrserg.applicationtemplate.resources.R
 
 @ExperimentalMaterialApi
 @ExperimentalComposeUiApi
@@ -27,9 +27,9 @@ class MainActivity : ComponentActivity() {
         get() = application.asMyApplication().rootModule
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        setTheme(R.style.AppTheme)
 
         val componentContext = defaultComponentContext()
         val rootComponent = DefaultRootComponent(componentContext, rootModule)
@@ -44,5 +44,6 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        splashScreen.setKeepOnScreenCondition { false }
     }
 }

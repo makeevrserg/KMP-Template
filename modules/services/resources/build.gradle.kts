@@ -17,6 +17,11 @@ kotlin {
                 implementation(libs.moko.resources.core)
             }
         }
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.androidx.splash)
+            }
+        }
         val iosX64Main by getting {
             resources.srcDirs("build/generated/moko/iosX64Main/src")
         }
