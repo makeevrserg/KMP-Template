@@ -23,39 +23,18 @@ kotlin {
                 implementation(compose.uiTooling)
                 implementation(compose.preview)
                 implementation(compose.material)
-                implementation(compose.material3)
-                implementation(compose.materialIconsExtended)
-                // klibs
-                implementation(libs.klibs.mikro.core)
-                implementation(libs.klibs.mikro.platform)
-                implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.kdi)
                 // Moko
                 implementation(libs.moko.resources.core)
-                // Decompose
-                implementation(libs.decompose.core)
-                implementation(libs.decompose.compose.jetbrains)
                 // Local
                 implementation(projects.modules.services.resources)
                 implementation(projects.modules.services.coreUi)
-                implementation(projects.modules.services.buildKonfig)
                 implementation(projects.modules.features.splash.impl)
-                implementation(projects.modules.features.splash.ui)
                 implementation(projects.modules.features.root)
-                implementation(projects.modules.features.theme)
-            }
-        }
-        val androidMain by getting {
-            dependencies {
-                // Accompanist
-                implementation(libs.google.accompanist.systemuicontroller)
-                // Image loading
-                implementation("io.coil-kt:coil:2.4.0")
-                implementation("io.coil-kt:coil-compose:2.4.0")
             }
         }
     }
 }
+
 android {
-    namespace = "${projectInfo.group}.features.ui.splash"
+    namespace = "${projectInfo.group}.features.splash.ui"
 }

@@ -23,9 +23,6 @@ kotlin {
                 implementation(libs.klibs.mikro.platform)
                 implementation(libs.klibs.kstorage)
                 implementation(libs.klibs.kdi)
-                // Moko
-                implementation(libs.moko.mvvm.core)
-                implementation(libs.moko.mvvm.flow)
                 // Decompose
                 implementation(libs.decompose.core)
             }
@@ -41,5 +38,5 @@ kotlin {
 }
 
 android {
-    namespace = "${projectInfo.group}.features.logic.splash"
+    namespace = "${projectInfo.group}.features.splash.impl"
 }

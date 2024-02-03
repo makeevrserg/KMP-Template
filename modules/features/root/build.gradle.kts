@@ -48,7 +48,7 @@ kotlin {
                 // Local
                 api(projects.modules.services.resources)
                 api(projects.modules.services.core)
-                api(projects.modules.features.splash)
+                api(projects.modules.features.splash.impl)
                 api(projects.modules.features.theme)
             }
         }
