@@ -27,8 +27,7 @@ androidApp/libs
 keys.properties
 
 # Instances
-instances/wearApp
-instances/androidApp
+instances/androidApp/build
 
 # Features
 modules/features/root/build
