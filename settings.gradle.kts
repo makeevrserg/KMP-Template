@@ -20,7 +20,7 @@ dependencyResolutionManagement {
     }
 }
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-rootProject.name = "EmpireProjekt-Mobile"
+rootProject.name = "Application-Template"
 // Instances
 include(":instances:androidApp")
 // Services

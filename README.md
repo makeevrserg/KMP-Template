@@ -2,7 +2,7 @@
 
 ## Kotlin Multiplatform Template
 
-This mobile application made specially for [EmpireProjekt](https://empireprojekt.ru)
+Template KMP application
 
 ## Architecture
 
