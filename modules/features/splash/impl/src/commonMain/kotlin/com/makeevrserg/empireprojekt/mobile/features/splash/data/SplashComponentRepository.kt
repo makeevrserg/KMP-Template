@@ -1,5 +1,5 @@
 package com.makeevrserg.empireprojekt.mobile.features.splash.data
 
-interface SplashComponentRepository {
+internal interface SplashComponentRepository {
     fun isInitialLaunch(): Boolean
 }

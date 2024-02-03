@@ -26,7 +26,7 @@ internal class DefaultRootScreenComponent(
         childFactory = { config, context ->
             RootScreenComponentChildFactory(
                 config = config,
-                context = context,
+                componentContext = context,
                 rootModule = rootModule,
             ).create()
         }

@@ -25,6 +25,8 @@ kotlin {
                 implementation(libs.klibs.kdi)
                 // Decompose
                 implementation(libs.decompose.core)
+                // Local
+                implementation(projects.modules.services.core)
             }
         }
         val commonTest by getting {

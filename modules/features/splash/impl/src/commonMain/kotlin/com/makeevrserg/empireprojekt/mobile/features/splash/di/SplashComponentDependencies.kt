@@ -5,10 +5,9 @@ import com.makeevrserg.empireprojekt.mobile.features.splash.data.SplashComponent
 import kotlinx.coroutines.CoroutineScope
 import ru.astrainteractive.klibs.kdi.Module
 import ru.astrainteractive.klibs.kdi.Provider
-import ru.astrainteractive.klibs.kdi.getValue
 import ru.astrainteractive.klibs.mikro.core.dispatchers.KotlinDispatchers
 
-interface SplashComponentModule : Module {
+internal interface SplashComponentDependencies : Module {
     val mainScope: CoroutineScope
     val dispatchers: KotlinDispatchers
     val repository: SplashComponentRepository
@@ -16,7 +15,7 @@ interface SplashComponentModule : Module {
     class Default(
         override val mainScope: CoroutineScope,
         override val dispatchers: KotlinDispatchers
-    ) : SplashComponentModule {
+    ) : SplashComponentDependencies {
         override val repository: SplashComponentRepository = Provider {
             SplashComponentRepositoryImpl()
         }.provide()

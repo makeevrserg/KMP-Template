@@ -1,17 +1,17 @@
 package com.makeevrserg.empireprojekt.mobile.features.splash.presentation
 
 import com.arkivanov.decompose.ComponentContext
-import com.makeevrserg.empireprojekt.mobile.features.splash.di.SplashComponentModule
+import com.makeevrserg.empireprojekt.mobile.features.splash.di.SplashComponentDependencies
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.launch
 
-class DefaultSplashComponent(
-    context: ComponentContext,
-    module: SplashComponentModule
+internal class DefaultSplashComponent(
+    componentContext: ComponentContext,
+    dependencies: SplashComponentDependencies
 ) : SplashComponent,
-    SplashComponentModule by module,
-    ComponentContext by context {
+    SplashComponentDependencies by dependencies,
+    ComponentContext by componentContext {
     private val _screenChannel = Channel<SplashComponent.Label>()
     override val screenChannelFlow = _screenChannel.consumeAsFlow()
 
