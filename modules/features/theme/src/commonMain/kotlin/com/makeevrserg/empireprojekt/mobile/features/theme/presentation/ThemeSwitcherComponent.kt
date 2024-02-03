@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.features.theme
+package com.makeevrserg.empireprojekt.mobile.features.theme.presentation
 
 import com.makeevrserg.empireprojekt.mobile.features.theme.data.model.Theme
 import kotlinx.coroutines.flow.StateFlow

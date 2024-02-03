@@ -1,15 +1,15 @@
-package com.makeevrserg.empireprojekt.mobile.features.theme
+package com.makeevrserg.empireprojekt.mobile.features.theme.presentation
 
+import com.makeevrserg.empireprojekt.mobile.features.theme.data.ThemeSwitcherRepository
 import com.makeevrserg.empireprojekt.mobile.features.theme.data.model.Theme
-import com.makeevrserg.empireprojekt.mobile.features.theme.di.ThemeSwitcherModule
 import kotlinx.coroutines.flow.StateFlow
 import ru.astrainteractive.klibs.kdi.Provider
 import ru.astrainteractive.klibs.kdi.getValue
 import ru.astrainteractive.klibs.mikro.core.util.next
 
-class DefaultThemeSwitcherComponentComponent(
-    themeSwitcherModule: ThemeSwitcherModule
-) : ThemeSwitcherComponent, ThemeSwitcherModule by themeSwitcherModule {
+internal class DefaultThemeSwitcherComponentComponent(
+    private val themeSwitcherRepository: ThemeSwitcherRepository
+) : ThemeSwitcherComponent {
     private val themeFlowStorageValue by Provider {
         themeSwitcherRepository.themeFlowStorageValue
     }

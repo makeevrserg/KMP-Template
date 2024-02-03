@@ -1,6 +1,7 @@
 package com.makeevrserg.empireprojekt.mobile.features.root.di
 
 import com.makeevrserg.empireprojekt.mobile.features.splash.di.SplashComponentModule
+import com.makeevrserg.empireprojekt.mobile.features.theme.di.ThemeSwitcherModule
 import com.makeevrserg.empireprojekt.mobile.services.core.di.CoreModule
 import ru.astrainteractive.klibs.kdi.Module
 import ru.astrainteractive.klibs.kdi.Provider
@@ -11,7 +12,7 @@ interface RootModule : Module {
 
     val coreModule: CoreModule
     val splashModule: SplashComponentModule
-    val componentsModule: ComponentsModule
+    val themeSwitcherModule: ThemeSwitcherModule
 
     class Default : RootModule {
 
@@ -26,8 +27,8 @@ interface RootModule : Module {
             )
         }
 
-        override val componentsModule: ComponentsModule by Single {
-            ComponentsModule.Default(this)
+        override val themeSwitcherModule: ThemeSwitcherModule by lazy {
+            ThemeSwitcherModule.Default(coreModule.settings.value)
         }
     }
 }

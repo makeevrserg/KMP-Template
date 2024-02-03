@@ -2,17 +2,22 @@ package com.makeevrserg.empireprojekt.mobile.features.theme.di
 
 import com.makeevrserg.empireprojekt.mobile.features.theme.data.ThemeSwitcherRepository
 import com.makeevrserg.empireprojekt.mobile.features.theme.data.ThemeSwitcherRepositoryImpl
+import com.makeevrserg.empireprojekt.mobile.features.theme.presentation.DefaultThemeSwitcherComponentComponent
+import com.makeevrserg.empireprojekt.mobile.features.theme.presentation.ThemeSwitcherComponent
 import com.russhwolf.settings.Settings
 import ru.astrainteractive.klibs.kdi.Single
 import ru.astrainteractive.klibs.kdi.getValue
 
 interface ThemeSwitcherModule {
 
-    val themeSwitcherRepository: ThemeSwitcherRepository
+    val themeSwitcherComponent: ThemeSwitcherComponent
 
     class Default(settings: Settings) : ThemeSwitcherModule {
-        override val themeSwitcherRepository: ThemeSwitcherRepository by Single {
+        private val themeSwitcherRepository: ThemeSwitcherRepository by Single {
             ThemeSwitcherRepositoryImpl(settings)
+        }
+        override val themeSwitcherComponent: ThemeSwitcherComponent by lazy {
+            DefaultThemeSwitcherComponentComponent(themeSwitcherRepository)
         }
     }
 }
