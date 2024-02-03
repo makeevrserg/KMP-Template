@@ -8,6 +8,7 @@ import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -35,7 +36,8 @@ import kotlinx.coroutines.flow.collectLatest
 @Composable
 fun SplashScreenComponent(
     splashComponent: SplashComponent,
-    rootComponent: RootComponent
+    rootComponent: RootComponent,
+    onIconClicked: () -> Unit
 ) {
     val scale by rememberInfiniteTransition(label = "Scale transition").animateFloat(
         label = "Scale animation",
@@ -73,6 +75,7 @@ fun SplashScreenComponent(
                     .width(64.dp)
                     .wrapContentHeight()
                     .scale(scale)
+                    .clickable { onIconClicked.invoke() }
             )
         }
         Box(
