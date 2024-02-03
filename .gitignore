@@ -1,0 +1,43 @@
+# Root
+*.iml
+.secret
+.secrets
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build-logic/build
+/build-logic/plugins/convention/build
+/build
+/buildSrc/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+androidApp/build
+androidApp/libs
+.idea
+
+# Secret
+keys.properties
+
+# Instances
+instances/wearApp
+instances/androidApp
+
+# Features
+modules/features/root/build
+modules/features/splash/build
+modules/features/theme/build
+modules/features/ui/build
+
+# Services
+modules/services/build-konfig/build
+modules/services/core-ui/build
+modules/services/resources/build
+modules/services/core/build
