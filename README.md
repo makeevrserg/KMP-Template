@@ -6,7 +6,7 @@ Template KMP application
 
 ## Architecture
 
-The application is build on [The Architecture GuideLines](https://makeevrserg.github.io/ArchitectureTheory/gradle/)
+The application is build on [The Architecture GuideLines](https://makeevrserg.github.io/Arkitekture/)
 
 ### Some non-standart libraries
 
