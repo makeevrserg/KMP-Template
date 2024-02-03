@@ -32,6 +32,8 @@ instances/androidApp
 
 # Features
 modules/features/root/build
+modules/features/root/ui/build
+modules/features/root/impl/build
 modules/features/splash/build
 modules/features/splash/ui/build
 modules/features/splash/impl/build

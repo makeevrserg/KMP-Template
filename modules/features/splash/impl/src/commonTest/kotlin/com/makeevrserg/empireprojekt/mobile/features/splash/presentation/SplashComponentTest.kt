@@ -5,8 +5,6 @@ import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
 import com.makeevrserg.empireprojekt.mobile.features.splash.data.SplashComponentRepository
 import com.makeevrserg.empireprojekt.mobile.features.splash.di.SplashComponentModule
-import com.makeevrserg.empireprojekt.mobile.features.splash.presentation.DefaultSplashComponent
-import com.makeevrserg.empireprojekt.mobile.features.splash.presentation.SplashComponent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.runBlocking
