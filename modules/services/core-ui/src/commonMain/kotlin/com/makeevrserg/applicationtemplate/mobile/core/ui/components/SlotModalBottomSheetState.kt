@@ -1,6 +1,6 @@
 @file:Suppress("Filename")
 
-package com.makeevrserg.applicationtemplate.mobile.core.ui
+package com.makeevrserg.applicationtemplate.mobile.core.ui.components
 
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.material.ExperimentalMaterialApi

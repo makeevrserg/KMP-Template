@@ -1,4 +1,4 @@
-package com.makeevrserg.applicationtemplate.mobile.core.ui.components
+package com.makeevrserg.applicationtemplate.mobile.core.ui.modifier
 
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.systemBarsPadding

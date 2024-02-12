@@ -45,7 +45,7 @@ fun AdaptThemeFade(
             isDark = false
         )
     }
-    Crossfade(targetState = appTheme) { appTheme ->
+    Crossfade(targetState = appTheme, label = "AppTheme crossfade") { appTheme ->
         CompositionLocalProvider(
             LocalAppTheme provides appTheme,
             content = {

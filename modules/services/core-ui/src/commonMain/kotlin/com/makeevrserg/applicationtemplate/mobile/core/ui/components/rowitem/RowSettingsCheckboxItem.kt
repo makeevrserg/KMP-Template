@@ -1,4 +1,4 @@
-package com.makeevrserg.applicationtemplate.mobile.core.ui.components
+package com.makeevrserg.applicationtemplate.mobile.core.ui.components.rowitem
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon

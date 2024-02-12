@@ -20,10 +20,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import com.makeevrserg.applicationtemplate.buildkonfig.BuildKonfig
 import com.makeevrserg.applicationtemplate.core.resources.CoreR
-import com.makeevrserg.applicationtemplate.mobile.core.ui.asComposableString
-import com.makeevrserg.applicationtemplate.mobile.core.ui.components.RowSettingTextInfo
-import com.makeevrserg.applicationtemplate.mobile.core.ui.components.navBarsPadding
+import com.makeevrserg.applicationtemplate.mobile.core.ui.components.rowitem.RowSettingTextInfo
+import com.makeevrserg.applicationtemplate.mobile.core.ui.modifier.navBarsPadding
 import com.makeevrserg.applicationtemplate.mobile.core.ui.theme.AppTheme
+import com.makeevrserg.applicationtemplate.mobile.core.ui.util.asComposableString
 import com.makeevrserg.applicationtemplate.mobile.features.info.linkbrowser.LinkBrowser
 import com.makeevrserg.applicationtemplate.mobile.features.info.ui.components.LinkWidget
 import com.makeevrserg.applicationtemplate.mobile.features.info.ui.components.LocalLinkBrowser

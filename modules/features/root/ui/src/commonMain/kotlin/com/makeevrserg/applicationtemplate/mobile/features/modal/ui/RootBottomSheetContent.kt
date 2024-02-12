@@ -7,7 +7,7 @@ import androidx.compose.material.ModalBottomSheetLayout
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
-import com.makeevrserg.applicationtemplate.mobile.core.ui.rememberDeclarativeModalBottomSheetState
+import com.makeevrserg.applicationtemplate.mobile.core.ui.components.rememberDeclarativeModalBottomSheetState
 import com.makeevrserg.applicationtemplate.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.applicationtemplate.mobile.features.info.ui.InfoScreen
 import com.makeevrserg.applicationtemplate.mobile.features.modal.presentation.RootBottomSheetComponent

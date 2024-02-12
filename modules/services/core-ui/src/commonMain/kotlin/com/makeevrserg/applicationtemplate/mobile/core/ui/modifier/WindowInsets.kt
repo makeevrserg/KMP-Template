@@ -1,4 +1,4 @@
-package com.makeevrserg.applicationtemplate.mobile.core.ui.components
+package com.makeevrserg.applicationtemplate.mobile.core.ui.modifier
 
 import androidx.compose.ui.Modifier
 

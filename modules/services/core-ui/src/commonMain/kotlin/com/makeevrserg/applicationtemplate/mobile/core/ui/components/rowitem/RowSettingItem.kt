@@ -1,4 +1,4 @@
-package com.makeevrserg.applicationtemplate.mobile.core.ui.components
+package com.makeevrserg.applicationtemplate.mobile.core.ui.components.rowitem
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
