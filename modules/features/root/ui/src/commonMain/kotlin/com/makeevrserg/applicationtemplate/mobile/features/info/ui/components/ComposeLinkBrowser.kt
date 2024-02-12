@@ -4,4 +4,4 @@ import androidx.compose.runtime.Composable
 import com.makeevrserg.applicationtemplate.mobile.features.info.linkbrowser.LinkBrowser
 
 @Composable
-expect fun LocalLinkBrowser(): LinkBrowser
+internal expect fun rememberLinkBrowser(): LinkBrowser

@@ -6,8 +6,8 @@ import com.makeevrserg.applicationtemplate.mobile.features.info.linkbrowser.Link
 import com.makeevrserg.applicationtemplate.mobile.features.info.ui.model.LinkModel
 
 @Composable
-fun LinkWidget(
-    linkBrowser: LinkBrowser = LocalLinkBrowser(),
+internal fun LinkWidget(
+    linkBrowser: LinkBrowser = rememberLinkBrowser(),
     linkModel: LinkModel
 ) {
     RowSettingChevronItem(

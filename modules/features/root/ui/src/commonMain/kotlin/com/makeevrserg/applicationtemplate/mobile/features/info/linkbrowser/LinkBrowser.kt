@@ -1,5 +1,5 @@
 package com.makeevrserg.applicationtemplate.mobile.features.info.linkbrowser
 
-interface LinkBrowser {
+internal interface LinkBrowser {
     fun openInBrowser(url: String)
 }

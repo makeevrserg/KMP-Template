@@ -25,7 +25,7 @@ fun RootBottomSheetContent(
     ) { child ->
         when (val instance = child.instance) {
             is RootBottomSheetComponent.Child.Info -> {
-                InfoScreen()
+                InfoScreen(isBottomSheet = true)
             }
         }
     }
