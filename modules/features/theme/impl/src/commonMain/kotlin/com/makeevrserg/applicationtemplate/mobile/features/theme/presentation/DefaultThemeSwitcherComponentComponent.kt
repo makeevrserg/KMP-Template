@@ -1,7 +1,7 @@
 package com.makeevrserg.applicationtemplate.mobile.features.theme.presentation
 
-import com.makeevrserg.applicationtemplate.mobile.features.theme.data.ThemeSwitcherRepository
 import com.makeevrserg.applicationtemplate.mobile.features.theme.data.model.Theme
+import com.makeevrserg.applicationtemplate.mobile.features.theme.data.repository.ThemeSwitcherRepository
 import kotlinx.coroutines.flow.StateFlow
 import ru.astrainteractive.klibs.kdi.Provider
 import ru.astrainteractive.klibs.kdi.getValue

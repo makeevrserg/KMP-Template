@@ -42,7 +42,6 @@ kotlin {
                 implementation(projects.modules.features.splash.impl)
                 implementation(projects.modules.features.splash.ui)
                 implementation(projects.modules.features.root.impl)
-                implementation(projects.modules.features.theme)
             }
         }
         val androidMain by getting {

@@ -37,6 +37,7 @@ modules/features/splash/build
 modules/features/splash/ui/build
 modules/features/splash/impl/build
 modules/features/theme/build
+modules/features/theme/impl/build
 modules/features/ui/build
 
 # Services

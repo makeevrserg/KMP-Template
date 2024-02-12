@@ -32,5 +32,5 @@ kotlin {
     }
 }
 android {
-    namespace = "${projectInfo.group}.theme"
+    namespace = "${projectInfo.group}.theme.impl"
 }

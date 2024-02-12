@@ -49,7 +49,7 @@ kotlin {
                 api(projects.modules.services.resources)
                 api(projects.modules.services.core)
                 api(projects.modules.features.splash.impl)
-                api(projects.modules.features.theme)
+                api(projects.modules.features.theme.impl)
             }
         }
         val androidMain by getting {

@@ -1,4 +1,4 @@
-package com.makeevrserg.applicationtemplate.mobile.features.theme.data
+package com.makeevrserg.applicationtemplate.mobile.features.theme.data.repository
 
 import com.makeevrserg.applicationtemplate.mobile.features.theme.data.model.Theme
 import com.russhwolf.settings.Settings

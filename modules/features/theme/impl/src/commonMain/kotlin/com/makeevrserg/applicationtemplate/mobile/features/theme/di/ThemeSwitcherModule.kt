@@ -1,7 +1,7 @@
 package com.makeevrserg.applicationtemplate.mobile.features.theme.di
 
-import com.makeevrserg.applicationtemplate.mobile.features.theme.data.ThemeSwitcherRepository
-import com.makeevrserg.applicationtemplate.mobile.features.theme.data.ThemeSwitcherRepositoryImpl
+import com.makeevrserg.applicationtemplate.mobile.features.theme.data.repository.ThemeSwitcherRepository
+import com.makeevrserg.applicationtemplate.mobile.features.theme.data.repository.ThemeSwitcherRepositoryImpl
 import com.makeevrserg.applicationtemplate.mobile.features.theme.presentation.DefaultThemeSwitcherComponentComponent
 import com.makeevrserg.applicationtemplate.mobile.features.theme.presentation.ThemeSwitcherComponent
 import com.russhwolf.settings.Settings
