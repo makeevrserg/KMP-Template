@@ -8,7 +8,7 @@ import com.makeevrserg.applicationtemplate.mobile.features.root.di.RootModule
 import com.makeevrserg.applicationtemplate.mobile.features.screen.presentation.DefaultRootScreenComponent
 import com.makeevrserg.applicationtemplate.mobile.features.screen.presentation.RootScreenComponent
 
-class DefaultRootComponent(
+internal class DefaultRootComponent(
     componentContext: ComponentContext,
     rootModule: RootModule
 ) : RootComponent, ComponentContext by componentContext {

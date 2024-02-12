@@ -14,7 +14,6 @@ import com.arkivanov.decompose.defaultComponentContext
 import com.makeevrserg.applicationtemplate.application.App.Companion.asMyApplication
 import com.makeevrserg.applicationtemplate.mobile.features.modal.ui.RootBottomSheetContent
 import com.makeevrserg.applicationtemplate.mobile.features.root.di.RootModule
-import com.makeevrserg.applicationtemplate.mobile.features.root.presentation.DefaultRootComponent
 import com.makeevrserg.applicationtemplate.mobile.features.screen.ui.RootScreenContent
 import com.makeevrserg.applicationtemplate.mobile.features.theme.ui.ApplicationTheme
 
@@ -32,7 +31,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val componentContext = defaultComponentContext()
-        val rootComponent = DefaultRootComponent(componentContext, rootModule)
+        val rootComponent = rootModule.createRootComponent(componentContext)
         val rootBottomSheetComponent = rootComponent.rootBottomSheetComponent
         setContent {
             ApplicationTheme(rootModule.themeSwitcherModule.themeSwitcherComponent) {
