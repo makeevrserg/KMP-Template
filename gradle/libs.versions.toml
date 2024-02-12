@@ -27,7 +27,7 @@ tests-turbine = "1.0.0"
 ktor = "2.3.2-eap-692"
 
 # klibs
-klibs-mikro = "1.0.0"
+klibs-mikro = "1.5.0"
 klibs-kstorage = "1.0.0"
 klibs-kdi = "1.1.0"
 
@@ -53,6 +53,7 @@ mppsettings = "1.0.0"
 # klibs
 klibs-mikro-core = { module = "ru.astrainteractive.klibs:mikro-core", version.ref = "klibs-mikro" }
 klibs-mikro-platform = { module = "ru.astrainteractive.klibs:mikro-platform", version.ref = "klibs-mikro" }
+klibs-mikro-extensions = { module = "ru.astrainteractive.klibs:mikro-extensions", version.ref = "klibs-mikro" }
 klibs-kstorage = { module = "ru.astrainteractive.klibs:kstorage", version.ref = "klibs-kstorage" }
 klibs-kdi = { module = "ru.astrainteractive.klibs:kdi", version.ref = "klibs-kdi" }
 

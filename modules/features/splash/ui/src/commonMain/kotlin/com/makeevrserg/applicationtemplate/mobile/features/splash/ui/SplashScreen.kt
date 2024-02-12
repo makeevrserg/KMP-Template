@@ -24,19 +24,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.applicationtemplate.core.resources.CoreR
 import com.makeevrserg.applicationtemplate.mobile.core.ui.modifier.navBarsPadding
+import com.makeevrserg.applicationtemplate.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.applicationtemplate.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.applicationtemplate.mobile.core.ui.util.asPainter
-import com.makeevrserg.applicationtemplate.mobile.features.root.presentation.RootComponent
+import com.makeevrserg.applicationtemplate.mobile.features.splash.di.SplashModule
 import com.makeevrserg.applicationtemplate.mobile.features.splash.presentation.SplashComponent
 import kotlinx.coroutines.flow.collectLatest
+import ru.astrainteractive.klibs.mikro.extensions.arkivanov.FakeComponentContext
 
 @Composable
 fun SplashScreenComponent(
     splashComponent: SplashComponent,
-    rootComponent: RootComponent,
     onIconClicked: () -> Unit
 ) {
     val scale by rememberInfiniteTransition(label = "Scale transition").animateFloat(
@@ -91,5 +93,16 @@ fun SplashScreenComponent(
                 backgroundColor = AppTheme.customColors.astraYellow
             )
         }
+    }
+}
+
+@Preview
+@Composable
+private fun SplashScreenComponentPreview() {
+    AdaptThemeFade {
+        SplashScreenComponent(
+            splashComponent = SplashModule.Preview().createSplashComponent(FakeComponentContext()),
+            onIconClicked = {}
+        )
     }
 }

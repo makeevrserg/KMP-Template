@@ -25,11 +25,14 @@ kotlin {
                 implementation(compose.material)
                 // Moko
                 implementation(libs.moko.resources.core)
+                // Decompose
+                implementation(libs.decompose.core)
+                // klibs
+                implementation(libs.klibs.mikro.extensions)
                 // Local
                 implementation(projects.modules.services.coreResources)
                 implementation(projects.modules.services.coreUi)
                 implementation(projects.modules.features.splash.impl)
-                implementation(projects.modules.features.root.impl)
             }
         }
     }
