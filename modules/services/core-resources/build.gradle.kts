@@ -1,3 +1,5 @@
+@file:Suppress("UnusedPrivateMember")
+
 import ru.astrainteractive.gradleplugin.util.ProjectProperties.projectInfo
 
 plugins {
@@ -7,8 +9,9 @@ plugins {
     id("ru.astrainteractive.gradleplugin.java.core")
     id("ru.astrainteractive.gradleplugin.android.core")
 }
+
 kotlin {
-    android()
+    androidTarget()
     ios()
     iosSimulatorArm64()
     sourceSets {
@@ -20,6 +23,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(libs.androidx.splash)
+                implementation("com.google.android.material:material:1.9.0")
             }
         }
         val iosX64Main by getting {
@@ -33,14 +37,14 @@ kotlin {
         }
     }
 }
+
 multiplatformResources {
-    multiplatformResourcesPackage = "${projectInfo.group}.resources"
+    multiplatformResourcesClassName = "CoreR"
+    multiplatformResourcesPackage = "${projectInfo.group}.core.resources"
 }
+
 android {
-    namespace = "${projectInfo.group}.resources"
-    dependencies {
-        implementation("com.google.android.material:material:1.9.0")
-    }
+    namespace = "${projectInfo.group}.core.resources"
     sourceSets {
         getByName("main").java.srcDirs("build/generated/moko/androidMain/src")
     }

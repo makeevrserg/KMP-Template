@@ -25,12 +25,12 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import com.makeevrserg.applicationtemplate.core.resources.CoreR
 import com.makeevrserg.applicationtemplate.mobile.core.ui.asPainter
 import com.makeevrserg.applicationtemplate.mobile.core.ui.components.navBarsPadding
 import com.makeevrserg.applicationtemplate.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.applicationtemplate.mobile.features.root.presentation.RootComponent
 import com.makeevrserg.applicationtemplate.mobile.features.splash.presentation.SplashComponent
-import com.makeevrserg.applicationtemplate.resources.MR
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
@@ -68,7 +68,7 @@ fun SplashScreenComponent(
             contentAlignment = Alignment.Center
         ) {
             Image(
-                painter = MR.images.ainteractivelogo.asPainter(),
+                painter = CoreR.images.ainteractivelogo.asPainter(),
                 contentDescription = null,
                 contentScale = ContentScale.FillWidth,
                 modifier = Modifier

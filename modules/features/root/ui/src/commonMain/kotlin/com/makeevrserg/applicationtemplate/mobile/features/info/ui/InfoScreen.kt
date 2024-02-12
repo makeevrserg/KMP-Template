@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import com.makeevrserg.applicationtemplate.buildkonfig.BuildKonfig
+import com.makeevrserg.applicationtemplate.core.resources.CoreR
 import com.makeevrserg.applicationtemplate.mobile.core.ui.asComposableString
 import com.makeevrserg.applicationtemplate.mobile.core.ui.components.RowSettingTextInfo
 import com.makeevrserg.applicationtemplate.mobile.core.ui.components.navBarsPadding
@@ -27,7 +28,6 @@ import com.makeevrserg.applicationtemplate.mobile.features.info.linkbrowser.Link
 import com.makeevrserg.applicationtemplate.mobile.features.info.ui.components.LinkWidget
 import com.makeevrserg.applicationtemplate.mobile.features.info.ui.components.LocalLinkBrowser
 import com.makeevrserg.applicationtemplate.mobile.features.info.ui.data.InfoScreenLinks
-import com.makeevrserg.applicationtemplate.resources.MR
 
 @Composable
 fun InfoScreen(
@@ -55,7 +55,7 @@ fun InfoScreen(
         }
         item {
             Text(
-                text = MR.strings.info_more_links.asComposableString(),
+                text = CoreR.strings.info_more_links.asComposableString(),
                 style = MaterialTheme.typography.h5,
                 color = MaterialTheme.colors.onPrimary,
             )

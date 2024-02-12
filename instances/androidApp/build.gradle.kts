@@ -131,5 +131,5 @@ dependencies {
     implementation(projects.modules.features.root.impl)
     implementation(projects.modules.features.root.ui)
     implementation(projects.modules.services.coreUi)
-    implementation(projects.modules.services.resources)
+    implementation(projects.modules.services.coreResources)
 }

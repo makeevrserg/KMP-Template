@@ -26,7 +26,7 @@ kotlin {
                 // Moko
                 implementation(libs.moko.resources.core)
                 // Local
-                implementation(projects.modules.services.resources)
+                implementation(projects.modules.services.coreResources)
                 implementation(projects.modules.services.coreUi)
                 implementation(projects.modules.features.splash.impl)
                 implementation(projects.modules.features.root.impl)

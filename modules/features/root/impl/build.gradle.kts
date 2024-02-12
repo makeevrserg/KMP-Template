@@ -46,7 +46,7 @@ kotlin {
                 // MVIKotlin
                 implementation(libs.mvikotlin)
                 // Local
-                api(projects.modules.services.resources)
+                api(projects.modules.services.coreResources)
                 api(projects.modules.services.core)
                 api(projects.modules.features.splash.impl)
                 api(projects.modules.features.theme.impl)

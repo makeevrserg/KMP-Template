@@ -43,5 +43,5 @@ modules/features/ui/build
 # Services
 modules/services/build-konfig/build
 modules/services/core-ui/build
-modules/services/resources/build
+modules/services/core-resources/build
 modules/services/core/build
