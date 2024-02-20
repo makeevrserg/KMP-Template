@@ -1,6 +1,9 @@
-import ru.astrainteractive.gradleplugin.util.GradleProperty.Companion.gradleProperty
-import ru.astrainteractive.gradleplugin.util.ProjectProperties.projectInfo
-import ru.astrainteractive.gradleplugin.util.SecretProperty.Companion.secretProperty
+import ru.astrainteractive.gradleplugin.property.PropertyValue.Companion.baseGradleProperty
+import ru.astrainteractive.gradleplugin.property.PropertyValue.Companion.secretProperty
+import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
+import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.requireInt
+import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.stringOrEmpty
+import ru.astrainteractive.gradleplugin.util.Base64Util
 
 plugins {
     kotlin("plugin.serialization")
@@ -13,17 +16,17 @@ plugins {
 }
 
 android {
-    namespace = "${projectInfo.group}"
+    namespace = "${requireProjectInfo.group}"
     apply(plugin = "kotlin-parcelize")
     if (file("google-services.json").exists()) {
         apply(plugin = "com.google.gms.google-services")
         apply(plugin = "com.google.firebase.crashlytics")
     }
     defaultConfig {
-        applicationId = projectInfo.group
-        versionCode = gradleProperty("project.version.code").integer
-        versionName = projectInfo.versionString
-        setProperty("archivesBaseName", "${projectInfo.name}-${projectInfo.versionString}")
+        applicationId = requireProjectInfo.group
+        versionCode = baseGradleProperty("project.version.code").requireInt
+        versionName = requireProjectInfo.versionString
+        setProperty("archivesBaseName", "${requireProjectInfo.name}-${requireProjectInfo.versionString}")
     }
     defaultConfig {
         multiDexEnabled = true
@@ -34,29 +37,28 @@ android {
     }
 
     signingConfigs {
-        val secretKeyAlias = runCatching {
-            secretProperty("KEY_ALIAS").string
-        }.getOrNull() ?: ""
-        val secretKeyPassword = runCatching {
-            secretProperty("KEY_PASSWORD").string
-        }.getOrNull() ?: ""
-        val secretStorePassword = runCatching {
-            secretProperty("STORE_PASSWORD").string
-        }.getOrNull() ?: ""
+        val keyStoreFile = file("keystore.jks")
+        if (!keyStoreFile.exists()) {
+            val base64String = secretProperty("KEYSTORE_BASE64").stringOrEmpty
+            if (base64String.isNotBlank()) Base64Util.fromBase64(base64String, keyStoreFile)
+        }
+        val secretKeyAlias = secretProperty("KEY_ALIAS").stringOrEmpty
+        val secretKeyPassword = secretProperty("KEY_PASSWORD").stringOrEmpty
+        val secretStorePassword = secretProperty("STORE_PASSWORD").stringOrEmpty
         getByName("debug") {
-            if (file("keystore.jks").exists()) {
+            if (keyStoreFile.exists()) {
                 keyAlias = secretKeyAlias
                 keyPassword = secretKeyPassword
                 storePassword = secretStorePassword
-                storeFile = file("keystore.jks")
+                storeFile = keyStoreFile
             }
         }
         create("release") {
-            if (file("keystore.jks").exists()) {
+            if (keyStoreFile.exists()) {
                 keyAlias = secretKeyAlias
                 keyPassword = secretKeyPassword
                 storePassword = secretStorePassword
-                storeFile = file("keystore.jks")
+                storeFile = keyStoreFile
             }
         }
     }
@@ -72,13 +74,6 @@ android {
         debug {
             isDebuggable = true
             signingConfig = signingConfigs.getByName("debug")
-        }
-    }
-    packagingOptions {
-        with(resources.excludes) {
-            add("META-INF/*.kotlin_module")
-            add("META-INF/AL2.0")
-            add("META-INF/LGPL2.1")
         }
     }
     lint {

@@ -28,6 +28,7 @@ keys.properties
 
 # Instances
 instances/androidApp/build
+instances/androidApp/keystore.jks
 
 # Features
 modules/features/root/build

@@ -1,6 +1,6 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradleplugin.util.ProjectProperties.projectInfo
+import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
 
 plugins {
     id("dev.icerock.mobile.multiplatform-resources")
@@ -40,11 +40,11 @@ kotlin {
 
 multiplatformResources {
     multiplatformResourcesClassName = "CoreR"
-    multiplatformResourcesPackage = "${projectInfo.group}.core.resources"
+    multiplatformResourcesPackage = "${requireProjectInfo.group}.core.resources"
 }
 
 android {
-    namespace = "${projectInfo.group}.core.resources"
+    namespace = "${requireProjectInfo.group}.core.resources"
     sourceSets {
         getByName("main").java.srcDirs("build/generated/moko/androidMain/src")
     }

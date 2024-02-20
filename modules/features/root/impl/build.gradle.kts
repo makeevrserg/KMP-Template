@@ -1,6 +1,6 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradleplugin.util.ProjectProperties.projectInfo
+import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
 
 plugins {
     id("com.android.library")
@@ -77,7 +77,7 @@ kotlin {
 }
 android {
     apply(plugin = "kotlin-parcelize")
-    namespace = "${projectInfo.group}.shared"
+    namespace = "${requireProjectInfo.group}.feature.root.impl"
     sourceSets {
         getByName("main").java.srcDirs("build/generated/moko/androidMain/src")
     }

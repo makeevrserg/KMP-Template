@@ -1,6 +1,6 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradleplugin.util.ProjectProperties.projectInfo
+import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
 
 plugins {
     id("com.android.library")
@@ -31,6 +31,7 @@ kotlin {
         }
     }
 }
+
 android {
-    namespace = "${projectInfo.group}.theme.impl"
+    namespace = "${requireProjectInfo.group}.feature.theme.impl"
 }
