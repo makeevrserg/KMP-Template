@@ -38,13 +38,17 @@ android {
 
     signingConfigs {
         val keyStoreFile = file("keystore.jks")
-        if (!keyStoreFile.exists()) {
-            val base64String = secretProperty("KEYSTORE_BASE64").stringOrEmpty
-            if (base64String.isNotBlank()) Base64Util.fromBase64(base64String, keyStoreFile)
-        }
         val secretKeyAlias = secretProperty("KEY_ALIAS").stringOrEmpty
         val secretKeyPassword = secretProperty("KEY_PASSWORD").stringOrEmpty
         val secretStorePassword = secretProperty("STORE_PASSWORD").stringOrEmpty
+        if (!keyStoreFile.exists()) {
+            logger.warn("Keystore file not exists - creating")
+            val base64String = secretProperty("KEYSTORE_BASE64").stringOrEmpty
+            if (base64String.isNotBlank()) Base64Util.fromBase64(base64String, keyStoreFile)
+        }
+        if (!keyStoreFile.exists()) {
+            logger.warn("Keystore file could not be created")
+        }
         getByName("debug") {
             if (keyStoreFile.exists()) {
                 keyAlias = secretKeyAlias
@@ -62,6 +66,7 @@ android {
             }
         }
     }
+
     buildTypes {
         release {
             isMinifyEnabled = true
