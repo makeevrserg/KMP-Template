@@ -52,7 +52,7 @@ jobs:
           tag_name: ${{ steps.properties.outputs.makeevrserg-project-version-string }}
           name: ${{ steps.properties.outputs.makeevrserg-project-name }} - ${{ steps.properties.outputs.makeevrserg-project-version-string }}
           draft: false
-          prerelease: true
+          prerelease: false
           generate_release_notes: true
           body: |-
             :construction: Work in Progress
