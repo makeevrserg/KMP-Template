@@ -5,10 +5,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import com.makeevrserg.applicationtemplate.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.applicationtemplate.mobile.core.ui.theme.ComposeTheme
+import com.makeevrserg.applicationtemplate.mobile.features.theme.components.TransparentBars
 import com.makeevrserg.applicationtemplate.mobile.features.theme.data.model.Theme
 import com.makeevrserg.applicationtemplate.mobile.features.theme.presentation.PreviewThemeSwitcherComponent
 import com.makeevrserg.applicationtemplate.mobile.features.theme.presentation.ThemeSwitcherComponent
-import com.makeevrserg.applicationtemplate.mobile.features.ui.components.TransparentBars
 
 @Composable
 fun ApplicationTheme(
