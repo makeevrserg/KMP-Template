@@ -1,4 +1,4 @@
-package com.makeevrserg.applicationtemplate.mobile.features.ui.components
+package com.makeevrserg.applicationtemplate.mobile.features.theme.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
