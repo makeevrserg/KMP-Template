@@ -12,7 +12,8 @@ plugins {
 }
 
 kotlin {
-    android()
+    androidTarget()
+    targetHierarchy.default()
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -20,19 +21,8 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.ui)
                 implementation(compose.runtime)
-//                implementation(compose.uiTooling)
-//                implementation(compose.preview)
-//                implementation(compose.material)
-                // Moko
-//                implementation(libs.moko.resources.core)
-                // Decompose
-//                implementation(libs.decompose.core)
-                // klibs
-//                implementation(libs.klibs.mikro.extensions)
                 // Local
-//                implementation(projects.modules.services.coreResources)
                 implementation(projects.modules.services.coreUi)
-//                implementation(projects.modules.features.splash.impl)
                 implementation(projects.modules.features.theme.impl)
             }
         }
