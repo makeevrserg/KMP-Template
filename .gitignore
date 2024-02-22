@@ -40,6 +40,7 @@ modules/features/splash/impl/build
 modules/features/theme/build
 modules/features/theme/impl/build
 modules/features/theme/ui/build
+modules/features/info/ui/build
 modules/features/ui/build
 
 # Services
