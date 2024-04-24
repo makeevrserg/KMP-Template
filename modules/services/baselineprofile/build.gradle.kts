@@ -19,16 +19,16 @@ android {
     targetProjectPath = ":instances:androidApp"
 
     testOptions.managedDevices.devices {
-        create<ManagedVirtualDevice>("pixel6Api31") {
+        create<ManagedVirtualDevice>("pixel6Api34") {
             device = "Pixel 6"
-            apiLevel = 31
+            apiLevel = 34
             systemImageSource = "aosp"
         }
     }
 }
 
 baselineProfile {
-    managedDevices += "pixel6Api31"
+    managedDevices += "pixel6Api34"
     useConnectedDevices = false
 }
 

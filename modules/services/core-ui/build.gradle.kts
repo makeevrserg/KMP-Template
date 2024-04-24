@@ -11,7 +11,8 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.compose")
 }
 kotlin {
-    android()
+    androidTarget()
+    applyDefaultHierarchyTemplate()
     sourceSets {
         val commonMain by getting {
             dependencies {
