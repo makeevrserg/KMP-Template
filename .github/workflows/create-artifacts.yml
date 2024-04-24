@@ -34,7 +34,7 @@ jobs:
       - uses: actions/download-artifact@master
         name: "Download baseline file"
         with:
-          name: baseline_profile_file
+          name: baseline_profile_file_release
           path: ./instances/androidApp/src/release/generated/baselineProfiles/baseline-prof.txt
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2
@@ -57,7 +57,7 @@ jobs:
           tag_name: ${{ steps.properties.outputs.makeevrserg-project-version-string }}
           name: ${{ steps.properties.outputs.makeevrserg-project-name }} - ${{ steps.properties.outputs.makeevrserg-project-version-string }}
           draft: false
-          prerelease: false
+          prerelease: true
           generate_release_notes: true
           body: |-
             :construction: Work in Progress
