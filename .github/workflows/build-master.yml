@@ -3,11 +3,23 @@ on:
   push:
     branches:
       - master
+      - benchmark-test
 jobs:
   gradle_validation:
     uses: ./.github/workflows/gradle-wrapper-validation.yml
-  create_artifact:
+
+  create_baseline:
     needs: [ gradle_validation ]
+    uses: ./.github/workflows/create-artifacts.yml
+    secrets:
+      ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
+      KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+      KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+      KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+
+  create_artifact:
+    needs: [ create_baseline ]
     uses: ./.github/workflows/create-artifacts.yml
     secrets:
       ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}

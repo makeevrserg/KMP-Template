@@ -31,6 +31,11 @@ jobs:
           java-version: 17
       - name: Give gradle permission
         run: chmod +x gradlew
+      - uses: actions/download-artifact@master
+        name: "Download baseline file"
+        with:
+          name: baseline_profile_file
+          path: ./instances/androidApp/src/release/generated/baselineProfiles/baseline-prof.txt
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2
         env:
