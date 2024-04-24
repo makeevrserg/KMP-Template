@@ -11,6 +11,9 @@ jobs:
   create_baseline:
     needs: [ gradle_validation ]
     uses: ./.github/workflows/create-baseline.yml
+    with:
+      BUILD_VARIANT_NAME: "release"
+      BUILD_VARIANT_NAME_UPPERCASE: "Release"
     secrets:
       ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
       KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
