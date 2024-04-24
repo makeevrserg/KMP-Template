@@ -11,6 +11,7 @@ import com.arkivanov.decompose.router.stack.replaceCurrent
 import com.arkivanov.decompose.value.Value
 import com.makeevrserg.applicationtemplate.mobile.features.root.di.RootModule
 import com.makeevrserg.applicationtemplate.mobile.features.screen.di.factory.RootScreenComponentChildFactory
+import kotlinx.serialization.serializer
 
 internal class DefaultRootScreenComponent(
     componentContext: ComponentContext,
@@ -23,6 +24,7 @@ internal class DefaultRootScreenComponent(
         source = navigation,
         initialConfiguration = RootScreenComponent.Configuration.Splash,
         handleBackButton = true,
+        serializer = rootModule.coreModule.jsonConfiguration.value.serializersModule.serializer(),
         childFactory = { config, context ->
             RootScreenComponentChildFactory(
                 config = config,

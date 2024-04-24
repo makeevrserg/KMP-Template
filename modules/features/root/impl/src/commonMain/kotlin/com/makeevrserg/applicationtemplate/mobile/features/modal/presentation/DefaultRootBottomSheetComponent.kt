@@ -7,8 +7,9 @@ import com.arkivanov.decompose.router.slot.activate
 import com.arkivanov.decompose.router.slot.childSlot
 import com.arkivanov.decompose.router.slot.dismiss
 import com.arkivanov.decompose.value.Value
-import com.arkivanov.essenty.parcelable.Parcelable
-import com.arkivanov.essenty.parcelable.Parcelize
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.serializer
 
 internal class DefaultRootBottomSheetComponent(
     componentContext: ComponentContext,
@@ -18,6 +19,7 @@ internal class DefaultRootBottomSheetComponent(
     override val childSlot: Value<ChildSlot<*, RootBottomSheetComponent.Child>> = childSlot(
         source = slotNavigation,
         handleBackButton = true,
+        serializer = Json.serializersModule.serializer(),
         childFactory = { configuration, context ->
             when (configuration) {
                 Configuration.Info -> {
@@ -35,8 +37,9 @@ internal class DefaultRootBottomSheetComponent(
         slotNavigation.activate(Configuration.Info)
     }
 
-    sealed interface Configuration : Parcelable {
-        @Parcelize
+    @Serializable
+    sealed interface Configuration {
+        @Serializable
         data object Info : Configuration
     }
 }

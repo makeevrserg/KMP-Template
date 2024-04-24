@@ -9,6 +9,7 @@ plugins {
     kotlin("plugin.serialization")
     id("com.android.application")
     id("kotlin-android")
+    alias(libs.plugins.baselineprofile)
     id("ru.astrainteractive.gradleplugin.java.core")
     id("ru.astrainteractive.gradleplugin.android.core")
     id("ru.astrainteractive.gradleplugin.android.apk.name")
@@ -119,7 +120,7 @@ dependencies {
     implementation(libs.moko.resources.core)
     // Decompose
     implementation(libs.decompose.core)
-    implementation(libs.decompose.compose.jetpack)
+    implementation(libs.decompose.compose)
     implementation(libs.decompose.android)
     implementation("com.google.android.gms:play-services-wearable:18.0.0")
     // wear
@@ -133,4 +134,14 @@ dependencies {
     implementation(projects.modules.features.theme.ui)
     implementation(projects.modules.services.coreUi)
     implementation(projects.modules.services.coreResources)
+
+    implementation(libs.profileinstaller)
+    "baselineProfile"(project(":modules:services:baselineprofile"))
+}
+
+baselineProfile {
+    // Generate a single profile for each variants
+    mergeIntoMain = false
+    automaticGenerationDuringBuild = false
+    saveInSrc = true
 }

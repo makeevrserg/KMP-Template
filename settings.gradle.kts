@@ -28,6 +28,7 @@ include(":modules:services:core-resources")
 include(":modules:services:core-ui")
 include(":modules:services:core")
 include(":modules:services:build-konfig")
+include(":modules:services:baselineprofile")
 // Feature-root
 include(":modules:features:root:impl")
 include(":modules:features:root:ui")

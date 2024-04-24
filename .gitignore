@@ -48,3 +48,4 @@ modules/services/build-konfig/build
 modules/services/core-ui/build
 modules/services/core-resources/build
 modules/services/core/build
+modules/services/baselineprofile/build

@@ -21,6 +21,7 @@ buildConfig {
         "\"${baseGradleProperty("project.version.code").requireInt}\""
     )
     buildConfigField("String", "VERSION_NAME", "\"${requireProjectInfo.versionString}\"")
+    buildConfigField("String", "GROUP", "\"${requireProjectInfo.group}\"")
 }
 
 kotlin {

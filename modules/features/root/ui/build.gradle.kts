@@ -34,7 +34,7 @@ kotlin {
                 implementation(libs.moko.resources.core)
                 // Decompose
                 implementation(libs.decompose.core)
-                implementation(libs.decompose.compose.jetbrains)
+                implementation(libs.decompose.compose)
                 // Local
                 implementation(projects.modules.services.coreResources)
                 implementation(projects.modules.services.coreUi)
