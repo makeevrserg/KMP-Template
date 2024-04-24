@@ -13,7 +13,6 @@ jobs:
     uses: ./.github/workflows/create-baseline.yml
     with:
       BUILD_VARIANT_NAME: "release"
-      BUILD_VARIANT_NAME_UPPERCASE: "Release"
     secrets:
       ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
       KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
@@ -21,12 +20,12 @@ jobs:
       STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
       KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
 
-  create_artifact:
-    needs: [ create_baseline ]
-    uses: ./.github/workflows/create-artifacts.yml
-    secrets:
-      ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
-      KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-      KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-      STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-      KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+  job2:
+    needs: create_baseline
+    runs-on: ubuntu-latest
+    steps:
+      - id: print
+        run: |
+          echo "FILE_ID=${{ needs.create_baseline.outputs.BASELINE_FILE_ID }}"
+          echo "FILE_PATH=${{ needs.create_baseline.outputs.BASELINE_FILE_PATH }}"
+          echo "VARIANT_NAME=${{ needs.create_baseline.outputs.BUILD_VARIANT_NAME }}"

@@ -1,11 +1,18 @@
 name: "detekt-validation"
 on:
   workflow_call:
+    outputs:
+      BASELINE_FILE_ID:
+        description: "The name of processed build variant"
+        value: ${{ jobs.baseline_file.outputs.BASELINE_FILE_ID }}
+      BASELINE_FILE_PATH:
+        description: "Path of baseline-prof.txt file"
+        value: ${{ jobs.baseline_file.outputs.BASELINE_FILE_PATH }}
+      BUILD_VARIANT_NAME:
+        description: "Identifier of current processed file"
+        value: ${{ jobs.baseline_file.outputs.BUILD_VARIANT_NAME }}
     inputs:
       BUILD_VARIANT_NAME:
-        required: true
-        type: string
-      BUILD_VARIANT_NAME_UPPERCASE:
         required: true
         type: string
     secrets:
@@ -20,9 +27,13 @@ on:
       KEYSTORE_BASE64:
         required: true
 jobs:
-  publish:
+  baseline_file:
     name: Upload baseline profile file
     runs-on: ubuntu-latest
+    outputs:
+      BASELINE_FILE_ID: ${{ steps.create_baseline_file_id.outputs.BASELINE_FILE_ID }}
+      BASELINE_FILE_PATH: ${{ steps.create_baseline_file_path.outputs.BASELINE_FILE_PATH }}
+      BUILD_VARIANT_NAME: ${{ steps.create_uppercase_variant.outputs.BUILD_VARIANT_NAME }}
     steps:
       - name: Checkout Git repo
         uses: actions/checkout@v2
@@ -48,18 +59,34 @@ jobs:
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
 
+      # steps.create_uppercase_variant.outputs.BUILD_VARIANT_NAME_UPPERCASE
+      # steps.create_uppercase_variant.outputs.BUILD_VARIANT_NAME
+      - id: create_uppercase_variant
+        run: |
+          echo "build_variant=${{ inputs.BUILD_VARIANT_NAME }}"
+          echo "BUILD_VARIANT_NAME_UPPERCASE=${build_variant^}" >> $GITHUB_OUTPUT
+          echo "BUILD_VARIANT_NAME=${build_variant}" >> $GITHUB_OUTPUT
+
+      # steps.create_baseline_file_id.outputs.BASELINE_FILE_ID
+      - id: create_baseline_file_id
+        run: |
+          echo "baseline_file_id=baseline_profile_file_${{ inputs.BUILD_VARIANT_NAME }}"
+          echo "BASELINE_FILE_ID=${baseline_file_id}" >> $GITHUB_OUTPUT
+
+      # steps.create_baseline_file_path.outputs.BASELINE_FILE_PATH
+      - id: create_baseline_file_path
+        run: |
+          echo "build_variant=${{ inputs.BUILD_VARIANT_NAME }}"
+          echo "baseline_variant_file_path=./instances/androidApp/src/${build_variant}/generated/baselineProfiles/baseline-prof.txt"
+          echo "BASELINE_FILE_PATH=${baseline_variant_file_path}" >> $GITHUB_OUTPUT
+
       - name: Run baseline profiles
         uses: gradle/gradle-build-action@v2
-        env:
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
         with:
-          arguments: :instances:androidApp:generate${{ inputs.BUILD_VARIANT_NAME_UPPERCASE }}BaselineProfile -P android.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile --stacktrace
+          arguments: :instances:androidApp:generate${{ steps.create_uppercase_variant.outputs.BUILD_VARIANT_NAME_UPPERCASE }}BaselineProfile -P android.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile --stacktrace
 
       - uses: actions/upload-artifact@master
         name: "Upload baseline file"
         with:
-          name: baseline_profile_file_${{ inputs.BUILD_VARIANT_NAME }}
-          path: ./instances/androidApp/src/${{ inputs.BUILD_VARIANT_NAME }}/generated/baselineProfiles/baseline-prof.txt
+          name: steps.create_uppercase_variant.outputs.BASELINE_FILE_ID
+          path: ${{ steps.create_uppercase_variant.outputs.BASELINE_FILE_PATH }}
