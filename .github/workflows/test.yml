@@ -8,7 +8,7 @@ on:
 
 jobs:
   create_release_baseline:
-    uses: ./.github/workflows/calls/create-baseline-call.yml
+    uses: ./.github/workflows/call-create-baseline.yml
     with:
       BUILD_VARIANT_NAME: "release"
   job2:
