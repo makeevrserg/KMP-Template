@@ -28,7 +28,6 @@ on:
         required: true
 jobs:
   baseline_file:
-    id: baseline_file
     name: Upload baseline profile file
     runs-on: ubuntu-latest
     outputs:
