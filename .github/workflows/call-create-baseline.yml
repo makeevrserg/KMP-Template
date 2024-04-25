@@ -88,7 +88,7 @@ jobs:
           build_variant_uppercase=${{ steps.create_uppercase_variant.outputs.BUILD_VARIANT_NAME_UPPERCASE }}
           no_test_param="-P android.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile"
           task_name="generate${{ steps.create_uppercase_variant.outputs.BUILD_VARIANT_NAME_UPPERCASE }}BaselineProfile"
-          path=":instances:android:app"          
+          path=":instances:androidApp"          
           gradlew_full_task="$path:$task_name $no_test_param  --stacktrace"
           echo "BASELINE_TASK=$gradlew_full_task" >> $GITHUB_OUTPUT
 
