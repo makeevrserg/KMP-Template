@@ -1,0 +1,24 @@
+name: Build and publish Release
+
+on:
+  push:
+    branches:
+      - 'master'
+      - 'rc'
+
+jobs:
+  create_release_baseline:
+    uses: ./.github/workflows/calls/create-baseline-call.yml
+    with:
+      BUILD_VARIANT_NAME: "release"
+  job2:
+    needs: create_release_baseline
+    runs-on: ubuntu-latest
+    steps:
+      - id: print
+        run: |
+          echo "BUILD_VARIANT_NAME=${{ needs.create_release_baseline.outputs.BUILD_VARIANT_NAME }}"
+          echo "BASELINE_FILE_ID=${{ needs.create_release_baseline.outputs.BASELINE_FILE_ID }}"
+          echo "BASELINE_FILE_PATH=${{ needs.create_release_baseline.outputs.BASELINE_FILE_PATH }}"
+
+

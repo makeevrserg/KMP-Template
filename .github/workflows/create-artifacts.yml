@@ -13,7 +13,18 @@ on:
       KEYSTORE_BASE64:
         required: true
 jobs:
+  create_internal_baseline:
+    uses: ./.github/workflows/calls/create-baseline-call.yml
+    with:
+      BUILD_VARIANT_NAME: "release"
+    secrets:
+      ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
+      KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+      KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+      KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
   publish:
+    needs: [ create_internal_baseline ]
     name: Build and upload
     runs-on: ubuntu-latest
     steps:
@@ -32,10 +43,10 @@ jobs:
       - name: Give gradle permission
         run: chmod +x gradlew
       - uses: actions/download-artifact@master
-        name: "Download baseline file"
+        name: "Download ${{ needs.create_internal_baseline.outputs.BUILD_VARIANT_NAME }} baseline file"
         with:
-          name: baseline_profile_file_release
-          path: ./instances/androidApp/src/release/generated/baselineProfiles/baseline-prof.txt
+          name: ${{ needs.create_internal_baseline.outputs.BASELINE_FILE_ID }}
+          path: ${{ needs.create_internal_baseline.outputs.BASELINE_FILE_PATH }}
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2
         env:
