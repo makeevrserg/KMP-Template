@@ -1,10 +1,13 @@
 name: Check Develop
 on:
   pull_request:
-    types: [ opened, reopened ]
     branches:
       - 'develop'
       - 'master'
+      - 'any'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.number || github.run_id }}
+  cancel-in-progress: true
 jobs:
   gradle_validation:
     name: Validate gradle wrapper
