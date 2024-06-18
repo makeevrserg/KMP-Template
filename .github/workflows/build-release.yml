@@ -17,8 +17,3 @@ jobs:
       KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
       STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
       KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
-      GSERVICES_BASE64: ${{ secrets.GSERVICES_BASE64 }}
-      ACTIVITY_AD_UNIT_ID: ${{ secrets.ACTIVITY_AD_UNIT_ID }}
-      BANNER_AD_UNIT_ID: ${{ secrets.BANNER_AD_UNIT_ID }}
-      INTERSITIAL_AD_UNIT_ID: ${{ secrets.INTERSITIAL_AD_UNIT_ID }}
-      WEB_CLIENT_ID: ${{ secrets.WEB_CLIENT_ID }}
