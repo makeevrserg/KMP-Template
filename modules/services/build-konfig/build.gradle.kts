@@ -1,6 +1,7 @@
 @file:Suppress("UnusedPrivateMember")
 
 import ru.astrainteractive.gradleplugin.property.PropertyValue.Companion.baseGradleProperty
+import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.hierarchyGroup
 import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
 import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.requireInt
 
@@ -10,25 +11,27 @@ plugins {
     id("ru.astrainteractive.gradleplugin.java.core")
     id("com.github.gmazzo.buildconfig")
     id("ru.astrainteractive.gradleplugin.android.core")
+    alias(libs.plugins.klibs.gradle.android.namespace)
 }
 
 buildConfig {
     className("BuildKonfig") // forces the class name. Defaults to 'BuildConfig'
-    packageName("${requireProjectInfo.group}.buildkonfig") // forces the package. Defaults to '${project.group}'
+    packageName(hierarchyGroup) // forces the package. Defaults to '${project.group}'
     buildConfigField(
-        "String",
-        "VERSION_CODE",
-        "\"${baseGradleProperty("project.version.code").requireInt}\""
+        type = String::class.java,
+        name = "VERSION_CODE",
+        value = "${baseGradleProperty("project.version.code").requireInt}"
     )
-    buildConfigField("String", "VERSION_NAME", "\"${requireProjectInfo.versionString}\"")
+    buildConfigField(
+        type = String::class.java,
+        name = "VERSION_NAME",
+        value = requireProjectInfo.versionString
+    )
+    useKotlinOutput { internalVisibility = false }
 }
 
 kotlin {
     android()
     ios()
     iosSimulatorArm64()
-}
-
-android {
-    namespace = "${requireProjectInfo.group}.buildkonfig"
 }

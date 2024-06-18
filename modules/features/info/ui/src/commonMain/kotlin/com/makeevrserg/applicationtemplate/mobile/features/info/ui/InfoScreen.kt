@@ -13,8 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.applicationtemplate.buildkonfig.BuildKonfig
-import com.makeevrserg.applicationtemplate.core.resources.CoreR
 import com.makeevrserg.applicationtemplate.mobile.core.ui.components.rowitem.RowSettingTextInfo
 import com.makeevrserg.applicationtemplate.mobile.core.ui.modifier.navBarsPadding
 import com.makeevrserg.applicationtemplate.mobile.core.ui.theme.AdaptThemeFade
@@ -25,6 +23,8 @@ import com.makeevrserg.applicationtemplate.mobile.features.info.ui.components.Bo
 import com.makeevrserg.applicationtemplate.mobile.features.info.ui.components.LinkWidget
 import com.makeevrserg.applicationtemplate.mobile.features.info.ui.components.rememberLinkBrowser
 import com.makeevrserg.applicationtemplate.mobile.features.info.ui.data.InfoScreenLinks
+import com.makeevrserg.applicationtemplate.modules.services.build.konfig.BuildKonfig
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
 
 @Composable
 fun InfoScreen(

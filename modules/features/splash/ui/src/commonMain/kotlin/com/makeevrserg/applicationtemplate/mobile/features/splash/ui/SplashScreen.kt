@@ -26,13 +26,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.makeevrserg.applicationtemplate.core.resources.CoreR
 import com.makeevrserg.applicationtemplate.mobile.core.ui.modifier.navBarsPadding
 import com.makeevrserg.applicationtemplate.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.applicationtemplate.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.applicationtemplate.mobile.core.ui.util.asPainter
 import com.makeevrserg.applicationtemplate.mobile.features.splash.di.SplashModule
 import com.makeevrserg.applicationtemplate.mobile.features.splash.presentation.SplashComponent
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
 import kotlinx.coroutines.flow.collectLatest
 import ru.astrainteractive.klibs.mikro.extensions.arkivanov.FakeComponentContext
 

@@ -1,6 +1,6 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
+import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.hierarchyGroup
 
 plugins {
     id("dev.icerock.mobile.multiplatform-resources")
@@ -8,6 +8,7 @@ plugins {
     kotlin("multiplatform")
     id("ru.astrainteractive.gradleplugin.java.core")
     id("ru.astrainteractive.gradleplugin.android.core")
+    alias(libs.plugins.klibs.gradle.android.namespace)
 }
 
 kotlin {
@@ -23,29 +24,13 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(libs.androidx.splash)
-                implementation("com.google.android.material:material:1.9.0")
+                implementation(libs.android.material)
             }
-        }
-        val iosX64Main by getting {
-            resources.srcDirs("build/generated/moko/iosX64Main/src")
-        }
-        val iosArm64Main by getting {
-            resources.srcDirs("build/generated/moko/iosArm64Main/src")
-        }
-        val iosSimulatorArm64Main by getting {
-            resources.srcDirs("build/generated/moko/iosSimulatorArm64Main/src")
         }
     }
 }
 
 multiplatformResources {
-    multiplatformResourcesClassName = "CoreR"
-    multiplatformResourcesPackage = "${requireProjectInfo.group}.core.resources"
-}
-
-android {
-    namespace = "${requireProjectInfo.group}.core.resources"
-    sourceSets {
-        getByName("main").java.srcDirs("build/generated/moko/androidMain/src")
-    }
+    resourcesPackage = hierarchyGroup
+    resourcesClassName = "CoreR"
 }

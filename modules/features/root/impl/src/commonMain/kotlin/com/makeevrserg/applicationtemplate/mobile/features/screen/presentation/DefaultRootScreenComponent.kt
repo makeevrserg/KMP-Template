@@ -23,6 +23,7 @@ internal class DefaultRootScreenComponent(
         source = navigation,
         initialConfiguration = RootScreenComponent.Configuration.Splash,
         handleBackButton = true,
+        serializer = RootScreenComponent.Configuration.serializer(),
         childFactory = { config, context ->
             RootScreenComponentChildFactory(
                 config = config,
