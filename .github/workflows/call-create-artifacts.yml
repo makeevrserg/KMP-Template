@@ -1,6 +1,10 @@
-name: "detekt-validation"
+name: "Create artifacts"
 on:
   workflow_call:
+    inputs:
+      prerelease:
+        default: true
+        type: boolean
     secrets:
       ACTIONS_TOKEN:
         required: true
@@ -31,7 +35,7 @@ jobs:
           java-version: 17
       - name: Give gradle permission
         run: chmod +x gradlew
-      - name: Build with Gradle
+      - name: Build with Gradle android
         uses: gradle/gradle-build-action@v2
         env:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
@@ -47,12 +51,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
         with:
           files: |
-            ./instances/androidApp/build/outputs/apk/release/${{ steps.properties.outputs.makeevrserg-project-name }}-${{ steps.properties.outputs.makeevrserg-project-version-string }}-release.apk
-            LICENSE
+            ./instances/app/build/outputs/apk/release/*.apk
           tag_name: ${{ steps.properties.outputs.makeevrserg-project-version-string }}
           name: ${{ steps.properties.outputs.makeevrserg-project-name }} - ${{ steps.properties.outputs.makeevrserg-project-version-string }}
           draft: false
-          prerelease: false
+          prerelease: ${{ inputs.prerelease }}
           generate_release_notes: true
           body: |-
             :construction: Work in Progress
