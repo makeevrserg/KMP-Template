@@ -51,7 +51,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
         with:
           files: |
-            ./instances/app/build/outputs/apk/release/*.apk
+            ./instances/androidApp/build/outputs/apk/release/*.apk
           tag_name: ${{ steps.properties.outputs.makeevrserg-project-version-string }}
           name: ${{ steps.properties.outputs.makeevrserg-project-name }} - ${{ steps.properties.outputs.makeevrserg-project-version-string }}
           draft: false
