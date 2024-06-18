@@ -3,9 +3,8 @@ package com.makeevrserg.applicationtemplate.mobile.features.screen.presentation
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.backhandler.BackHandlerOwner
-import com.arkivanov.essenty.parcelable.Parcelable
-import com.arkivanov.essenty.parcelable.Parcelize
 import com.makeevrserg.applicationtemplate.mobile.features.splash.presentation.SplashComponent
+import kotlinx.serialization.Serializable
 
 interface RootScreenComponent : BackHandlerOwner {
     val childStack: Value<ChildStack<*, Child>>
@@ -19,8 +18,9 @@ interface RootScreenComponent : BackHandlerOwner {
         class Splash(val splashComponent: SplashComponent) : Child
     }
 
-    sealed interface Configuration : Parcelable {
-        @Parcelize
+    @Serializable
+    sealed interface Configuration {
+        @Serializable
         data object Splash : Configuration
     }
 }

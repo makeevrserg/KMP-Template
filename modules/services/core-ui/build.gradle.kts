@@ -1,14 +1,13 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
-
 plugins {
     id("org.jetbrains.compose")
     id("com.android.library")
     kotlin("multiplatform")
     id("ru.astrainteractive.gradleplugin.java.core")
     id("ru.astrainteractive.gradleplugin.android.core")
-    id("ru.astrainteractive.gradleplugin.android.compose")
+    alias(libs.plugins.kotlin.compose.gradle)
+    alias(libs.plugins.klibs.gradle.android.namespace)
 }
 kotlin {
     android()
@@ -22,7 +21,7 @@ kotlin {
                 implementation(libs.klibs.kdi)
                 // Decompose
                 implementation(libs.decompose.core)
-                implementation(libs.decompose.compose.jetbrains)
+                implementation(libs.decompose.compose)
                 // Moko
                 implementation(libs.moko.resources.core)
                 implementation(libs.moko.resources.compose)
@@ -44,8 +43,4 @@ kotlin {
             }
         }
     }
-}
-
-android {
-    namespace = "${requireProjectInfo.group}.core.ui"
 }

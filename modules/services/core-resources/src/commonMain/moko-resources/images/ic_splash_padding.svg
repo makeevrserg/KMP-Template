@@ -1,11 +1,10 @@
 <svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
 
     <g>
-        <title>Layer 1</title>
-        <g id="Background">
+        <g id="background">
             <circle id="svg_5" stroke-width="11px" stroke-miterlimit="10" stroke="#bc2551" fill="#111" r="144.38998" cy="262.41999" cx="258.89" class="cls-5"/>
         </g>
-        <g id="Logo">
+        <g id="logo">
             <rect id="svg_6" fill="#bc2551" height="35.61" width="35.61" y="284.22999" x="243.08" class="cls-1"/>
             <rect id="svg_7" fill="#bc2551" height="35.61" width="35.61" y="246.61999" x="243.08" class="cls-1"/>
             <rect id="svg_8" fill="#d34829" transform="rotate(90, 539.69, -71.41)" height="35.61" width="35.61" y="151.36" x="820.11" class="cls-6"/>

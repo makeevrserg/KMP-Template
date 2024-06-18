@@ -1,14 +1,13 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
-
 plugins {
     id("org.jetbrains.compose")
     id("com.android.library")
     kotlin("multiplatform")
     id("ru.astrainteractive.gradleplugin.java.core")
     id("ru.astrainteractive.gradleplugin.android.core")
-    id("ru.astrainteractive.gradleplugin.android.compose")
+    alias(libs.plugins.kotlin.compose.gradle)
+    alias(libs.plugins.klibs.gradle.android.namespace)
 }
 
 kotlin {
@@ -36,8 +35,4 @@ kotlin {
             }
         }
     }
-}
-
-android {
-    namespace = "${requireProjectInfo.group}.features.splash.ui"
 }

@@ -12,12 +12,11 @@ plugins {
     id("ru.astrainteractive.gradleplugin.java.core")
     id("ru.astrainteractive.gradleplugin.android.core")
     id("ru.astrainteractive.gradleplugin.android.apk.name")
-    id("ru.astrainteractive.gradleplugin.android.compose")
+    alias(libs.plugins.kotlin.compose.gradle)
 }
 
 android {
     namespace = "${requireProjectInfo.group}"
-    apply(plugin = "kotlin-parcelize")
     if (file("google-services.json").exists()) {
         apply(plugin = "com.google.gms.google-services")
         apply(plugin = "com.google.firebase.crashlytics")
@@ -26,7 +25,10 @@ android {
         applicationId = requireProjectInfo.group
         versionCode = baseGradleProperty("project.version.code").requireInt
         versionName = requireProjectInfo.versionString
-        setProperty("archivesBaseName", "${requireProjectInfo.name}-${requireProjectInfo.versionString}")
+        setProperty(
+            "archivesBaseName",
+            "${requireProjectInfo.name}-${requireProjectInfo.versionString}"
+        )
     }
     defaultConfig {
         multiDexEnabled = true
@@ -81,6 +83,9 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+    buildFeatures {
+        compose = true
+    }
     lint {
         abortOnError = false
     }
@@ -119,14 +124,8 @@ dependencies {
     implementation(libs.moko.resources.core)
     // Decompose
     implementation(libs.decompose.core)
-    implementation(libs.decompose.compose.jetpack)
+    implementation(libs.decompose.compose)
     implementation(libs.decompose.android)
-    implementation("com.google.android.gms:play-services-wearable:18.0.0")
-    // wear
-    implementation("com.google.android.horologist:horologist-datalayer:0.5.3")
-    // work
-    implementation("androidx.work:work-runtime:2.8.0")
-    implementation("androidx.work:work-runtime-ktx:2.8.0")
     // Local
     implementation(projects.modules.features.root.impl)
     implementation(projects.modules.features.root.ui)

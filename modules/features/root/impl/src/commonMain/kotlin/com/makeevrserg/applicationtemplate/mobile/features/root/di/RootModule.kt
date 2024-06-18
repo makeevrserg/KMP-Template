@@ -6,11 +6,10 @@ import com.makeevrserg.applicationtemplate.mobile.features.root.presentation.Roo
 import com.makeevrserg.applicationtemplate.mobile.features.splash.di.SplashModule
 import com.makeevrserg.applicationtemplate.mobile.features.theme.di.ThemeSwitcherModule
 import com.makeevrserg.applicationtemplate.mobile.services.core.di.CoreModule
-import ru.astrainteractive.klibs.kdi.Module
 import ru.astrainteractive.klibs.kdi.Single
 import ru.astrainteractive.klibs.kdi.getValue
 
-interface RootModule : Module {
+interface RootModule {
 
     val coreModule: CoreModule
     val themeSwitcherModule: ThemeSwitcherModule
