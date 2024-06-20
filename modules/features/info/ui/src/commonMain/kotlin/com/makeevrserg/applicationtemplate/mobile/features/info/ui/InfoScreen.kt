@@ -1,7 +1,6 @@
 package com.makeevrserg.applicationtemplate.mobile.features.info.ui
 
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -19,7 +18,6 @@ import com.makeevrserg.applicationtemplate.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.applicationtemplate.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.applicationtemplate.mobile.core.ui.util.asComposableString
 import com.makeevrserg.applicationtemplate.mobile.features.info.linkbrowser.LinkBrowser
-import com.makeevrserg.applicationtemplate.mobile.features.info.ui.components.BottomSheetIndicator
 import com.makeevrserg.applicationtemplate.mobile.features.info.ui.components.LinkWidget
 import com.makeevrserg.applicationtemplate.mobile.features.info.ui.components.rememberLinkBrowser
 import com.makeevrserg.applicationtemplate.mobile.features.info.ui.data.InfoScreenLinks
@@ -27,21 +25,12 @@ import com.makeevrserg.applicationtemplate.modules.services.build.konfig.BuildKo
 import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
 
 @Composable
-fun InfoScreen(
-    isBottomSheet: Boolean
-) {
+fun InfoScreen() {
     val linkBrowser: LinkBrowser = rememberLinkBrowser()
     val models = remember { InfoScreenLinks.get() }
     LazyColumn(
-        modifier = Modifier
-            .navBarsPadding()
-            .padding(horizontal = AppTheme.dimens.S)
+        modifier = Modifier.padding(horizontal = AppTheme.dimens.S)
     ) {
-        if (isBottomSheet) {
-            item {
-                BottomSheetIndicator()
-            }
-        }
         item {
             Text(
                 text = CoreR.strings.info_more_links.asComposableString(),
@@ -64,7 +53,7 @@ fun InfoScreen(
             )
         }
         item {
-            Spacer(modifier = Modifier.height(AppTheme.dimens.M))
+            Spacer(modifier = Modifier.navBarsPadding())
         }
     }
 }
@@ -73,6 +62,6 @@ fun InfoScreen(
 @Composable
 private fun InfoScreenPreview() {
     AdaptThemeFade {
-        InfoScreen(isBottomSheet = false)
+        InfoScreen()
     }
 }

@@ -35,12 +35,11 @@ class MainActivity : ComponentActivity() {
         val rootBottomSheetComponent = rootComponent.rootBottomSheetComponent
         setContent {
             ApplicationTheme(rootModule.themeSwitcherModule.themeSwitcherComponent) {
-                RootBottomSheetContent(rootBottomSheetComponent) {
-                    RootScreenContent(
-                        rootComponent = rootComponent,
-                        modifier = Modifier
-                    )
-                }
+                RootBottomSheetContent(rootBottomSheetComponent)
+                RootScreenContent(
+                    rootComponent = rootComponent,
+                    modifier = Modifier
+                )
             }
         }
         splashScreen.setKeepOnScreenCondition { false }
