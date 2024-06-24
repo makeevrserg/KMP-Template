@@ -16,21 +16,21 @@ androidx-splash = "1.0.1" # https://developer.android.com/jetpack/androidx/relea
 # Google
 google-coroutinesPlayServices = "1.8.1" # https://github.com/Kotlin/kotlinx.coroutines/tree/master/integration/kotlinx-coroutines-play-services
 google-auth = "21.2.0" # https://developers.google.com/android/guides/setup
-google-crashlytics = "3.0.1" # https://firebase.google.com/docs/crashlytics/get-started
+google-crashlytics = "3.0.2" # https://firebase.google.com/docs/crashlytics/get-started
 google-services = "4.4.2" # https://developers.google.com/android/guides/google-services-plugin
 google-accompanist = "0.34.0" # https://github.com/google/accompanist
-google-firebase-bom = "33.1.0" # https://firebase.google.com/support/release-notes/android
+google-firebase-bom = "33.1.1" # https://firebase.google.com/support/release-notes/android
 
 # Testw
 tests-assertk = "0.28.1" # https://github.com/willowtreeapps/assertk
 tests-turbine = "1.1.0" # https://github.com/cashapp/turbine
 
 # Other
-ktor = "2.3.11" # https://github.com/ktorio/ktor
+ktor = "2.3.12" # https://github.com/ktorio/ktor
 
 # klibs
 klibs-mikro = "1.8.4" # https://github.com/makeevrserg/klibs.mikro
-klibs-kstorage = "2.2.0" # https://github.com/makeevrserg/klibs.kstorage
+klibs-kstorage = "2.3.0" # https://github.com/makeevrserg/klibs.kstorage
 klibs-kdi = "1.4.5" # https://github.com/makeevrserg/KDI
 
 # Compose
