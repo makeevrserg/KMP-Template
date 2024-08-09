@@ -30,7 +30,7 @@ ktor = "2.3.12" # https://github.com/ktorio/ktor
 
 # klibs
 klibs-mikro = "1.8.4" # https://github.com/makeevrserg/klibs.mikro
-klibs-kstorage = "2.4.1" # https://github.com/makeevrserg/klibs.kstorage
+klibs-kstorage = "3.1.0" # https://github.com/makeevrserg/klibs.kstorage
 klibs-kdi = "1.4.5" # https://github.com/makeevrserg/KDI
 
 # Compose
