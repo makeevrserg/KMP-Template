@@ -1,4 +1,4 @@
-name: "Create artifacts"
+name: "Check version changed"
 on:
   workflow_call:
     inputs:
@@ -10,6 +10,7 @@ on:
       IS_SAME_VERSIONS:
         description: "The name of requested build variant"
         value: ${{ jobs.compare_versions.outputs.IS_SAME_VERSIONS }}
+
 jobs:
   #  ${{ jobs.get_version_from_target_branch.outputs.TARGET_VERSION }}
   get_version_from_target_branch:
@@ -47,6 +48,7 @@ jobs:
           path: './gradle.properties'
           properties: 'makeevrserg.project.name makeevrserg.project.version.string'
 
+  # ${{ jobs.compare_versions.outputs.IS_SAME_VERSIONS }}
   compare_versions:
     needs: [ get_version_from_current_branch, get_version_from_target_branch ]
     name: "Compare versions ${{ needs.get_version_from_target_branch.outputs.TARGET_VERSION }} and ${{ needs.get_version_from_current_branch.outputs.CURRENT_VERSION }}"
