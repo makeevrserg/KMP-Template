@@ -1,6 +1,11 @@
 name: "Create artifacts"
 on:
   workflow_call:
+    inputs:
+      ASSERT:
+        required: false
+        type: boolean
+        default: false
     outputs:
       IS_SAME_VERSIONS:
         description: "The name of requested build variant"
@@ -43,13 +48,20 @@ jobs:
           properties: 'makeevrserg.project.name makeevrserg.project.version.string'
 
   compare_versions:
-    name: "Compare versions ${{ jobs.get_version_from_target_branch.outputs.TARGET_VERSION }} and ${{ jobs.get_version_from_current_branch.outputs.CURRENT_VERSION }}"
+    needs: [ get_version_from_current_branch, get_version_from_target_branch ]
+    name: "Compare versions ${{ needs.get_version_from_target_branch.outputs.TARGET_VERSION }} and ${{ needs.get_version_from_current_branch.outputs.CURRENT_VERSION }}"
     runs-on: ubuntu-latest
     outputs:
-      IS_SAME_VERSIONS: ${{ jobs.get_version_from_target_branch.outputs.TARGET_VERSION }} == ${{ jobs.get_version_from_current_branch.outputs.CURRENT_VERSION }}
+      IS_SAME_VERSIONS: ${{ needs.get_version_from_target_branch.outputs.TARGET_VERSION }} == ${{ needs.get_version_from_current_branch.outputs.CURRENT_VERSION }}
     steps:
       # steps.create_baseline_task.outputs.BASELINE_TASK
       - id: print
         run: |
-          echo "${{ jobs.get_version_from_target_branch.outputs.TARGET_VERSION }}"
-          echo "${{ jobs.get_version_from_current_branch.outputs.TARGET_VERSION }}"
+          echo "${{ needs.get_version_from_target_branch.outputs.TARGET_VERSION }}"
+          echo "${{ needs.get_version_from_current_branch.outputs.TARGET_VERSION }}"
+
+      - name: Failed if versions is same
+        if: ${{ inputs.ASSERT }} == true
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7
+        with:
+          script: core.setFailed('Version makeevrserg.project.version.string at gradle.properties has not changed!')

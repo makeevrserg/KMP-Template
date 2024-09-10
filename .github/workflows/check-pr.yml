@@ -28,13 +28,15 @@ jobs:
     name: "Check version changed"
     needs: gradle_validation
     uses: ./.github/workflows/call-check-version-changed.yml
+    with:
+      ASSERT: true
   detekt_validation:
     name: "Detekt"
-    if: ${{ jobs.check_versions.outputs.IS_SAME_VERSIONS }} == true
+    if: ${{ needs.check_versions.outputs.IS_SAME_VERSIONS }} != true
     needs: [ gradle_validation,check_versions ]
     uses: ./.github/workflows/call-detekt-validation.yml
   tests_validation:
     name: "Tests"
-    if: ${{ jobs.check_versions.outputs.IS_SAME_VERSIONS }} == true
+    if: ${{ needs.check_versions.outputs.IS_SAME_VERSIONS }} != true
     needs: [ gradle_validation,check_versions ]
     uses: ./.github/workflows/call-tests-validation.yml
