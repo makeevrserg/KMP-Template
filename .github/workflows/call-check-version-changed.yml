@@ -1,0 +1,55 @@
+name: "Create artifacts"
+on:
+  workflow_call:
+    outputs:
+      IS_SAME_VERSIONS:
+        description: "The name of requested build variant"
+        value: ${{ jobs.compare_versions.outputs.IS_SAME_VERSIONS }}
+jobs:
+  #  ${{ jobs.get_version_from_target_branch.outputs.TARGET_VERSION }}
+  get_version_from_target_branch:
+    name: Get version from target branch
+    runs-on: ubuntu-latest
+    outputs:
+      TARGET_VERSION: ${{ steps.properties.outputs.makeevrserg-project-version-string }}
+    steps:
+      - name: Checkout Git repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      #  ${{ steps.properties.outputs.makeevrserg-project-version-string }}
+      - uses: christian-draeger/read-properties@1.1.1
+        id: properties
+        with:
+          path: './gradle.properties'
+          properties: 'makeevrserg.project.name makeevrserg.project.version.string'
+
+  #  ${{ jobs.get_version_from_current_branch.outputs.CURRENT_VERSION }}
+  get_version_from_current_branch:
+    name: Get version from current branch
+    runs-on: ubuntu-latest
+    outputs:
+      CURRENT_VERSION: ${{ steps.properties.outputs.makeevrserg-project-version-string }}
+    steps:
+      - name: Checkout Git repo
+        uses: actions/checkout@v4
+
+      #  ${{ steps.properties.outputs.makeevrserg-project-version-string }}
+      - uses: christian-draeger/read-properties@1.1.1
+        id: properties
+        with:
+          path: './gradle.properties'
+          properties: 'makeevrserg.project.name makeevrserg.project.version.string'
+
+  compare_versions:
+    name: "Compare versions ${{ jobs.get_version_from_target_branch.outputs.TARGET_VERSION }} and ${{ jobs.get_version_from_current_branch.outputs.CURRENT_VERSION }}"
+    runs-on: ubuntu-latest
+    outputs:
+      IS_SAME_VERSIONS: ${{ jobs.get_version_from_target_branch.outputs.TARGET_VERSION }} == ${{ jobs.get_version_from_current_branch.outputs.CURRENT_VERSION }}
+    steps:
+      # steps.create_baseline_task.outputs.BASELINE_TASK
+      - id: print
+        run: |
+          echo "${{ jobs.get_version_from_target_branch.outputs.TARGET_VERSION }}"
+          echo "${{ jobs.get_version_from_current_branch.outputs.TARGET_VERSION }}"

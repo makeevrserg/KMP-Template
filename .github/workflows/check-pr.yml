@@ -5,15 +5,36 @@ on:
       - 'develop'
       - 'master'
       - 'rc'
+  merge_group:
+
+# Concurrency strategy:
+#   github.workflow: distinguish this workflow from others
+#   github.event_name: distinguish `push` event from `pull_request` and 'merge_group' event
+#   github.ref_name: distinguish branch
+#   github.repository: distinguish owner+repository
+#
+# Reference:
+#   https://docs.github.com/en/actions/using-jobs/using-concurrency
+#   https://docs.github.com/en/actions/learn-github-actions/contexts#github-context
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{github.ref_name}}-${{github.repository}}
+  cancel-in-progress: true
+
 jobs:
   gradle_validation:
     name: "Gradle Wrapper"
     uses: ./.github/workflows/call-gradle-wrapper-validation.yml
+  check_versions:
+    name: "Check version changed"
+    needs: gradle_validation
+    uses: ./.github/workflows/call-check-version-changed.yml
   detekt_validation:
     name: "Detekt"
-    needs: gradle_validation
+    if: ${{ jobs.check_versions.outputs.IS_SAME_VERSIONS }} == true
+    needs: [ gradle_validation,check_versions ]
     uses: ./.github/workflows/call-detekt-validation.yml
   tests_validation:
     name: "Tests"
-    needs: gradle_validation
+    if: ${{ jobs.check_versions.outputs.IS_SAME_VERSIONS }} == true
+    needs: [ gradle_validation,check_versions ]
     uses: ./.github/workflows/call-tests-validation.yml
