@@ -42,7 +42,7 @@ moko-resources = "0.24.0" # https://github.com/icerockdev/moko-resources
 moko-network = "0.21.0" # https://github.com/icerockdev/moko-network
 
 # Decompose
-decompose = "3.2.1" # https://github.com/arkivanov/Decompose
+decompose = "3.2.2" # https://github.com/arkivanov/Decompose
 essenty = "2.2.1" # https://github.com/arkivanov/Essenty
 
 # MVIKotlin
