@@ -10,7 +10,8 @@ plugins {
     alias(libs.plugins.klibs.gradle.android.namespace)
 }
 kotlin {
-    android()
+    applyDefaultHierarchyTemplate()
+    androidTarget()
     sourceSets {
         val commonMain by getting {
             dependencies {

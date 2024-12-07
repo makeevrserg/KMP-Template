@@ -11,8 +11,8 @@ plugins {
 }
 
 kotlin {
+    applyDefaultHierarchyTemplate()
     androidTarget()
-    targetHierarchy.default()
     sourceSets {
         val commonMain by getting {
             dependencies {
