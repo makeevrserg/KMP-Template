@@ -26,15 +26,15 @@ tests-assertk = "0.28.1" # https://github.com/willowtreeapps/assertk
 tests-turbine = "1.2.0" # https://github.com/cashapp/turbine
 
 # Other
-ktor = "3.0.1" # https://github.com/ktorio/ktor
+ktor = "3.0.2" # https://github.com/ktorio/ktor
 
 # klibs
-klibs-mikro = "1.8.8" # https://github.com/makeevrserg/klibs.mikro
-klibs-kstorage = "3.2.0" # https://github.com/makeevrserg/klibs.kstorage
+klibs-mikro = "1.8.11" # https://github.com/makeevrserg/klibs.mikro
+klibs-kstorage = "3.2.1" # https://github.com/makeevrserg/klibs.kstorage
 klibs-kdi = "1.4.8" # https://github.com/makeevrserg/KDI
 
 # Compose
-kotlin-compose = "1.7.1" # https://github.com/JetBrains/compose-multiplatform
+kotlin-compose = "1.8.0+dev1966" # https://github.com/JetBrains/compose-multiplatform
 
 # Moko
 moko-mvvm = "0.16.1" # https://github.com/icerockdev/moko-mvvm
