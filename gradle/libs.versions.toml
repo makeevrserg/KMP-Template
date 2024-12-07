@@ -2,7 +2,7 @@
 # Kotlin
 kotlin-version = "2.1.0" # https://github.com/JetBrains/kotlin
 kotlin-coroutines = "1.9.0" # https://github.com/Kotlin/kotlinx.coroutines
-kotlin-android-application = "8.7.2" # https://developer.android.com/build/releases/gradle-plugin
+kotlin-android-application = "8.7.3" # https://developer.android.com/build/releases/gradle-plugin
 kotlin-serialization-json = "1.7.3" # https://github.com/Kotlin/kotlinx.serialization
 
 # Androidx
@@ -19,7 +19,7 @@ google-auth = "21.2.0" # https://developers.google.com/android/guides/setup
 google-crashlytics = "3.0.2" # https://firebase.google.com/docs/crashlytics/get-started
 google-services = "4.4.2" # https://developers.google.com/android/guides/google-services-plugin
 google-accompanist = "0.36.0" # https://github.com/google/accompanist
-google-firebase-bom = "33.6.0" # https://firebase.google.com/support/release-notes/android
+google-firebase-bom = "33.7.0" # https://firebase.google.com/support/release-notes/android
 
 # Testw
 tests-assertk = "0.28.1" # https://github.com/willowtreeapps/assertk
@@ -34,11 +34,11 @@ klibs-kstorage = "3.2.0" # https://github.com/makeevrserg/klibs.kstorage
 klibs-kdi = "1.4.8" # https://github.com/makeevrserg/KDI
 
 # Compose
-kotlin-compose = "1.8.0+" # https://github.com/JetBrains/compose-multiplatform
+kotlin-compose = "1.7.1" # https://github.com/JetBrains/compose-multiplatform
 
 # Moko
 moko-mvvm = "0.16.1" # https://github.com/icerockdev/moko-mvvm
-moko-resources = "0.24.0" # https://github.com/icerockdev/moko-resources
+moko-resources = "0.24.3" # https://github.com/icerockdev/moko-resources
 moko-network = "0.21.0" # https://github.com/icerockdev/moko-network
 
 # Decompose
