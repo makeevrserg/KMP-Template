@@ -2,12 +2,12 @@
 # Kotlin
 kotlin-version = "2.1.10" # https://github.com/JetBrains/kotlin
 kotlin-coroutines = "1.10.1" # https://github.com/Kotlin/kotlinx.coroutines
-kotlin-android-application = "8.8.0" # https://developer.android.com/build/releases/gradle-plugin
+kotlin-android-application = "8.8.1" # https://developer.android.com/build/releases/gradle-plugin
 kotlin-serialization-json = "1.8.0" # https://github.com/Kotlin/kotlinx.serialization
 
 # Androidx
 androidx-material = "1.12.0" # https://github.com/material-components/material-components-android
-androidx-compose-bom = "2025.01.01" # https://developer.android.com/jetpack/androidx/releases/compose#versions
+androidx-compose-bom = "2025.02.00" # https://developer.android.com/jetpack/androidx/releases/compose#versions
 androidx-room = "2.6.1" # https://developer.android.com/jetpack/androidx/releases/room
 androidx-activity-compose = "1.10.0" # https://developer.android.com/jetpack/androidx/releases/activity
 leakcanary = "2.14" # https://github.com/square/leakcanary
@@ -26,7 +26,7 @@ tests-assertk = "0.28.1" # https://github.com/willowtreeapps/assertk
 tests-turbine = "1.2.0" # https://github.com/cashapp/turbine
 
 # Other
-ktor = "3.0.3" # https://github.com/ktorio/ktor
+ktor = "3.1.0" # https://github.com/ktorio/ktor
 
 # klibs
 klibs-mikro = "1.8.15" # https://github.com/makeevrserg/klibs.mikro
