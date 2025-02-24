@@ -34,7 +34,7 @@ klibs-kstorage = "3.2.6" # https://github.com/makeevrserg/klibs.kstorage
 klibs-kdi = "1.4.8" # https://github.com/makeevrserg/KDI
 
 # Compose
-kotlin-compose = "1.8.0+dev1966" # https://github.com/JetBrains/compose-multiplatform
+kotlin-compose = "1.8.0+" # https://github.com/JetBrains/compose-multiplatform
 
 # Moko
 moko-mvvm = "0.16.1" # https://github.com/icerockdev/moko-mvvm
