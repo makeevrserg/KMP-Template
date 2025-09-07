@@ -15,17 +15,13 @@ class App : Application() {
 
     override fun onTerminate() {
         super.onTerminate()
-        rootModule.coreModule.mainScope.value.cancel()
+        rootModule.coreModule.mainScope.cancel()
     }
 
     override fun onCreate() {
         super.onCreate()
         Firebase.initialize(this)
-        rootModule.coreModule.platformConfiguration.initialize {
-            DefaultAndroidPlatformConfiguration(
-                applicationContext
-            )
-        }
+        rootModule.coreModule.platformConfigurationInternal = DefaultAndroidPlatformConfiguration(applicationContext)
     }
 
     companion object {

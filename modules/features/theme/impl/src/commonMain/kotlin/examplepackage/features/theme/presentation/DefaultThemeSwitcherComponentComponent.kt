@@ -3,16 +3,12 @@ package examplepackage.features.theme.presentation
 import examplepackage.features.theme.data.model.Theme
 import examplepackage.features.theme.data.repository.ThemeSwitcherRepository
 import kotlinx.coroutines.flow.StateFlow
-import ru.astrainteractive.klibs.kdi.Provider
-import ru.astrainteractive.klibs.kdi.getValue
 import ru.astrainteractive.klibs.mikro.core.util.next
 
 internal class DefaultThemeSwitcherComponentComponent(
     private val themeSwitcherRepository: ThemeSwitcherRepository
 ) : ThemeSwitcherComponent {
-    private val themeFlowStorageValue by Provider {
-        themeSwitcherRepository.themeFlowStorageValue
-    }
+    private val themeFlowStorageValue = themeSwitcherRepository.themeFlowStorageValue
 
     override val theme: StateFlow<Theme> = themeFlowStorageValue.cachedStateFlow
 

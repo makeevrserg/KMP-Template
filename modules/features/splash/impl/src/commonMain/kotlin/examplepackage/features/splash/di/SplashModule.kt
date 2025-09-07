@@ -18,8 +18,8 @@ interface SplashModule {
     ) : SplashModule {
         override fun createSplashComponent(componentContext: ComponentContext): SplashComponent {
             val dependencies = SplashComponentDependencies.Default(
-                mainScope = coreModule.mainScope.value,
-                dispatchers = coreModule.dispatchers.value
+                mainScope = coreModule.mainScope,
+                dispatchers = coreModule.dispatchers
             )
             return DefaultSplashComponent(
                 componentContext = componentContext,

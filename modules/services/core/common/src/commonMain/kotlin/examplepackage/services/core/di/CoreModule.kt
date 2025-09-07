@@ -8,54 +8,42 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.serialization.json.Json
-import ru.astrainteractive.klibs.kdi.Lateinit
-import ru.astrainteractive.klibs.kdi.Single
-import ru.astrainteractive.klibs.kdi.getValue
 import ru.astrainteractive.klibs.mikro.core.dispatchers.DefaultKotlinDispatchers
 import ru.astrainteractive.klibs.mikro.core.dispatchers.KotlinDispatchers
 import ru.astrainteractive.klibs.mikro.platform.PlatformConfiguration
 
 interface CoreModule {
-
-    val platformConfiguration: Lateinit<PlatformConfiguration>
-    val jsonConfiguration: Single<Json>
-    val httpClient: Single<HttpClient>
-    val settings: Single<Settings>
-    val dispatchers: Single<KotlinDispatchers>
-    val mainScope: Single<CoroutineScope>
+    var platformConfigurationInternal: PlatformConfiguration
+    val platformConfiguration: PlatformConfiguration
+    val jsonConfiguration: Json
+    val httpClient: HttpClient
+    val settings: Settings
+    val dispatchers: KotlinDispatchers
+    val mainScope: CoroutineScope
 
     class Default : CoreModule {
+        override lateinit var platformConfigurationInternal: PlatformConfiguration
+        override val platformConfiguration: PlatformConfiguration
+            get() = platformConfigurationInternal
 
-        override val platformConfiguration = Lateinit<PlatformConfiguration>()
+        override val jsonConfiguration = Json {
+            prettyPrint = true
+            isLenient = true
+            ignoreUnknownKeys = true
+        }
 
-        override val jsonConfiguration = Single {
-            Json {
-                prettyPrint = true
-                isLenient = true
-                ignoreUnknownKeys = true
+        override val httpClient = HttpClient {
+            install(ContentNegotiation) {
+                json(jsonConfiguration)
             }
         }
 
-        override val httpClient = Single {
-            val jsonConfiguration by jsonConfiguration
-            HttpClient {
-                install(ContentNegotiation) {
-                    json(jsonConfiguration)
-                }
-            }
+        override val settings by lazy {
+            SettingsFactory(platformConfiguration).create()
         }
 
-        override val settings = Single {
-            val configuration by platformConfiguration
-            SettingsFactory(configuration).create()
-        }
+        override val dispatchers = DefaultKotlinDispatchers
 
-        override val dispatchers = Single<KotlinDispatchers> {
-            DefaultKotlinDispatchers
-        }
-
-        override val mainScope = Single {
-            MainScope()
-        }
+        override val mainScope = MainScope()
     }
 }
