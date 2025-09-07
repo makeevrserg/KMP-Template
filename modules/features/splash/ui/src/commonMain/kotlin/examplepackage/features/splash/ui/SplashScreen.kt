@@ -92,8 +92,8 @@ fun SplashScreenComponent(
         ) {
             LinearProgressIndicator(
                 modifier = Modifier.fillMaxWidth(),
-                color = LocalAppTheme.current.customColors.astraOrange,
-                backgroundColor = LocalAppTheme.current.customColors.astraYellow
+                color = LocalAppTheme.current.customColors.astraLogo.astraOrange,
+                backgroundColor = LocalAppTheme.current.customColors.astraLogo.astraYellow
             )
         }
     }

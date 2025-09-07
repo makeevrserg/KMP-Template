@@ -37,7 +37,7 @@ fun RowSettingChevronItem(
                     imageVector = Icons.Filled.ChevronRight,
                     contentDescription = null,
                     tint = MaterialTheme.colors.onPrimary,
-                    modifier = size(LocalAppTheme.current.dimens.M)
+                    modifier = Modifier.size(LocalAppTheme.current.dimens.M)
                 )
             }
         },
@@ -62,7 +62,7 @@ fun RowSettingChevronItem(
                 imageVector = icon,
                 contentDescription = null,
                 tint = MaterialTheme.colors.onPrimary,
-                modifier = size(LocalAppTheme.current.dimens.M)
+                modifier = Modifier.size(LocalAppTheme.current.dimens.M)
             )
         }
     )
@@ -85,7 +85,7 @@ fun RowSettingTextInfo(
                 imageVector = icon,
                 contentDescription = null,
                 tint = MaterialTheme.colors.onPrimary,
-                modifier = size(LocalAppTheme.current.dimens.M)
+                modifier = Modifier.size(LocalAppTheme.current.dimens.M)
             )
         },
         postfix = {
@@ -115,7 +115,7 @@ fun RowSettingChevronItem(
                 painter = icon.asPainter(),
                 contentDescription = null,
                 tint = tint,
-                modifier = size(LocalAppTheme.current.dimens.M)
+                modifier = Modifier.size(LocalAppTheme.current.dimens.M)
             )
         }
     )

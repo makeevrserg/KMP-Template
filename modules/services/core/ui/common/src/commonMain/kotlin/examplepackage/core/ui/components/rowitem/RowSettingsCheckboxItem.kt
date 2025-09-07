@@ -30,7 +30,7 @@ fun RowSettingsCheckboxItem(
                     imageVector = icon,
                     contentDescription = null,
                     tint = MaterialTheme.colors.onPrimary,
-                    modifier = size(LocalAppTheme.current.dimens.M)
+                    modifier = Modifier.size(LocalAppTheme.current.dimens.M)
                 )
             }
         },
