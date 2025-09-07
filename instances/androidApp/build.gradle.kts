@@ -119,7 +119,6 @@ dependencies {
     implementation(libs.klibs.mikro.core)
     implementation(libs.klibs.mikro.platform)
     implementation(libs.klibs.kstorage)
-    implementation(libs.klibs.kdi)
     // moko
     implementation(libs.moko.resources.core)
     // Decompose
@@ -130,6 +129,7 @@ dependencies {
     implementation(projects.modules.features.root.impl)
     implementation(projects.modules.features.root.ui)
     implementation(projects.modules.features.theme.ui)
-    implementation(projects.modules.services.coreUi)
-    implementation(projects.modules.services.coreResources)
+    implementation(projects.modules.services.core.ui.common)
+    implementation(projects.modules.services.core.ui.theme)
+    implementation(projects.modules.services.core.resources)
 }

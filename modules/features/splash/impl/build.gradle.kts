@@ -24,11 +24,10 @@ kotlin {
                 implementation(libs.klibs.mikro.core)
                 implementation(libs.klibs.mikro.platform)
                 implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.kdi)
                 // Decompose
                 implementation(libs.decompose.core)
                 // Local
-                implementation(projects.modules.services.core)
+                implementation(projects.modules.services.core.common)
             }
         }
         val commonTest by getting {

@@ -24,10 +24,11 @@ rootProject.name = "Application-Template"
 // Instances
 include(":instances:androidApp")
 // Services
-include(":modules:services:core-resources")
-include(":modules:services:core-ui")
-include(":modules:services:core")
-include(":modules:services:build-konfig")
+include(":modules:services:core:common")
+include(":modules:services:core:resources")
+include(":modules:services:core:build-konfig")
+include(":modules:services:core:ui:common")
+include(":modules:services:core:ui:theme")
 // Feature-root
 include(":modules:features:root:impl")
 include(":modules:features:root:ui")

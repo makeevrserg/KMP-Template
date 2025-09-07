@@ -25,7 +25,6 @@ kotlin {
                 implementation(libs.klibs.mikro.core)
                 api(libs.klibs.mikro.platform)
                 implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.kdi)
                 // Decompose
                 api(libs.decompose.core)
                 api(libs.essenty)
@@ -47,8 +46,8 @@ kotlin {
                 // MVIKotlin
                 implementation(libs.mvikotlin)
                 // Local
-                api(projects.modules.services.coreResources)
-                api(projects.modules.services.core)
+                api(projects.modules.services.core.resources)
+                api(projects.modules.services.core.common)
                 api(projects.modules.features.splash.impl)
                 api(projects.modules.features.theme.impl)
             }
