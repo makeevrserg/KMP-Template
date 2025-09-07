@@ -25,7 +25,6 @@ kotlin {
                 implementation(libs.klibs.mikro.core)
                 implementation(libs.klibs.mikro.platform)
                 implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.kdi)
                 // Ktor
                 implementation(libs.ktor.client.core)
                 implementation(libs.ktor.client.contentNegitiation)

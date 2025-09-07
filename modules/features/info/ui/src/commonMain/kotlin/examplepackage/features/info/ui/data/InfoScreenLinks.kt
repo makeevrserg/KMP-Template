@@ -1,8 +1,8 @@
 package examplepackage.features.info.ui.data
 
 import androidx.compose.material.MaterialTheme
-import examplepackage.features.info.ui.model.LinkModel
 import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
+import examplepackage.features.info.ui.model.LinkModel
 
 internal object InfoScreenLinks {
     fun get(): List<LinkModel> {

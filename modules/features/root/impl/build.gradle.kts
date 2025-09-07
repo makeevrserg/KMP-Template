@@ -25,7 +25,6 @@ kotlin {
                 implementation(libs.klibs.mikro.core)
                 api(libs.klibs.mikro.platform)
                 implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.kdi)
                 // Decompose
                 api(libs.decompose.core)
                 api(libs.essenty)

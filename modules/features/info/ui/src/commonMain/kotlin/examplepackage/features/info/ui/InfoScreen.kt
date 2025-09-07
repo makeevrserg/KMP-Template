@@ -14,15 +14,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.applicationtemplate.modules.services.core.build.konfig.BuildKonfig
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
 import examplepackage.core.ui.components.rowitem.RowSettingTextInfo
 import examplepackage.core.ui.theme.AdaptThemeFade
+import examplepackage.core.ui.theme.LocalAppTheme
 import examplepackage.core.ui.util.asComposableString
 import examplepackage.features.info.linkbrowser.LinkBrowser
 import examplepackage.features.info.ui.components.LinkWidget
 import examplepackage.features.info.ui.components.rememberLinkBrowser
 import examplepackage.features.info.ui.data.InfoScreenLinks
-import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
-import examplepackage.core.ui.theme.LocalAppTheme
 
 @Composable
 fun InfoScreen() {
