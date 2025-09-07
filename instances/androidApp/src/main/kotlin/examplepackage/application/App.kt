@@ -1,4 +1,4 @@
-package com.makeevrserg.applicationtemplate.application
+package examplepackage.application
 
 import android.app.Application
 import android.content.Context

@@ -1,4 +1,4 @@
-package com.makeevrserg.applicationtemplate
+package examplepackage
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,7 +11,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.arkivanov.decompose.defaultComponentContext
-import com.makeevrserg.applicationtemplate.application.App.Companion.asMyApplication
+import examplepackage.application.App.Companion.asMyApplication
 import examplepackage.features.modal.ui.RootBottomSheetContent
 import examplepackage.features.root.di.RootModule
 import examplepackage.features.screen.ui.RootScreenContent
