@@ -31,7 +31,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
         with:
           files: |
-            ./artifacts/*
+            ./artifacts/*.apk
+            ./artifacts/*.aab
           tag_name: ${{ steps.properties.outputs.makeevrserg-project-version-string }}
           name: ${{ steps.properties.outputs.makeevrserg-project-name }} - ${{ steps.properties.outputs.makeevrserg-project-version-string }}
           draft: false
