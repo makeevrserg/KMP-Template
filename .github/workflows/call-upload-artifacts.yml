@@ -1,10 +1,6 @@
 name: "Create artifacts"
 on:
   workflow_call:
-    inputs:
-      prerelease:
-        default: true
-        type: boolean
     secrets:
       ACTIONS_TOKEN:
         required: true
@@ -18,8 +14,14 @@ on:
         required: true
 jobs:
   publish:
-    name: Build and upload
+    name: Upload artifacts
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - id: "android"
+            task: ":instances:androidApp:assembleRelease"
+            artifacts_path: "./instances/androidApp/build/outputs/apk/release"
     steps:
       - name: Checkout Git repo
         uses: actions/checkout@v4
@@ -35,7 +37,7 @@ jobs:
           java-version: 17
       - name: Give gradle permission
         run: chmod +x gradlew
-      - name: Build with Gradle android
+      - name: Build with Gradle ${{ matrix.id }}
         uses: gradle/gradle-build-action@v3
         env:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
@@ -43,19 +45,9 @@ jobs:
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
         with:
-          arguments: :instances:androidApp:assembleRelease --stacktrace
-      - name: Create release
-        id: create_internal_release
-        uses: softprops/action-gh-release@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
+          arguments: ${{ matrix.task }} --stacktrace
+      - uses: actions/upload-artifact@184d73b71b93c222403b2e7f1ffebe4508014249
+        name: "Upload ${{ matrix.id }}"
         with:
-          files: |
-            ./instances/androidApp/build/outputs/apk/release/*.apk
-          tag_name: ${{ steps.properties.outputs.makeevrserg-project-version-string }}
-          name: ${{ steps.properties.outputs.makeevrserg-project-name }} - ${{ steps.properties.outputs.makeevrserg-project-version-string }}
-          draft: false
-          prerelease: ${{ inputs.prerelease }}
-          generate_release_notes: true
-          body: |-
-            :construction: Work in Progress
+          name: ${{ matrix.id }}
+          path: ${{ matrix.artifacts_path }}
