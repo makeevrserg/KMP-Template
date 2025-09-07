@@ -36,9 +36,10 @@ kotlin {
                 implementation(libs.decompose.core)
                 implementation(libs.decompose.compose)
                 // Local
-                implementation(projects.modules.services.coreResources)
-                implementation(projects.modules.services.coreUi)
-                implementation(projects.modules.services.buildKonfig)
+                implementation(projects.modules.services.core.resources)
+                implementation(projects.modules.services.core.ui.common)
+                implementation(projects.modules.services.core.ui.theme)
+                implementation(projects.modules.services.core.buildKonfig)
                 implementation(projects.modules.features.splash.impl)
                 implementation(projects.modules.features.splash.ui)
                 implementation(projects.modules.features.root.impl)

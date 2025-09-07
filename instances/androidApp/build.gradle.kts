@@ -130,6 +130,7 @@ dependencies {
     implementation(projects.modules.features.root.impl)
     implementation(projects.modules.features.root.ui)
     implementation(projects.modules.features.theme.ui)
-    implementation(projects.modules.services.coreUi)
-    implementation(projects.modules.services.coreResources)
+    implementation(projects.modules.services.core.ui.common)
+    implementation(projects.modules.services.core.ui.theme)
+    implementation(projects.modules.services.core.resources)
 }

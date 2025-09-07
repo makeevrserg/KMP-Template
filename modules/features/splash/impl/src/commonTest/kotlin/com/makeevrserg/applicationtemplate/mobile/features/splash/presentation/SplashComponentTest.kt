@@ -1,10 +1,10 @@
-package com.makeevrserg.applicationtemplate.mobile.features.splash.presentation
+package examplepackage.features.splash.presentation
 
 import app.cash.turbine.test
 import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
-import com.makeevrserg.applicationtemplate.mobile.features.splash.data.SplashComponentRepository
-import com.makeevrserg.applicationtemplate.mobile.features.splash.di.SplashComponentDependencies
+import examplepackage.features.splash.data.SplashComponentRepository
+import examplepackage.features.splash.di.SplashComponentDependencies
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.runBlocking

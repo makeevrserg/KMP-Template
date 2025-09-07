@@ -1,0 +1,124 @@
+[
+    {
+        "name": "strings",
+        "parentObjectName": "CoreR",
+        "resourceType": "STRINGS",
+        "resources": [
+            {
+                "resourceType": "dev.icerock.gradle.metadata.resource.StringMetadata",
+                "key": "app_name",
+                "values": [
+                    {
+                        "locale": "base",
+                        "value": "APP Template"
+                    }
+                ]
+            },
+            {
+                "resourceType": "dev.icerock.gradle.metadata.resource.StringMetadata",
+                "key": "info_more_links",
+                "values": [
+                    {
+                        "locale": "base",
+                        "value": "More links:"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "images",
+        "parentObjectName": "CoreR",
+        "resourceType": "IMAGES",
+        "resources": [
+            {
+                "resourceType": "dev.icerock.gradle.metadata.resource.ImageMetadata",
+                "key": "ic_splash_padding",
+                "values": [
+                    {
+                        "quality": null,
+                        "appearance": "LIGHT",
+                        "filePath": "/home/makeevrserg/Desktop/git/KMP-Template/modules/services/core/resources/src/commonMain/moko-resources/images/ic_splash_padding.svg"
+                    }
+                ]
+            },
+            {
+                "resourceType": "dev.icerock.gradle.metadata.resource.ImageMetadata",
+                "key": "alearner",
+                "values": [
+                    {
+                        "quality": null,
+                        "appearance": "LIGHT",
+                        "filePath": "/home/makeevrserg/Desktop/git/KMP-Template/modules/services/core/resources/src/commonMain/moko-resources/images/alearner.svg"
+                    }
+                ]
+            },
+            {
+                "resourceType": "dev.icerock.gradle.metadata.resource.ImageMetadata",
+                "key": "github",
+                "values": [
+                    {
+                        "quality": null,
+                        "appearance": "LIGHT",
+                        "filePath": "/home/makeevrserg/Desktop/git/KMP-Template/modules/services/core/resources/src/commonMain/moko-resources/images/github.svg"
+                    }
+                ]
+            },
+            {
+                "resourceType": "dev.icerock.gradle.metadata.resource.ImageMetadata",
+                "key": "ic_esmp",
+                "values": [
+                    {
+                        "quality": "2",
+                        "appearance": "LIGHT",
+                        "filePath": "/home/makeevrserg/Desktop/git/KMP-Template/modules/services/core/resources/src/commonMain/moko-resources/images/ic_esmp@2x.png"
+                    }
+                ]
+            },
+            {
+                "resourceType": "dev.icerock.gradle.metadata.resource.ImageMetadata",
+                "key": "esmptelegram",
+                "values": [
+                    {
+                        "quality": null,
+                        "appearance": "LIGHT",
+                        "filePath": "/home/makeevrserg/Desktop/git/KMP-Template/modules/services/core/resources/src/commonMain/moko-resources/images/esmptelegram.svg"
+                    }
+                ]
+            },
+            {
+                "resourceType": "dev.icerock.gradle.metadata.resource.ImageMetadata",
+                "key": "gplay",
+                "values": [
+                    {
+                        "quality": "1",
+                        "appearance": "LIGHT",
+                        "filePath": "/home/makeevrserg/Desktop/git/KMP-Template/modules/services/core/resources/src/commonMain/moko-resources/images/gplay@1x.png"
+                    }
+                ]
+            },
+            {
+                "resourceType": "dev.icerock.gradle.metadata.resource.ImageMetadata",
+                "key": "ainteractivelogo",
+                "values": [
+                    {
+                        "quality": null,
+                        "appearance": "LIGHT",
+                        "filePath": "/home/makeevrserg/Desktop/git/KMP-Template/modules/services/core/resources/src/commonMain/moko-resources/images/ainteractivelogo.svg"
+                    }
+                ]
+            },
+            {
+                "resourceType": "dev.icerock.gradle.metadata.resource.ImageMetadata",
+                "key": "boosty",
+                "values": [
+                    {
+                        "quality": null,
+                        "appearance": "LIGHT",
+                        "filePath": "/home/makeevrserg/Desktop/git/KMP-Template/modules/services/core/resources/src/commonMain/moko-resources/images/boosty.svg"
+                    }
+                ]
+            }
+        ]
+    }
+]

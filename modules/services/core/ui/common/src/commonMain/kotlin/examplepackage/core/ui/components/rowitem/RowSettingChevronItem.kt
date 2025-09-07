@@ -1,0 +1,122 @@
+package examplepackage.core.ui.components.rowitem
+
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.unit.Dp
+import dev.icerock.moko.resources.ImageResource
+import examplepackage.core.ui.theme.LocalAppTheme
+import examplepackage.core.ui.util.asPainter
+
+@Composable
+fun RowSettingChevronItem(
+    modifier: Modifier = Modifier,
+    text: String,
+    spacing: Dp = LocalAppTheme.current.dimens.S,
+    prefix: (@Composable RowScope.() -> Unit)? = null,
+    onClick: () -> Unit = {}
+) {
+    RowSettingItem(
+        modifier = modifier,
+        text = text,
+        spacing = spacing,
+        prefix = prefix,
+        postfix = {
+            IconButton(onClick = onClick) {
+                Icon(
+                    imageVector = Icons.Filled.ChevronRight,
+                    contentDescription = null,
+                    tint = MaterialTheme.colors.onPrimary,
+                    modifier = size(LocalAppTheme.current.dimens.M)
+                )
+            }
+        },
+    )
+}
+
+@Composable
+fun RowSettingChevronItem(
+    modifier: Modifier = Modifier,
+    icon: ImageVector,
+    spacing: Dp = LocalAppTheme.current.dimens.S,
+    text: String,
+    onClick: (() -> Unit) = {}
+) {
+    RowSettingChevronItem(
+        modifier = modifier,
+        text = text,
+        onClick = onClick,
+        spacing = spacing,
+        prefix = {
+            Icon(
+                imageVector = icon,
+                contentDescription = null,
+                tint = MaterialTheme.colors.onPrimary,
+                modifier = size(LocalAppTheme.current.dimens.M)
+            )
+        }
+    )
+}
+
+@Composable
+fun RowSettingTextInfo(
+    modifier: Modifier = Modifier,
+    icon: ImageVector,
+    spacing: Dp = LocalAppTheme.current.dimens.S,
+    text: String,
+    endText: String,
+) {
+    RowSettingItem(
+        modifier = modifier,
+        text = text,
+        spacing = spacing,
+        prefix = {
+            Icon(
+                imageVector = icon,
+                contentDescription = null,
+                tint = MaterialTheme.colors.onPrimary,
+                modifier = size(LocalAppTheme.current.dimens.M)
+            )
+        },
+        postfix = {
+            Text(
+                text = endText,
+                color = MaterialTheme.colors.onPrimary,
+                modifier = Modifier.padding(end = LocalAppTheme.current.dimens.M)
+            )
+        },
+    )
+}
+
+@Composable
+fun RowSettingChevronItem(
+    modifier: Modifier = Modifier,
+    icon: ImageResource,
+    tint: Color = Color.Unspecified,
+    text: String,
+    onClick: (() -> Unit) = {}
+) {
+    RowSettingChevronItem(
+        modifier = modifier,
+        text = text,
+        onClick = onClick,
+        prefix = {
+            Icon(
+                painter = icon.asPainter(),
+                contentDescription = null,
+                tint = tint,
+                modifier = size(LocalAppTheme.current.dimens.M)
+            )
+        }
+    )
+}

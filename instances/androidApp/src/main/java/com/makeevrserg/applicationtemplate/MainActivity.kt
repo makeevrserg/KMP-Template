@@ -12,10 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.arkivanov.decompose.defaultComponentContext
 import com.makeevrserg.applicationtemplate.application.App.Companion.asMyApplication
-import com.makeevrserg.applicationtemplate.mobile.features.modal.ui.RootBottomSheetContent
-import com.makeevrserg.applicationtemplate.mobile.features.root.di.RootModule
-import com.makeevrserg.applicationtemplate.mobile.features.screen.ui.RootScreenContent
-import com.makeevrserg.applicationtemplate.mobile.features.theme.ui.ApplicationTheme
+import examplepackage.features.modal.ui.RootBottomSheetContent
+import examplepackage.features.root.di.RootModule
+import examplepackage.features.screen.ui.RootScreenContent
+import examplepackage.features.theme.ui.ApplicationTheme
 
 @ExperimentalMaterialApi
 @ExperimentalComposeUiApi
