@@ -31,7 +31,6 @@ ktor = "3.1.3" # https://github.com/ktorio/ktor
 # klibs
 klibs-mikro = "1.9.0" # https://github.com/makeevrserg/klibs.mikro
 klibs-kstorage = "4.0.0" # https://github.com/makeevrserg/klibs.kstorage
-klibs-kdi = "1.4.8" # https://github.com/makeevrserg/KDI
 
 # Compose
 kotlin-compose = "1.9.0+" # https://github.com/JetBrains/compose-multiplatform
@@ -63,7 +62,6 @@ klibs-mikro-core = { module = "ru.astrainteractive.klibs:mikro-core", version.re
 klibs-mikro-platform = { module = "ru.astrainteractive.klibs:mikro-platform", version.ref = "klibs-mikro" }
 klibs-mikro-extensions = { module = "ru.astrainteractive.klibs:mikro-extensions", version.ref = "klibs-mikro" }
 klibs-kstorage = { module = "ru.astrainteractive.klibs:kstorage", version.ref = "klibs-kstorage" }
-klibs-kdi = { module = "ru.astrainteractive.klibs:kdi", version.ref = "klibs-kdi" }
 
 # Settings
 mppsettings = { module = "com.russhwolf:multiplatform-settings", version.ref = "mppsettings" }
