@@ -91,7 +91,7 @@ androidx-splash = { module = "androidx.core:core-splashscreen", version.ref = "a
 
 # Google
 google-firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "google-firebase-bom" }
-google-firebase-crsahlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx" }
+google-firebase-crsahlytics = { module = "com.google.firebase:firebase-crashlytics" }
 google-firebase-crsahlytics-gradle = { module = "com.google.firebase:firebase-crashlytics-gradle", version.ref = "google-crashlytics" }
 google-gms-services-gradle = { module = "com.google.gms:google-services", version.ref = "google-services" }
 google-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "google-auth" }
