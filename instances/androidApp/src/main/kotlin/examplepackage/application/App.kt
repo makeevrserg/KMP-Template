@@ -2,8 +2,8 @@ package examplepackage.application
 
 import android.app.Application
 import android.content.Context
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.ktx.initialize
+import com.google.firebase.Firebase
+import com.google.firebase.initialize
 import examplepackage.features.root.di.RootModule
 import kotlinx.coroutines.cancel
 import ru.astrainteractive.klibs.mikro.platform.DefaultAndroidPlatformConfiguration

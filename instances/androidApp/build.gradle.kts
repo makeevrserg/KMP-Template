@@ -107,13 +107,13 @@ dependencies {
     implementation(libs.androidx.splash)
     // FireBase
     implementation(platform(libs.google.firebase.bom))
-    implementation("com.google.firebase:firebase-auth-ktx")
-    implementation("com.google.firebase:firebase-firestore-ktx")
-    implementation("com.google.firebase:firebase-messaging-ktx")
-    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-messaging")
+    implementation("com.google.firebase:firebase-analytics")
     implementation(libs.google.auth)
     implementation(libs.kotlin.coroutines.playServices)
-    implementation(libs.google.firebase.crsahlytics.ktx)
+    implementation(libs.google.firebase.crsahlytics)
     debugImplementation(libs.leakcanary)
     // klibs
     implementation(libs.klibs.mikro.core)
