@@ -1,9 +1,13 @@
-import ru.astrainteractive.gradleplugin.property.PropertyValue.Companion.baseGradleProperty
-import ru.astrainteractive.gradleplugin.property.PropertyValue.Companion.secretProperty
+@file:OptIn(ExperimentalEncodingApi::class)
+
+import ru.astrainteractive.gradleplugin.property.baseGradleProperty
 import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
 import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.requireInt
 import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.stringOrEmpty
-import ru.astrainteractive.gradleplugin.util.Base64Util
+import ru.astrainteractive.gradleplugin.property.secretProperty
+import kotlin.io.encoding.Base64
+import kotlin.io.encoding.ExperimentalEncodingApi
+
 
 plugins {
     kotlin("plugin.serialization")
@@ -46,7 +50,11 @@ android {
         if (!keyStoreFile.exists()) {
             logger.warn("Keystore file not exists - creating")
             val base64String = secretProperty("KEYSTORE_BASE64").stringOrEmpty
-            if (base64String.isNotBlank()) Base64Util.fromBase64(base64String, keyStoreFile)
+            if (base64String.isNotBlank()) {
+                val byteArray = Base64.decode(base64String)
+                keyStoreFile.createNewFile()
+                keyStoreFile.writeBytes(byteArray)
+            }
         }
         if (!keyStoreFile.exists()) {
             logger.warn("Keystore file could not be created")
