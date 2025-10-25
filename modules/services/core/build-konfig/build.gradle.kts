@@ -1,9 +1,10 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradleplugin.property.PropertyValue.Companion.baseGradleProperty
+import ru.astrainteractive.gradleplugin.property.baseGradleProperty
 import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.hierarchyGroup
 import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
 import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.requireInt
+
 
 plugins {
     id("com.android.library")
