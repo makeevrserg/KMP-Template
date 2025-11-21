@@ -4,10 +4,10 @@ import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt
 
 plugins {
     id("dev.icerock.mobile.multiplatform-resources")
-    id("com.android.library")
+    alias(libs.plugins.android.library)
     kotlin("multiplatform")
-    id("ru.astrainteractive.gradleplugin.java.core")
-    id("ru.astrainteractive.gradleplugin.android.core")
+    id("ru.astrainteractive.gradleplugin.java.version")
+    id("ru.astrainteractive.gradleplugin.android.sdk")
     alias(libs.plugins.klibs.gradle.android.namespace)
 }
 

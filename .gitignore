@@ -1,54 +1,11 @@
 # Root
-*.iml
 .secret
 .secrets
 .gradle
 .kotlin
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build-logic/build
-/build-logic/plugins/convention/build
-/build
-/buildSrc/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
-androidApp/build
-androidApp/libs
 .idea
-
-# Secret
-keys.properties
-
+local.properties
+**/.DS_Store
+**/build
 # Instances
-instances/androidApp/build
 instances/androidApp/keystore.jks
-
-# Features
-modules/features/root/build
-modules/features/root/ui/build
-modules/features/root/impl/build
-modules/features/splash/build
-modules/features/splash/ui/build
-modules/features/splash/impl/build
-modules/features/theme/build
-modules/features/theme/impl/build
-modules/features/theme/ui/build
-modules/features/info/ui/build
-modules/features/ui/build
-
-# Services
-modules/services/core/build-konfig/build
-modules/services/core/common/build
-modules/services/core/ui/build
-modules/services/core/ui/theme/build
-modules/services/core/ui/common/build
-modules/services/core/resources/build
-modules/services/core/build
