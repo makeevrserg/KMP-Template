@@ -8,46 +8,26 @@ import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.snapshotFlow
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import com.arkivanov.decompose.router.slot.ChildSlot
 import examplepackage.core.ui.components.bottomsheet.util.zero
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.drop
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun <T : Any, K : Any> SlotModalBottomSheet(
+fun <T : Any, K : Any> SlotModalDialog(
     childSlot: ChildSlot<T, K>,
-    skipPartiallyExpanded: Boolean = true,
+    properties: DialogProperties = DialogProperties(),
     onDismiss: () -> Unit,
-    content: @Composable ColumnScope.(K) -> Unit
+    content: @Composable (K) -> Unit
 ) {
     val child = childSlot.child?.instance
-    val sheetState = rememberModalBottomSheetState(
-        skipPartiallyExpanded = skipPartiallyExpanded,
-        confirmValueChange = {
-            true
-        }
-    )
-
-    LaunchedEffect(sheetState) {
-        snapshotFlow { sheetState.isVisible }
-            .distinctUntilChanged()
-            .drop(1)
-            .collect { visible ->
-                if (!visible) {
-                    onDismiss.invoke()
-                }
-            }
-    }
-
-    if (child != null) {
-        ModalBottomSheet(
-            onDismissRequest = { onDismiss.invoke() },
-            sheetState = sheetState,
-            contentWindowInsets = { WindowInsets.zero },
-            content = {
-                content.invoke(this, child)
-            }
+    child?.let {
+        Dialog(
+            onDismissRequest = onDismiss,
+            properties = properties,
+            content = { content.invoke(child) }
         )
     }
 }
