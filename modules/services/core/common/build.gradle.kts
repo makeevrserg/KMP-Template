@@ -1,10 +1,10 @@
 @file:Suppress("UnusedPrivateMember")
 
 plugins {
-    id("com.android.library")
     kotlin("multiplatform")
-    alias(libs.plugins.klibs.gradle.java.core)
-    alias(libs.plugins.klibs.gradle.android.core)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.klibs.gradle.java.version)
+    alias(libs.plugins.klibs.gradle.android.sdk)
     alias(libs.plugins.klibs.gradle.android.namespace)
 }
 
