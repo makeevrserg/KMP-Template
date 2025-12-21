@@ -12,11 +12,17 @@ import kotlin.io.encoding.ExperimentalEncodingApi
 plugins {
     kotlin("plugin.serialization")
     id("com.android.application")
-    id("kotlin-android")
+    alias(libs.plugins.kotlin.multiplatform)
     id("ru.astrainteractive.gradleplugin.java.version")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.android.apk.name")
     alias(libs.plugins.kotlin.compose.gradle)
+}
+
+kotlin {
+    applyDefaultHierarchyTemplate()
+    jvm()
+    androidTarget()
 }
 
 android {
