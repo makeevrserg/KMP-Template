@@ -5,6 +5,7 @@ plugins {
     id("com.android.kotlin.multiplatform.library")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("ru.astrainteractive.gradleplugin.android.sdk")
+    id("ru.astrainteractive.gradleplugin.android.java")
     id("ru.astrainteractive.gradleplugin.android.namespace")
 }
 
