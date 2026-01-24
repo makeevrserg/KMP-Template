@@ -30,10 +30,6 @@ tasks.register<SecretFileTask>("exportKeystore") {
     }
 }
 
-afterEvaluate {
-    logger.error("Type: ${tasks.getByName("bundleDebug")}")
-}
-
 android {
     namespace = "${requireProjectInfo.group}"
     if (file("google-services.json").exists()) {
@@ -44,10 +40,6 @@ android {
         applicationId = requireProjectInfo.group
         versionCode = baseGradleProperty("project.version.code").requireInt
         versionName = requireProjectInfo.versionString
-//        setProperty(
-//            "archivesBaseName",
-//            "${requireProjectInfo.name}-${requireProjectInfo.versionString}"
-//        )
     }
     defaultConfig {
         multiDexEnabled = true
