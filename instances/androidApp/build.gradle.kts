@@ -1,5 +1,7 @@
 @file:OptIn(ExperimentalEncodingApi::class)
 
+import com.android.build.gradle.internal.tasks.ValidateSigningTask
+import ru.astrainteractive.gradleplugin.plugin.secretfile.SecretFileTask
 import ru.astrainteractive.gradleplugin.property.baseGradleProperty
 import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
 import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.requireInt
@@ -12,17 +14,24 @@ import kotlin.io.encoding.ExperimentalEncodingApi
 plugins {
     kotlin("plugin.serialization")
     id("com.android.application")
-    alias(libs.plugins.kotlin.multiplatform)
     id("ru.astrainteractive.gradleplugin.java.version")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.android.apk.name")
+    id("ru.astrainteractive.gradleplugin.android.apk.sign")
+    id("ru.astrainteractive.gradleplugin.android.compose")
     alias(libs.plugins.kotlin.compose.gradle)
 }
 
-kotlin {
-    applyDefaultHierarchyTemplate()
-    jvm()
-    androidTarget()
+tasks.register<SecretFileTask>("exportKeystore") {
+    targetFile = file("keystore.jks")
+    base64 = secretProperty("KEYSTORE_BASE64").stringOrEmpty
+    tasks.withType<ValidateSigningTask>().all {
+        this.dependsOn(this@register)
+    }
+}
+
+afterEvaluate {
+    logger.error("Type: ${tasks.getByName("bundleDebug")}")
 }
 
 android {
@@ -35,10 +44,10 @@ android {
         applicationId = requireProjectInfo.group
         versionCode = baseGradleProperty("project.version.code").requireInt
         versionName = requireProjectInfo.versionString
-        setProperty(
-            "archivesBaseName",
-            "${requireProjectInfo.name}-${requireProjectInfo.versionString}"
-        )
+//        setProperty(
+//            "archivesBaseName",
+//            "${requireProjectInfo.name}-${requireProjectInfo.versionString}"
+//        )
     }
     defaultConfig {
         multiDexEnabled = true
@@ -50,9 +59,6 @@ android {
 
     signingConfigs {
         val keyStoreFile = file("keystore.jks")
-        val secretKeyAlias = secretProperty("KEY_ALIAS").stringOrEmpty
-        val secretKeyPassword = secretProperty("KEY_PASSWORD").stringOrEmpty
-        val secretStorePassword = secretProperty("STORE_PASSWORD").stringOrEmpty
         if (!keyStoreFile.exists()) {
             logger.warn("Keystore file not exists - creating")
             val base64String = secretProperty("KEYSTORE_BASE64").stringOrEmpty
@@ -60,25 +66,6 @@ android {
                 val byteArray = Base64.decode(base64String)
                 keyStoreFile.createNewFile()
                 keyStoreFile.writeBytes(byteArray)
-            }
-        }
-        if (!keyStoreFile.exists()) {
-            logger.warn("Keystore file could not be created")
-        }
-        getByName("debug") {
-            if (keyStoreFile.exists()) {
-                keyAlias = secretKeyAlias
-                keyPassword = secretKeyPassword
-                storePassword = secretStorePassword
-                storeFile = keyStoreFile
-            }
-        }
-        create("release") {
-            if (keyStoreFile.exists()) {
-                keyAlias = secretKeyAlias
-                keyPassword = secretKeyPassword
-                storePassword = secretStorePassword
-                storeFile = keyStoreFile
             }
         }
     }
@@ -90,15 +77,8 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName("release")
         }
-        debug {
-            isDebuggable = true
-            signingConfig = signingConfigs.getByName("debug")
-        }
-    }
-    buildFeatures {
-        compose = true
+        debug { isDebuggable = true }
     }
     lint {
         abortOnError = false

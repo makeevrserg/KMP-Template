@@ -1,17 +1,17 @@
 @file:Suppress("UnusedPrivateMember")
 
 plugins {
-    alias(libs.plugins.android.library)
-    kotlin("multiplatform")
+    id("org.jetbrains.kotlin.multiplatform")
+    id("org.jetbrains.kotlin.plugin.serialization")
+    id("com.android.kotlin.multiplatform.library")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("ru.astrainteractive.gradleplugin.android.sdk")
-    alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.klibs.gradle.android.namespace)
+    id("ru.astrainteractive.gradleplugin.android.namespace")
 }
 
 kotlin {
     applyDefaultHierarchyTemplate()
-    androidTarget()
+    androidLibrary {}
     iosX64()
     iosArm64()
     iosSimulatorArm64()
@@ -66,15 +66,15 @@ kotlin {
     }
 }
 
-dependencies {
-    // FireBase
-    implementation(platform(libs.google.firebase.bom))
-    implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-common")
-    implementation("com.google.firebase:firebase-firestore")
-    implementation("com.google.firebase:firebase-messaging")
-    implementation(libs.klibs.kstorage)
-    implementation(libs.google.auth)
-    implementation(libs.kotlin.coroutines.playServices)
-    implementation("io.ktor:ktor-client-logging-jvm:${libs.versions.ktor.get()}")
-}
+// dependencies {
+//    // FireBase
+//    implementation(platform(libs.google.firebase.bom))
+//    implementation("com.google.firebase:firebase-auth")
+//    implementation("com.google.firebase:firebase-common")
+//    implementation("com.google.firebase:firebase-firestore")
+//    implementation("com.google.firebase:firebase-messaging")
+//    implementation(libs.klibs.kstorage)
+//    implementation(libs.google.auth)
+//    implementation(libs.kotlin.coroutines.playServices)
+//    implementation("io.ktor:ktor-client-logging-jvm:${libs.versions.ktor.get()}")
+// }

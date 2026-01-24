@@ -1,8 +1,8 @@
 [versions]
 # Kotlin
-kotlin-version = "2.2.21" # https://github.com/JetBrains/kotlin
+kotlin-version = "2.3.0" # https://github.com/JetBrains/kotlin
 kotlin-coroutines = "1.10.2" # https://github.com/Kotlin/kotlinx.coroutines
-kotlin-android-application = "8.12.3" # https://developer.android.com/build/releases/gradle-plugin
+kotlin-android-application = "9.0.0" # https://developer.android.com/build/releases/gradle-plugin
 kotlin-serialization-json = "1.9.0" # https://github.com/Kotlin/kotlinx.serialization
 
 # Androidx
@@ -51,7 +51,7 @@ mvikotlin = "4.3.0" # https://github.com/arkivanov/MVIKotlin
 mppsettings = "1.3.0" # https://github.com/russhwolf/multiplatform-settings
 
 # klibs
-klibs-gradleplugin = "1.13.1" # https://github.com/makeevrserg/gradle-plugin
+klibs-gradleplugin = "1.14.0" # https://github.com/makeevrserg/gradle-plugin
 
 # buildkonfig
 buildkonfig = "6.0.0" # https://github.com/gmazzo/gradle-buildconfig-plugin
@@ -129,7 +129,7 @@ kotlin-compose = { id = "org.jetbrains.compose", version.ref = "kotlin-compose" 
 kotlin-compose-gradle = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin-version" }
 
 # Android
-android-library = { id = "com.android.library", version.ref = "kotlin-android-application" }
+android-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "kotlin-android-application" }
 android-application = { id = "com.android.application", version.ref = "kotlin-android-application" }
 
 # Gradle

@@ -1,17 +1,17 @@
 @file:Suppress("UnusedPrivateMember")
 
 plugins {
+    id("org.jetbrains.kotlin.multiplatform")
     id("org.jetbrains.compose")
-    alias(libs.plugins.android.library)
-    kotlin("multiplatform")
+    id("org.jetbrains.kotlin.plugin.compose")
+    id("com.android.kotlin.multiplatform.library")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("ru.astrainteractive.gradleplugin.android.sdk")
-    alias(libs.plugins.kotlin.compose.gradle)
-    alias(libs.plugins.klibs.gradle.android.namespace)
+    id("ru.astrainteractive.gradleplugin.android.namespace")
 }
 kotlin {
     applyDefaultHierarchyTemplate()
-    androidTarget()
+    androidLibrary {}
     sourceSets {
         val commonMain by getting {
             dependencies {
