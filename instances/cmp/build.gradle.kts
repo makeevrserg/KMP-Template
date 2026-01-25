@@ -19,7 +19,9 @@ kotlin {
     applyDefaultHierarchyTemplate()
     jvm()
     js(IR) {
-        browser()
+        browser {
+            useCommonJs()
+        }
         binaries.executable()
     }
     sourceSets {
@@ -76,4 +78,19 @@ compose.desktop {
             packageVersion = requireProjectInfo.versionString
         }
     }
+}
+
+val copySharedResources = project.tasks.register<Copy>("copyJsResources") {
+    from(
+        project.project(projects.modules.services.core.resources.path)
+            .layout.buildDirectory
+            .dir("generated/moko-resources/jsMain/res")
+    )
+    into(
+        rootProject.layout.buildDirectory
+            .dir("js")
+            .map { dir -> dir.dir("packages") }
+            .map { dir -> dir.dir("Application-Template-instances-cmp") }
+            .map { dir -> dir.dir("kotlin") },
+    )
 }
