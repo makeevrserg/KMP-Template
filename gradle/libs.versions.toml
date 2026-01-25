@@ -36,7 +36,7 @@ klibs-kstorage = "4.4.1" # https://github.com/makeevrserg/klibs.kstorage
 kotlin-compose = "1.10.0+" # https://github.com/JetBrains/compose-multiplatform
 
 # Moko
-moko-resources = "0.26.0-RC" # https://github.com/icerockdev/moko-resources
+moko-resources = "0.26.1-RC" # https://github.com/icerockdev/moko-resources
 
 # Decompose
 decompose = "3.4.0" # https://github.com/arkivanov/Decompose
