@@ -34,8 +34,6 @@ buildConfig {
 
 kotlin {
     applyDefaultHierarchyTemplate()
+    jvm()
     androidLibrary {}
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
 }

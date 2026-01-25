@@ -13,6 +13,7 @@ plugins {
 
 kotlin {
     applyDefaultHierarchyTemplate()
+    jvm()
     androidLibrary {}
     sourceSets {
         val commonMain by getting {

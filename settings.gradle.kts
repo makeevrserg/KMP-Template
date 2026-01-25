@@ -23,6 +23,7 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "Application-Template"
 // Instances
 include(":instances:androidApp")
+include(":instances:cmp")
 // Services
 include(":modules:services:core:common")
 include(":modules:services:core:resources")

@@ -36,9 +36,7 @@ klibs-kstorage = "4.4.1" # https://github.com/makeevrserg/klibs.kstorage
 kotlin-compose = "1.10.0+" # https://github.com/JetBrains/compose-multiplatform
 
 # Moko
-moko-mvvm = "0.16.1" # https://github.com/icerockdev/moko-mvvm
-moko-resources = "0.25.2" # https://github.com/icerockdev/moko-resources
-moko-network = "0.21.0" # https://github.com/icerockdev/moko-network
+moko-resources = "0.26.0-RC" # https://github.com/icerockdev/moko-resources
 
 # Decompose
 decompose = "3.4.0" # https://github.com/arkivanov/Decompose
@@ -112,13 +110,19 @@ ktor-client-json = { module = "io.ktor:ktor-client-json", version.ref = "ktor" }
 ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 
-# Moko`
-moko-network-generator = { module = "dev.icerock.moko:network-generator", version.ref = "moko-network" }
-moko-mvvm-core = { module = "dev.icerock.moko:mvvm-core", version.ref = "moko-mvvm" }
-moko-mvvm-flow = { module = "dev.icerock.moko:mvvm-flow", version.ref = "moko-mvvm" }
-moko-resources-generator = { module = "dev.icerock.moko:resources-generator", version.ref = "moko-resources" }
-moko-resources-core = { module = "dev.icerock.moko:resources", version.ref = "moko-resources" }
-moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko-resources" }
+# Moko
+moko-resources-generator = { module = "ru.astrainteractive.mokoresources:resources-generator", version.ref = "moko-resources" }
+moko-resources-core = { module = "ru.astrainteractive.mokoresources:resources", version.ref = "moko-resources" }
+moko-resources-compose = { module = "ru.astrainteractive.mokoresources:resources-compose", version.ref = "moko-resources" }
+
+jetbrains-compose-foundation = { group = "org.jetbrains.compose.foundation", name = "foundation", version.ref = "kotlin-compose" }
+jetbrains-compose-material = { group = "org.jetbrains.compose.material", name = "material", version.ref = "kotlin-compose" }
+jetbrains-compose-runtime = { group = "org.jetbrains.compose.runtime", name = "runtime", version.ref = "kotlin-compose" }
+jetbrains-compose-ui = { group = "org.jetbrains.compose.ui", name = "ui", version.ref = "kotlin-compose" }
+jetbrains-compose-tooling = { group = "org.jetbrains.compose.ui", name = "ui-tooling", version.ref = "kotlin-compose" }
+jetbrains-compose-preview = { group = "org.jetbrains.compose.ui", name = "ui-tooling-preview", version.ref = "kotlin-compose" }
+jetbrains-compose-resources = { group = "org.jetbrains.compose.components", name = "components-resources", version.ref = "kotlin-compose" }
+
 
 [plugins]
 # Kotlin

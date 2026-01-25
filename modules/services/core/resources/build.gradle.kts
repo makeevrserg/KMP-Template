@@ -3,7 +3,7 @@
 import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.hierarchyGroup
 
 plugins {
-//    id("dev.icerock.mobile.multiplatform-resources")
+    id("ru.astrainteractive.mokoresources.multiplatform-resources")
     id("org.jetbrains.kotlin.multiplatform")
     id("com.android.kotlin.multiplatform.library")
     id("ru.astrainteractive.gradleplugin.java.version")
@@ -14,11 +14,8 @@ plugins {
 
 kotlin {
     applyDefaultHierarchyTemplate()
-    androidLibrary{}
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
-    iosSimulatorArm64()
+    jvm()
+    androidLibrary {}
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -34,7 +31,7 @@ kotlin {
     }
 }
 
-//multiplatformResources {
-//    resourcesPackage = hierarchyGroup
-//    resourcesClassName = "CoreR"
-//}
+multiplatformResources {
+    resourcesPackage = hierarchyGroup
+    resourcesClassName = "CoreR"
+}

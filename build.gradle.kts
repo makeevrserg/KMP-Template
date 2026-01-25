@@ -5,7 +5,6 @@ buildscript {
         classpath(libs.google.firebase.crsahlytics.gradle)
         classpath(libs.google.gms.services.gradle)
         classpath(libs.moko.resources.generator)
-        classpath(libs.moko.network.generator)
     }
 }
 
