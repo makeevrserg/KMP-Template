@@ -15,18 +15,17 @@ kotlin {
     applyDefaultHierarchyTemplate()
     jvm()
     androidLibrary {}
+    js(IR) {
+        browser()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {
                 // Compose MPP
-                implementation(compose.foundation)
-                implementation(compose.ui)
-                implementation(compose.runtime)
-                implementation(compose.uiTooling)
-                implementation(compose.preview)
-                implementation(compose.material)
-                implementation(compose.material3)
-                implementation(compose.materialIconsExtended)
+                implementation(libs.jetbrains.compose.runtime)
+                implementation(libs.jetbrains.compose.foundation)
+                implementation(libs.jetbrains.compose.material)
+                implementation(libs.jetbrains.compose.ui)
                 // klibs
                 implementation(libs.klibs.mikro.core)
                 implementation(libs.klibs.mikro.platform)

@@ -18,6 +18,10 @@ plugins {
 kotlin {
     applyDefaultHierarchyTemplate()
     jvm()
+    js(IR) {
+        browser()
+        binaries.executable()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -25,16 +29,12 @@ kotlin {
                 implementation(libs.jetbrains.compose.foundation)
                 implementation(libs.jetbrains.compose.material)
                 implementation(libs.jetbrains.compose.ui)
-                implementation(libs.jetbrains.compose.resources)
-                implementation(libs.jetbrains.compose.preview)
-                implementation(compose.desktop.currentOs)
             }
             dependencies {
                 // Kotlin
                 implementation(libs.kotlin.serialization.json)
                 // Coroutines
                 implementation(libs.kotlin.coroutines.core)
-                implementation(libs.kotlin.coroutines.android)
                 // klibs
                 implementation(libs.klibs.mikro.core)
                 implementation(libs.klibs.mikro.platform)
@@ -51,6 +51,17 @@ kotlin {
                 implementation(projects.modules.services.core.ui.common)
                 implementation(projects.modules.services.core.ui.theme)
                 implementation(projects.modules.services.core.resources)
+            }
+        }
+        val jvmMain by getting {
+            dependencies {
+                implementation(compose.desktop.currentOs)
+            }
+        }
+        val jsMain by getting {
+            dependencies {
+                implementation(compose.html.core)
+                implementation(compose.runtime)
             }
         }
     }

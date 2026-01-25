@@ -15,22 +15,23 @@ kotlin {
     applyDefaultHierarchyTemplate()
     jvm()
     androidLibrary {}
+    js(IR) {
+        browser()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {
                 // Compose MPP
-                implementation(compose.foundation)
-                implementation(compose.ui)
-                implementation(compose.runtime)
-                implementation(compose.uiTooling)
-                implementation(compose.preview)
-                implementation(compose.material)
+                implementation(libs.jetbrains.compose.runtime)
+                implementation(libs.jetbrains.compose.foundation)
+                implementation(libs.jetbrains.compose.material)
+                implementation(libs.jetbrains.compose.ui)
                 // Moko
                 implementation(libs.moko.resources.core)
                 // Decompose
                 implementation(libs.decompose.core)
                 // klibs
-                implementation(libs.klibs.mikro.extensions)
+//                implementation(libs.klibs.mikro.extensions)
                 // Local
                 implementation(projects.modules.services.core.resources)
                 implementation(projects.modules.services.core.ui.common)

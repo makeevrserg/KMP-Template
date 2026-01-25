@@ -14,6 +14,9 @@ kotlin {
     applyDefaultHierarchyTemplate()
     jvm()
     androidLibrary {}
+    js(IR) {
+        browser()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -28,12 +31,11 @@ kotlin {
                 implementation(libs.moko.resources.core)
                 implementation(libs.moko.resources.compose)
                 // Compose
-                implementation(compose.foundation)
-                implementation(compose.ui)
-                implementation(compose.material)
-                implementation(compose.material3)
-                implementation(compose.materialIconsExtended)
-                implementation(compose.runtime)
+                implementation(libs.jetbrains.compose.runtime)
+                implementation(libs.jetbrains.compose.foundation)
+                implementation(libs.jetbrains.compose.material)
+                implementation(libs.jetbrains.compose.material3)
+                implementation(libs.jetbrains.compose.ui)
                 // Local
                 implementation(projects.modules.services.core.resources)
                 implementation(projects.modules.services.core.common)

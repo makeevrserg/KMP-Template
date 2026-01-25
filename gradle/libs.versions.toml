@@ -117,6 +117,7 @@ moko-resources-compose = { module = "ru.astrainteractive.mokoresources:resources
 
 jetbrains-compose-foundation = { group = "org.jetbrains.compose.foundation", name = "foundation", version.ref = "kotlin-compose" }
 jetbrains-compose-material = { group = "org.jetbrains.compose.material", name = "material", version.ref = "kotlin-compose" }
+jetbrains-compose-material3 = { group = "org.jetbrains.compose.material3", name = "material3", version.ref = "kotlin-compose" }
 jetbrains-compose-runtime = { group = "org.jetbrains.compose.runtime", name = "runtime", version.ref = "kotlin-compose" }
 jetbrains-compose-ui = { group = "org.jetbrains.compose.ui", name = "ui", version.ref = "kotlin-compose" }
 jetbrains-compose-tooling = { group = "org.jetbrains.compose.ui", name = "ui-tooling", version.ref = "kotlin-compose" }

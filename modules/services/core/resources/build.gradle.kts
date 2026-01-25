@@ -16,6 +16,9 @@ kotlin {
     applyDefaultHierarchyTemplate()
     jvm()
     androidLibrary {}
+    js(IR) {
+        browser()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {

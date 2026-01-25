@@ -36,4 +36,7 @@ kotlin {
     applyDefaultHierarchyTemplate()
     jvm()
     androidLibrary {}
+    js(IR) {
+        browser()
+    }
 }
