@@ -27,16 +27,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
-import examplepackage.core.ui.theme.AdaptThemeFade
 import examplepackage.core.ui.theme.LocalAppTheme
 import examplepackage.core.ui.util.asPainter
-import examplepackage.features.splash.di.SplashModule
 import examplepackage.features.splash.presentation.SplashComponent
 import kotlinx.coroutines.flow.collectLatest
-import ru.astrainteractive.klibs.mikro.extensions.arkivanov.FakeComponentContext
 
 @Composable
 fun SplashScreenComponent(
@@ -96,16 +92,5 @@ fun SplashScreenComponent(
                 backgroundColor = LocalAppTheme.current.customColors.astraLogo.astraYellow
             )
         }
-    }
-}
-
-@Preview
-@Composable
-private fun SplashScreenComponentPreview() {
-    AdaptThemeFade {
-        SplashScreenComponent(
-            splashComponent = SplashModule.Preview().createSplashComponent(FakeComponentContext()),
-            onIconClicked = {}
-        )
     }
 }

@@ -1,21 +1,22 @@
 @file:Suppress("UnusedPrivateMember")
 
 plugins {
-    alias(libs.plugins.android.library)
-    kotlin("multiplatform")
+    id("org.jetbrains.kotlin.multiplatform")
+    id("org.jetbrains.kotlin.plugin.serialization")
+    id("com.android.kotlin.multiplatform.library")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("ru.astrainteractive.gradleplugin.android.sdk")
-    alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.klibs.gradle.android.namespace)
+    id("ru.astrainteractive.gradleplugin.android.java")
+    id("ru.astrainteractive.gradleplugin.android.namespace")
 }
 
 kotlin {
     applyDefaultHierarchyTemplate()
-    androidTarget()
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
-    iosSimulatorArm64()
+    jvm()
+    androidLibrary {}
+    js(IR) {
+        browser()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -36,8 +37,6 @@ kotlin {
                 implementation(libs.ktor.serialization.json)
                 implementation(libs.ktor.logging)
                 // Moko
-                api(libs.moko.mvvm.core)
-                api(libs.moko.mvvm.flow)
                 implementation(libs.moko.resources.core)
                 // Serialization
                 implementation(libs.kotlin.serialization.json)
@@ -58,23 +57,15 @@ kotlin {
                 implementation(libs.ktor.client.cio)
             }
         }
-        val iosMain by getting {
+        val jvmMain by getting {
             dependencies {
-                implementation(libs.ktor.client.darwin)
+                implementation(libs.ktor.client.cio)
             }
         }
+//        val iosMain by getting {
+//            dependencies {
+//                implementation(libs.ktor.client.darwin)
+//            }
+//        }
     }
-}
-
-dependencies {
-    // FireBase
-    implementation(platform(libs.google.firebase.bom))
-    implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-common")
-    implementation("com.google.firebase:firebase-firestore")
-    implementation("com.google.firebase:firebase-messaging")
-    implementation(libs.klibs.kstorage)
-    implementation(libs.google.auth)
-    implementation(libs.kotlin.coroutines.playServices)
-    implementation("io.ktor:ktor-client-logging-jvm:${libs.versions.ktor.get()}")
 }

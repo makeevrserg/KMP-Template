@@ -7,12 +7,13 @@ import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValu
 
 
 plugins {
-    alias(libs.plugins.android.library)
-    kotlin("multiplatform")
+    id("org.jetbrains.kotlin.multiplatform")
+    id("com.android.kotlin.multiplatform.library")
     id("ru.astrainteractive.gradleplugin.java.version")
-    id("com.github.gmazzo.buildconfig")
     id("ru.astrainteractive.gradleplugin.android.sdk")
-    alias(libs.plugins.klibs.gradle.android.namespace)
+    id("ru.astrainteractive.gradleplugin.android.java")
+    id("ru.astrainteractive.gradleplugin.android.namespace")
+    id("com.github.gmazzo.buildconfig")
 }
 
 buildConfig {
@@ -33,8 +34,9 @@ buildConfig {
 
 kotlin {
     applyDefaultHierarchyTemplate()
-    androidTarget()
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
+    jvm()
+    androidLibrary {}
+    js(IR) {
+        browser()
+    }
 }

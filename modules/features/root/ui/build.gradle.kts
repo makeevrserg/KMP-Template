@@ -1,30 +1,31 @@
 @file:Suppress("UnusedPrivateMember")
 
 plugins {
+    id("org.jetbrains.kotlin.multiplatform")
     id("org.jetbrains.compose")
-    alias(libs.plugins.android.library)
-    kotlin("multiplatform")
+    id("org.jetbrains.kotlin.plugin.compose")
+    id("com.android.kotlin.multiplatform.library")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("ru.astrainteractive.gradleplugin.android.sdk")
-    alias(libs.plugins.kotlin.compose.gradle)
-    alias(libs.plugins.klibs.gradle.android.namespace)
+    id("ru.astrainteractive.gradleplugin.android.java")
+    id("ru.astrainteractive.gradleplugin.android.namespace")
 }
 
 kotlin {
     applyDefaultHierarchyTemplate()
-    androidTarget()
+    jvm()
+    androidLibrary {}
+    js(IR) {
+        browser()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {
                 // Compose MPP
-                implementation(compose.foundation)
-                implementation(compose.ui)
-                implementation(compose.runtime)
-                implementation(compose.uiTooling)
-                implementation(compose.preview)
-                implementation(compose.material)
-                implementation(compose.material3)
-                implementation(compose.materialIconsExtended)
+                implementation(libs.jetbrains.compose.runtime)
+                implementation(libs.jetbrains.compose.foundation)
+                implementation(libs.jetbrains.compose.material)
+                implementation(libs.jetbrains.compose.ui)
                 // klibs
                 implementation(libs.klibs.mikro.core)
                 implementation(libs.klibs.mikro.platform)

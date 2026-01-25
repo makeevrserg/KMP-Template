@@ -3,21 +3,22 @@
 import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.hierarchyGroup
 
 plugins {
-    id("dev.icerock.mobile.multiplatform-resources")
-    alias(libs.plugins.android.library)
-    kotlin("multiplatform")
+    id("ru.astrainteractive.mokoresources.multiplatform-resources")
+    id("org.jetbrains.kotlin.multiplatform")
+    id("com.android.kotlin.multiplatform.library")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("ru.astrainteractive.gradleplugin.android.sdk")
-    alias(libs.plugins.klibs.gradle.android.namespace)
+    id("ru.astrainteractive.gradleplugin.android.java")
+    id("ru.astrainteractive.gradleplugin.android.namespace")
 }
 
 kotlin {
     applyDefaultHierarchyTemplate()
-    androidTarget()
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
-    iosSimulatorArm64()
+    jvm()
+    androidLibrary {}
+    js(IR) {
+        browser()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {

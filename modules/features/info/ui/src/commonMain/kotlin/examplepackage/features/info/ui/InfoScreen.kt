@@ -7,18 +7,15 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.applicationtemplate.modules.services.core.build.konfig.BuildKonfig
 import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
 import examplepackage.core.ui.components.rowitem.RowSettingTextInfo
-import examplepackage.core.ui.theme.AdaptThemeFade
 import examplepackage.core.ui.theme.LocalAppTheme
 import examplepackage.core.ui.util.asComposableString
+import examplepackage.core.ui.util.asPainter
 import examplepackage.features.info.linkbrowser.LinkBrowser
 import examplepackage.features.info.ui.components.LinkWidget
 import examplepackage.features.info.ui.components.rememberLinkBrowser
@@ -47,7 +44,7 @@ fun InfoScreen() {
         item {
             RowSettingTextInfo(
                 modifier = Modifier.padding(vertical = LocalAppTheme.current.dimens.XS),
-                icon = Icons.Filled.Bolt,
+                painter = CoreR.images.ic_bolt.asPainter(),
                 text = "Version",
                 endText = "${BuildKonfig.VERSION_CODE} (${BuildKonfig.VERSION_NAME})"
             )
@@ -55,13 +52,5 @@ fun InfoScreen() {
         item {
             Spacer(modifier = Modifier.navigationBarsPadding())
         }
-    }
-}
-
-@Preview
-@Composable
-private fun InfoScreenPreview() {
-    AdaptThemeFade {
-        InfoScreen()
     }
 }

@@ -5,7 +5,6 @@ buildscript {
         classpath(libs.google.firebase.crsahlytics.gradle)
         classpath(libs.google.gms.services.gradle)
         classpath(libs.moko.resources.generator)
-        classpath(libs.moko.network.generator)
     }
 }
 
@@ -27,6 +26,7 @@ plugins {
     alias(libs.plugins.klibs.gradle.rootinfo) apply false
     // klibs - android
     alias(libs.plugins.klibs.gradle.android.sdk) apply false
+    alias(libs.plugins.klibs.gradle.android.java) apply false
     alias(libs.plugins.klibs.gradle.android.compose) apply false
     alias(libs.plugins.klibs.gradle.android.apk.sign) apply false
     alias(libs.plugins.klibs.gradle.android.apk.name) apply false

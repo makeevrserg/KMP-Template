@@ -3,8 +3,6 @@ package examplepackage.core.ui.components.topbar
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ChevronLeft
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -17,6 +15,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
+import examplepackage.core.ui.util.asPainter
 
 @Composable
 fun AstraCenterAlignedTopAppBar(
@@ -57,7 +57,7 @@ fun AstraCenterAlignedTopAppBar(
             onBackClicked?.let {
                 IconButton(onClick = it) {
                     Icon(
-                        imageVector = Icons.Default.ChevronLeft,
+                        painter = CoreR.images.ic_chevron_right.asPainter(),
                         contentDescription = null,
                         tint = MaterialTheme.colors.onPrimary,
                         modifier = Modifier.size(24.dp)

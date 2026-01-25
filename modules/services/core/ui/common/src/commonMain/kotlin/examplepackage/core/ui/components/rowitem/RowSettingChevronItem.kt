@@ -7,13 +7,13 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.Dp
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
 import dev.icerock.moko.resources.ImageResource
 import examplepackage.core.ui.theme.LocalAppTheme
 import examplepackage.core.ui.util.asPainter
@@ -34,7 +34,7 @@ fun RowSettingChevronItem(
         postfix = {
             IconButton(onClick = onClick) {
                 Icon(
-                    imageVector = Icons.Filled.ChevronRight,
+                    painter = CoreR.images.ic_chevron_right.asPainter(),
                     contentDescription = null,
                     tint = MaterialTheme.colors.onPrimary,
                     modifier = Modifier.size(LocalAppTheme.current.dimens.M)
@@ -71,7 +71,7 @@ fun RowSettingChevronItem(
 @Composable
 fun RowSettingTextInfo(
     modifier: Modifier = Modifier,
-    icon: ImageVector,
+    painter: Painter,
     spacing: Dp = LocalAppTheme.current.dimens.S,
     text: String,
     endText: String,
@@ -82,7 +82,7 @@ fun RowSettingTextInfo(
         spacing = spacing,
         prefix = {
             Icon(
-                imageVector = icon,
+                painter = painter,
                 contentDescription = null,
                 tint = MaterialTheme.colors.onPrimary,
                 modifier = Modifier.size(LocalAppTheme.current.dimens.M)

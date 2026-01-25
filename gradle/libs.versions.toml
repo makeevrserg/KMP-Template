@@ -1,8 +1,8 @@
 [versions]
 # Kotlin
-kotlin-version = "2.2.21" # https://github.com/JetBrains/kotlin
+kotlin-version = "2.3.0" # https://github.com/JetBrains/kotlin
 kotlin-coroutines = "1.10.2" # https://github.com/Kotlin/kotlinx.coroutines
-kotlin-android-application = "8.12.3" # https://developer.android.com/build/releases/gradle-plugin
+kotlin-android-application = "9.0.0" # https://developer.android.com/build/releases/gradle-plugin
 kotlin-serialization-json = "1.9.0" # https://github.com/Kotlin/kotlinx.serialization
 
 # Androidx
@@ -36,9 +36,7 @@ klibs-kstorage = "4.4.1" # https://github.com/makeevrserg/klibs.kstorage
 kotlin-compose = "1.10.0+" # https://github.com/JetBrains/compose-multiplatform
 
 # Moko
-moko-mvvm = "0.16.1" # https://github.com/icerockdev/moko-mvvm
-moko-resources = "0.25.2" # https://github.com/icerockdev/moko-resources
-moko-network = "0.21.0" # https://github.com/icerockdev/moko-network
+moko-resources = "0.26.1-RC" # https://github.com/icerockdev/moko-resources
 
 # Decompose
 decompose = "3.4.0" # https://github.com/arkivanov/Decompose
@@ -51,7 +49,7 @@ mvikotlin = "4.3.0" # https://github.com/arkivanov/MVIKotlin
 mppsettings = "1.3.0" # https://github.com/russhwolf/multiplatform-settings
 
 # klibs
-klibs-gradleplugin = "1.13.1" # https://github.com/makeevrserg/gradle-plugin
+klibs-gradleplugin = "1.14.0" # https://github.com/makeevrserg/gradle-plugin
 
 # buildkonfig
 buildkonfig = "6.0.0" # https://github.com/gmazzo/gradle-buildconfig-plugin
@@ -112,13 +110,20 @@ ktor-client-json = { module = "io.ktor:ktor-client-json", version.ref = "ktor" }
 ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 
-# Moko`
-moko-network-generator = { module = "dev.icerock.moko:network-generator", version.ref = "moko-network" }
-moko-mvvm-core = { module = "dev.icerock.moko:mvvm-core", version.ref = "moko-mvvm" }
-moko-mvvm-flow = { module = "dev.icerock.moko:mvvm-flow", version.ref = "moko-mvvm" }
-moko-resources-generator = { module = "dev.icerock.moko:resources-generator", version.ref = "moko-resources" }
-moko-resources-core = { module = "dev.icerock.moko:resources", version.ref = "moko-resources" }
-moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko-resources" }
+# Moko
+moko-resources-generator = { module = "ru.astrainteractive.mokoresources:resources-generator", version.ref = "moko-resources" }
+moko-resources-core = { module = "ru.astrainteractive.mokoresources:resources", version.ref = "moko-resources" }
+moko-resources-compose = { module = "ru.astrainteractive.mokoresources:resources-compose", version.ref = "moko-resources" }
+
+jetbrains-compose-foundation = { group = "org.jetbrains.compose.foundation", name = "foundation", version.ref = "kotlin-compose" }
+jetbrains-compose-material = { group = "org.jetbrains.compose.material", name = "material", version.ref = "kotlin-compose" }
+jetbrains-compose-material3 = { group = "org.jetbrains.compose.material3", name = "material3", version.ref = "kotlin-compose" }
+jetbrains-compose-runtime = { group = "org.jetbrains.compose.runtime", name = "runtime", version.ref = "kotlin-compose" }
+jetbrains-compose-ui = { group = "org.jetbrains.compose.ui", name = "ui", version.ref = "kotlin-compose" }
+jetbrains-compose-tooling = { group = "org.jetbrains.compose.ui", name = "ui-tooling", version.ref = "kotlin-compose" }
+jetbrains-compose-preview = { group = "org.jetbrains.compose.ui", name = "ui-tooling-preview", version.ref = "kotlin-compose" }
+jetbrains-compose-resources = { group = "org.jetbrains.compose.components", name = "components-resources", version.ref = "kotlin-compose" }
+
 
 [plugins]
 # Kotlin
@@ -129,7 +134,7 @@ kotlin-compose = { id = "org.jetbrains.compose", version.ref = "kotlin-compose" 
 kotlin-compose-gradle = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin-version" }
 
 # Android
-android-library = { id = "com.android.library", version.ref = "kotlin-android-application" }
+android-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "kotlin-android-application" }
 android-application = { id = "com.android.application", version.ref = "kotlin-android-application" }
 
 # Gradle
@@ -144,6 +149,7 @@ klibs-gradle-java-version = { id = "ru.astrainteractive.gradleplugin.java.versio
 klibs-gradle-rootinfo = { id = "ru.astrainteractive.gradleplugin.root.info", version.ref = "klibs-gradleplugin" }
 # klibs - android
 klibs-gradle-android-sdk = { id = "ru.astrainteractive.gradleplugin.android.sdk", version.ref = "klibs-gradleplugin" }
+klibs-gradle-android-java = { id = "ru.astrainteractive.gradleplugin.android.java", version.ref = "klibs-gradleplugin" }
 klibs-gradle-android-compose = { id = "ru.astrainteractive.gradleplugin.android.compose", version.ref = "klibs-gradleplugin" }
 klibs-gradle-android-apk-sign = { id = "ru.astrainteractive.gradleplugin.android.apk.sign", version.ref = "klibs-gradleplugin" }
 klibs-gradle-android-apk-name = { id = "ru.astrainteractive.gradleplugin.android.apk.name", version.ref = "klibs-gradleplugin" }
