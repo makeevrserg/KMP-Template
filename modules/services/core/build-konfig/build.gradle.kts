@@ -1,9 +1,8 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradleplugin.property.baseGradleProperty
-import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.hierarchyGroup
-import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
-import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.requireInt
+import ru.astrainteractive.gradleplugin.property.util.requireProjectInfo
+import ru.astrainteractive.gradleplugin.property.util.requireVersionCode
+import ru.astrainteractive.gradleplugin.util.hierarchyGroup
 
 
 plugins {
@@ -22,7 +21,7 @@ buildConfig {
     buildConfigField(
         type = String::class.java,
         name = "VERSION_CODE",
-        value = "${baseGradleProperty("project.version.code").requireInt}"
+        value = "$requireVersionCode"
     )
     buildConfigField(
         type = String::class.java,

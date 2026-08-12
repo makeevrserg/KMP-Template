@@ -20,8 +20,8 @@ import examplepackage.core.ui.util.asPainter
 
 @Composable
 fun RowSettingChevronItem(
-    modifier: Modifier = Modifier,
     text: String,
+    modifier: Modifier = Modifier,
     spacing: Dp = LocalAppTheme.current.dimens.S,
     prefix: (@Composable RowScope.() -> Unit)? = null,
     onClick: () -> Unit = {}
@@ -46,10 +46,10 @@ fun RowSettingChevronItem(
 
 @Composable
 fun RowSettingChevronItem(
-    modifier: Modifier = Modifier,
     icon: ImageVector,
-    spacing: Dp = LocalAppTheme.current.dimens.S,
     text: String,
+    modifier: Modifier = Modifier,
+    spacing: Dp = LocalAppTheme.current.dimens.S,
     onClick: (() -> Unit) = {}
 ) {
     RowSettingChevronItem(
@@ -70,11 +70,11 @@ fun RowSettingChevronItem(
 
 @Composable
 fun RowSettingTextInfo(
-    modifier: Modifier = Modifier,
     painter: Painter,
-    spacing: Dp = LocalAppTheme.current.dimens.S,
     text: String,
     endText: String,
+    modifier: Modifier = Modifier,
+    spacing: Dp = LocalAppTheme.current.dimens.S,
 ) {
     RowSettingItem(
         modifier = modifier,
@@ -100,10 +100,10 @@ fun RowSettingTextInfo(
 
 @Composable
 fun RowSettingChevronItem(
-    modifier: Modifier = Modifier,
     icon: ImageResource,
-    tint: Color = Color.Unspecified,
     text: String,
+    modifier: Modifier = Modifier,
+    tint: Color = Color.Unspecified,
     onClick: (() -> Unit) = {}
 ) {
     RowSettingChevronItem(

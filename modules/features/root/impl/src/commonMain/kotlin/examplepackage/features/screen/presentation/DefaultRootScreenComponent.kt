@@ -9,12 +9,12 @@ import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.router.stack.replaceAll
 import com.arkivanov.decompose.router.stack.replaceCurrent
 import com.arkivanov.decompose.value.Value
-import examplepackage.features.root.di.RootModule
 import examplepackage.features.screen.di.factory.RootScreenComponentChildFactory
+import examplepackage.features.splash.di.SplashModule
 
 internal class DefaultRootScreenComponent(
     componentContext: ComponentContext,
-    rootModule: RootModule,
+    splashModule: SplashModule,
 ) : RootScreenComponent, ComponentContext by componentContext {
 
     private val navigation = StackNavigation<RootScreenComponent.Configuration>()
@@ -28,7 +28,7 @@ internal class DefaultRootScreenComponent(
             RootScreenComponentChildFactory(
                 config = config,
                 componentContext = context,
-                rootModule = rootModule,
+                splashModule = splashModule,
             ).create()
         }
     )

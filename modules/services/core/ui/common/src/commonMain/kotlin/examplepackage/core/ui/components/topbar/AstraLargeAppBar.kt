@@ -20,12 +20,14 @@ import examplepackage.core.ui.util.asPainter
 
 @Composable
 fun AstraCenterAlignedTopAppBar(
+     modifier: Modifier = Modifier,
     title: String = "",
-    onBackClicked: (() -> Unit)? = null,
+    onBackClick: (() -> Unit)? = null,
     actions: @Composable RowScope.() -> Unit = {}
 ) {
     AstraCenterAlignedTopAppBar(
-        onBackClicked = onBackClicked,
+        modifier = modifier,
+        onBackClick = onBackClick,
         actions = actions,
         title = {
             Text(
@@ -44,18 +46,20 @@ fun AstraCenterAlignedTopAppBar(
 @Composable
 fun AstraCenterAlignedTopAppBar(
     title: @Composable () -> Unit,
-    onBackClicked: (() -> Unit)? = null,
+    modifier: Modifier = Modifier,
+    onBackClick: (() -> Unit)? = null,
     actions: @Composable RowScope.() -> Unit = {}
 ) {
     CenterAlignedTopAppBar(
+        modifier = modifier,
         actions = actions,
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
             containerColor = Color.Transparent,
         ),
         title = title,
         navigationIcon = {
-            onBackClicked?.let {
-                IconButton(onClick = it) {
+            onBackClick?.let { onBack ->
+                IconButton(onClick = onBack) {
                     Icon(
                         painter = CoreR.images.ic_chevron_right.asPainter(),
                         contentDescription = null,

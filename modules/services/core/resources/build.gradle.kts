@@ -1,15 +1,15 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.hierarchyGroup
+import ru.astrainteractive.gradleplugin.util.hierarchyGroup
 
 plugins {
-    id("ru.astrainteractive.mokoresources.multiplatform-resources")
     id("org.jetbrains.kotlin.multiplatform")
     id("com.android.kotlin.multiplatform.library")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.android.java")
     id("ru.astrainteractive.gradleplugin.android.namespace")
+    alias(libs.plugins.moko.resources)
 }
 
 kotlin {

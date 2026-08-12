@@ -22,11 +22,11 @@ import examplepackage.features.info.ui.components.rememberLinkBrowser
 import examplepackage.features.info.ui.data.InfoScreenLinks
 
 @Composable
-fun InfoScreen() {
+fun InfoScreen(modifier: Modifier = Modifier) {
     val linkBrowser: LinkBrowser = rememberLinkBrowser()
     val models = remember { InfoScreenLinks.get() }
     LazyColumn(
-        modifier = Modifier.padding(horizontal = LocalAppTheme.current.dimens.S)
+        modifier = modifier.padding(horizontal = LocalAppTheme.current.dimens.S)
     ) {
         item {
             Text(

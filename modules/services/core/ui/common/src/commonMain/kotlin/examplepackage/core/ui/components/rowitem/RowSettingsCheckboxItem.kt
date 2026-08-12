@@ -13,11 +13,11 @@ import examplepackage.core.ui.theme.LocalAppTheme
 
 @Composable
 fun RowSettingsCheckboxItem(
-    icon: ImageVector? = null,
     text: String,
-    spacing: Dp = LocalAppTheme.current.dimens.S,
-    modifier: Modifier = Modifier,
     checked: Boolean,
+    modifier: Modifier = Modifier,
+    icon: ImageVector? = null,
+    spacing: Dp = LocalAppTheme.current.dimens.S,
     enabled: Boolean = true,
     onCheckChange: (Boolean) -> Unit
 ) {

@@ -27,7 +27,7 @@ fun RootScreenContent(
         when (val screen = configuration.instance) {
             is RootScreenComponent.Child.Splash -> SplashScreenComponent(
                 splashComponent = screen.splashComponent,
-                onIconClicked = {
+                onIconClick = {
                     rootComponent.rootBottomSheetComponent.showInfoSheet()
                 }
             )

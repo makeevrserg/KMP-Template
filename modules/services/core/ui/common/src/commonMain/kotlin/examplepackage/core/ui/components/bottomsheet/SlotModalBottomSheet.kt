@@ -8,8 +8,8 @@ import com.arkivanov.decompose.router.slot.ChildSlot
 @Composable
 fun <T : Any, K : Any> SlotModalDialog(
     childSlot: ChildSlot<T, K>,
-    properties: DialogProperties = DialogProperties(),
     onDismiss: () -> Unit,
+    properties: DialogProperties = DialogProperties(),
     content: @Composable (K) -> Unit
 ) {
     val child = childSlot.child?.instance

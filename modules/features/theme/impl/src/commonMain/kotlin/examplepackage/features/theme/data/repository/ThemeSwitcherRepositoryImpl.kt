@@ -2,8 +2,8 @@ package examplepackage.features.theme.data.repository
 
 import com.russhwolf.settings.Settings
 import examplepackage.features.theme.data.model.Theme
+import ru.astrainteractive.klibs.kstorage.api.asStateFlowMutableKrate
 import ru.astrainteractive.klibs.kstorage.api.impl.DefaultMutableKrate
-import ru.astrainteractive.klibs.kstorage.util.asStateFlowMutableKrate
 
 internal class ThemeSwitcherRepositoryImpl(
     private val settings: Settings

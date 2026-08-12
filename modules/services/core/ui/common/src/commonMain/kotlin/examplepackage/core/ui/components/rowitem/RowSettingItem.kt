@@ -16,8 +16,8 @@ import examplepackage.core.ui.theme.LocalAppTheme
 
 @Composable
 fun RowSettingItem(
-    modifier: Modifier = Modifier,
     text: String,
+    modifier: Modifier = Modifier,
     spacing: Dp = LocalAppTheme.current.dimens.S,
     verticalAlignment: Alignment.Vertical = Alignment.CenterVertically,
     prefix: (@Composable RowScope.() -> Unit)? = null,

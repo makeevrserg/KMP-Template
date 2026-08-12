@@ -22,13 +22,16 @@ interface RootModule {
             ThemeSwitcherModule.Default(coreModule.settings)
         }
         override val splashModule: SplashModule by lazy {
-            SplashModule.Default(coreModule = coreModule)
+            SplashModule.Default(
+                mainScope = coreModule.mainScope,
+                dispatchers = coreModule.dispatchers
+            )
         }
 
         override fun createRootComponent(componentContext: ComponentContext): RootComponent {
             return DefaultRootComponent(
                 componentContext = componentContext,
-                rootModule = this
+                splashModule = splashModule
             )
         }
     }

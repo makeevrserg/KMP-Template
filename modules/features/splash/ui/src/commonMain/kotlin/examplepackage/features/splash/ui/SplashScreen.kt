@@ -37,7 +37,8 @@ import kotlinx.coroutines.flow.collectLatest
 @Composable
 fun SplashScreenComponent(
     splashComponent: SplashComponent,
-    onIconClicked: () -> Unit
+    modifier: Modifier = Modifier,
+    onIconClick: () -> Unit
 ) {
     val scale by rememberInfiniteTransition(label = "Scale transition").animateFloat(
         label = "Scale animation",
@@ -60,7 +61,7 @@ fun SplashScreenComponent(
         }
     }
 
-    Box(Modifier.fillMaxSize()) {
+    Box(modifier.fillMaxSize()) {
         Box(
             Modifier
                 .fillMaxSize()
@@ -76,7 +77,7 @@ fun SplashScreenComponent(
                     .wrapContentHeight()
                     .scale(scale)
                     .clip(CircleShape)
-                    .clickable { onIconClicked.invoke() }
+                    .clickable { onIconClick.invoke() }
             )
         }
         Box(

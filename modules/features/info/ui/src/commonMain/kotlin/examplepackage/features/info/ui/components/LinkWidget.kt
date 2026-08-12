@@ -7,8 +7,8 @@ import examplepackage.features.info.ui.model.LinkModel
 
 @Composable
 internal fun LinkWidget(
-    linkBrowser: LinkBrowser = rememberLinkBrowser(),
-    linkModel: LinkModel
+    linkModel: LinkModel,
+    linkBrowser: LinkBrowser = rememberLinkBrowser()
 ) {
     RowSettingChevronItem(
         icon = linkModel.res,

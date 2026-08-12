@@ -2,9 +2,9 @@ package examplepackage.features.splash.di
 
 import com.arkivanov.decompose.ComponentContext
 import examplepackage.features.splash.data.SplashComponentRepository
+import examplepackage.features.splash.data.SplashComponentRepositoryImpl
 import examplepackage.features.splash.presentation.DefaultSplashComponent
 import examplepackage.features.splash.presentation.SplashComponent
-import examplepackage.services.core.di.CoreModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import ru.astrainteractive.klibs.mikro.core.dispatchers.DefaultKotlinDispatchers
@@ -14,33 +14,32 @@ interface SplashModule {
     fun createSplashComponent(componentContext: ComponentContext): SplashComponent
 
     class Default(
-        private val coreModule: CoreModule
+        private val mainScope: CoroutineScope,
+        private val dispatchers: KotlinDispatchers
     ) : SplashModule {
+        private val repository: SplashComponentRepository = SplashComponentRepositoryImpl()
+
         override fun createSplashComponent(componentContext: ComponentContext): SplashComponent {
-            val dependencies = SplashComponentDependencies.Default(
-                mainScope = coreModule.mainScope,
-                dispatchers = coreModule.dispatchers
-            )
             return DefaultSplashComponent(
                 componentContext = componentContext,
-                dependencies = dependencies
+                mainScope = mainScope,
+                dispatchers = dispatchers,
+                repository = repository
             )
         }
     }
 
     class Preview : SplashModule {
-        private class FakeSplashComponentDependencies(
-            override val mainScope: CoroutineScope = MainScope(),
-            override val dispatchers: KotlinDispatchers = DefaultKotlinDispatchers,
-            override val repository: SplashComponentRepository = object : SplashComponentRepository {
-                override fun isInitialLaunch(): Boolean = true
-            }
-        ) : SplashComponentDependencies
+        private val repository = object : SplashComponentRepository {
+            override fun isInitialLaunch(): Boolean = true
+        }
 
         override fun createSplashComponent(componentContext: ComponentContext): SplashComponent {
             return DefaultSplashComponent(
                 componentContext = componentContext,
-                dependencies = FakeSplashComponentDependencies()
+                mainScope = MainScope(),
+                dispatchers = DefaultKotlinDispatchers,
+                repository = repository
             )
         }
     }

@@ -21,9 +21,6 @@ fun main() {
     val rootComponent = rootModule.createRootComponent(componentContext)
     val rootBottomSheetComponent = rootComponent.rootBottomSheetComponent
 
-//    renderComposab/**/le(rootElementId = "root") {
-//
-//    }
     onWasmReady {
         ComposeViewport("root") {
             ApplicationTheme(rootModule.themeSwitcherModule.themeSwitcherComponent) {
