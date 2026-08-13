@@ -34,6 +34,6 @@ jobs:
             ./artifacts/**/*.apk
             ./artifacts/**/*.aab
           tag_name: ${{ steps.properties.outputs.klibs-project-version-string }}
-          name: ${{ steps.properties.outputs.klibs-project-name }} - ${{ steps.properties.outputs.makeevrserg-project-version-string }}
+          name: ${{ steps.properties.outputs.klibs-project-name }} - ${{ steps.properties.outputs.klibs-project-version-string }}
           draft: false
           prerelease: false
