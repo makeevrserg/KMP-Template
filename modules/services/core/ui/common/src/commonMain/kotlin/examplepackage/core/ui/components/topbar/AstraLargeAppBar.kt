@@ -20,7 +20,7 @@ import examplepackage.core.ui.util.asPainter
 
 @Composable
 fun AstraCenterAlignedTopAppBar(
-     modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier,
     title: String = "",
     onBackClick: (() -> Unit)? = null,
     actions: @Composable RowScope.() -> Unit = {}
