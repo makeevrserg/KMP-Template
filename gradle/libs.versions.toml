@@ -51,7 +51,7 @@ mvikotlin = "4.4.0" # https://github.com/arkivanov/MVIKotlin
 mppsettings = "1.3.0" # https://github.com/russhwolf/multiplatform-settings
 
 # klibs
-klibs-gradleplugin = "2.7.2" # https://github.com/makeevrserg/gradle-plugin
+klibs-gradleplugin = "2.8.0" # https://github.com/makeevrserg/gradle-plugin
 
 # buildkonfig
 buildkonfig = "6.1.0" # https://github.com/gmazzo/gradle-buildconfig-plugin
