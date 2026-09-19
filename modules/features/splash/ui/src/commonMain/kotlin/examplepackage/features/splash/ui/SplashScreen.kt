@@ -29,11 +29,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.ainteractivelogo
 import examplepackage.core.ui.theme.LocalAppTheme
 import examplepackage.core.ui.util.asPainter
 import examplepackage.features.splash.presentation.SplashComponent
 import kotlinx.coroutines.flow.collectLatest
-import com.makeevrserg.applicationtemplate.modules.services.core.resources.ainteractivelogo
 
 @Composable
 fun SplashScreenComponent(
