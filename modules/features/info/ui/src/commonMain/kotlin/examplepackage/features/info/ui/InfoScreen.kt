@@ -20,6 +20,8 @@ import examplepackage.features.info.linkbrowser.LinkBrowser
 import examplepackage.features.info.ui.components.LinkWidget
 import examplepackage.features.info.ui.components.rememberLinkBrowser
 import examplepackage.features.info.ui.data.InfoScreenLinks
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.ic_bolt
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.info_more_links
 
 @Composable
 fun InfoScreen(modifier: Modifier = Modifier) {

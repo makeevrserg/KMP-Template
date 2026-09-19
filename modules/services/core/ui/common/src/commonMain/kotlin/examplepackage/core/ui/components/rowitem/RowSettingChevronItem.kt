@@ -17,6 +17,7 @@ import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
 import dev.icerock.moko.resources.ImageResource
 import examplepackage.core.ui.theme.LocalAppTheme
 import examplepackage.core.ui.util.asPainter
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.ic_chevron_right
 
 @Composable
 fun RowSettingChevronItem(

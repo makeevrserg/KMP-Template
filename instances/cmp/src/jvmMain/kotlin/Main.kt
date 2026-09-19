@@ -16,6 +16,7 @@ import examplepackage.features.root.di.RootModule
 import examplepackage.features.screen.ui.RootScreenContent
 import examplepackage.features.theme.ui.ApplicationTheme
 import ru.astrainteractive.klibs.mikro.platform.DefaultJVMPlatformConfiguration
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.ic_esmp
 
 fun main() {
     val rootModule = RootModule.Default()
