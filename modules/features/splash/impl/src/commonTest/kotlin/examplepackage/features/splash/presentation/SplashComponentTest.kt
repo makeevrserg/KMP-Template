@@ -5,7 +5,7 @@ import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
 import examplepackage.features.splash.data.SplashComponentRepository
 import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runTest
 import ru.astrainteractive.klibs.mikro.core.dispatchers.DefaultKotlinDispatchers
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -24,7 +24,7 @@ internal class SplashComponentTest {
     )
 
     @Test
-    fun TEST_initial_launch_true(): Unit = runBlocking {
+    fun TEST_initial_launch_true() = runTest {
         val expectInitialLaunchValue = true
         val splashComponent = buildComponent(expectInitialLaunchValue)
         splashComponent.screenChannelFlow.test {
@@ -35,7 +35,7 @@ internal class SplashComponentTest {
     }
 
     @Test
-    fun TEST_initial_launch_false(): Unit = runBlocking {
+    fun TEST_initial_launch_false() = runTest {
         val expectInitialLaunchValue = false
         val splashComponent = buildComponent(expectInitialLaunchValue)
         splashComponent.screenChannelFlow.test {

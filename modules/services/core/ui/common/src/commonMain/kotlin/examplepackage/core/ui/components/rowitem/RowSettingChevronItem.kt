@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.Dp
 import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.ic_chevron_right
 import dev.icerock.moko.resources.ImageResource
 import examplepackage.core.ui.theme.LocalAppTheme
 import examplepackage.core.ui.util.asPainter

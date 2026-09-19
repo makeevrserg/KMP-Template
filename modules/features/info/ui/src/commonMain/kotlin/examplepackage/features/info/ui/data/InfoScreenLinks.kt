@@ -2,6 +2,13 @@ package examplepackage.features.info.ui.data
 
 import androidx.compose.material.MaterialTheme
 import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.ainteractivelogo
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.alearner
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.boosty
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.esmptelegram
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.github
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.gplay
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.ic_esmp
 import examplepackage.features.info.ui.model.LinkModel
 
 internal object InfoScreenLinks {

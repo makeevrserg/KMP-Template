@@ -16,6 +16,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.ic_chevron_right
 import examplepackage.core.ui.util.asPainter
 
 @Composable

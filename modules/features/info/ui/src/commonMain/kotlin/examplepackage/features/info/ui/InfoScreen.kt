@@ -12,6 +12,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import com.makeevrserg.applicationtemplate.modules.services.core.build.konfig.BuildKonfig
 import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.ic_bolt
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.info_more_links
 import examplepackage.core.ui.components.rowitem.RowSettingTextInfo
 import examplepackage.core.ui.theme.LocalAppTheme
 import examplepackage.core.ui.util.asComposableString

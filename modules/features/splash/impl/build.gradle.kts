@@ -15,6 +15,7 @@ kotlin {
     androidLibrary {}
     js(IR) {
         browser()
+        binaries.executable()
     }
     sourceSets {
         val commonMain by getting {
@@ -36,6 +37,7 @@ kotlin {
                 implementation(kotlin("test"))
                 implementation(libs.tests.assertk)
                 implementation(libs.tests.turbine)
+                implementation(libs.kotlin.coroutines.test)
             }
         }
     }
