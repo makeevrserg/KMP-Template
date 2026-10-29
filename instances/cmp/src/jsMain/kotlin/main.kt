@@ -5,10 +5,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.ComposeViewport
 import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
-import examplepackage.features.modal.ui.RootDialogContent
+import examplepackage.features.modal.composable.component.RootDialogContent
 import examplepackage.features.root.di.RootModule
-import examplepackage.features.screen.ui.RootScreenContent
-import examplepackage.features.theme.ui.ApplicationTheme
+import examplepackage.features.screen.composable.screen.RootScreenContent
+import examplepackage.features.theming.composable.layout.ApplicationTheme
 import org.jetbrains.skiko.wasm.onWasmReady
 import ru.astrainteractive.klibs.mikro.platform.DefaultJSPlatformConfiguration
 

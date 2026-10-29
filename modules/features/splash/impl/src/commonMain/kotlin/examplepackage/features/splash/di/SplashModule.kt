@@ -1,10 +1,10 @@
 package examplepackage.features.splash.di
 
 import com.arkivanov.decompose.ComponentContext
-import examplepackage.features.splash.data.SplashComponentRepository
-import examplepackage.features.splash.data.SplashComponentRepositoryImpl
-import examplepackage.features.splash.presentation.DefaultSplashComponent
-import examplepackage.features.splash.presentation.SplashComponent
+import examplepackage.features.splash.api.SplashComponentRepository
+import examplepackage.features.splash.component.DefaultSplashComponent
+import examplepackage.features.splash.component.SplashComponent
+import examplepackage.features.splash.memory.InMemorySplashComponentRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import ru.astrainteractive.klibs.mikro.core.dispatchers.DefaultKotlinDispatchers
@@ -17,7 +17,7 @@ interface SplashModule {
         private val mainScope: CoroutineScope,
         private val dispatchers: KotlinDispatchers
     ) : SplashModule {
-        private val repository: SplashComponentRepository = SplashComponentRepositoryImpl()
+        private val repository: SplashComponentRepository = InMemorySplashComponentRepository()
 
         override fun createSplashComponent(componentContext: ComponentContext): SplashComponent {
             return DefaultSplashComponent(

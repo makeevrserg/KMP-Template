@@ -13,6 +13,12 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.java")
     id("ru.astrainteractive.gradleplugin.android.namespace")
     id("com.github.gmazzo.buildconfig")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unitKind.set("library")
+    rootPackage.set("com.makeevrserg.applicationtemplate.modules.services.core.build.konfig")
 }
 
 buildConfig {

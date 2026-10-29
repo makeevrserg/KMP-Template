@@ -1,11 +1,13 @@
 package examplepackage.features.root.di
 
 import com.arkivanov.decompose.ComponentContext
-import examplepackage.features.root.presentation.DefaultRootComponent
-import examplepackage.features.root.presentation.RootComponent
+import examplepackage.features.root.component.RootComponent
 import examplepackage.features.splash.di.SplashModule
-import examplepackage.features.theme.di.ThemeSwitcherModule
+import examplepackage.features.splash.di.buildSplashModule
+import examplepackage.features.theming.di.ThemeSwitcherModule
+import examplepackage.features.theming.di.buildThemeSwitcherModule
 import examplepackage.services.core.di.CoreModule
+import examplepackage.services.core.di.buildCoreModule
 
 interface RootModule {
 
@@ -16,23 +18,20 @@ interface RootModule {
     fun createRootComponent(componentContext: ComponentContext): RootComponent
 
     class Default : RootModule {
-        override val coreModule: CoreModule = CoreModule.Default()
+        override val coreModule: CoreModule = buildCoreModule()
 
         override val themeSwitcherModule: ThemeSwitcherModule by lazy {
-            ThemeSwitcherModule.Default(coreModule.settings)
+            buildThemeSwitcherModule(coreModule.settings)
         }
         override val splashModule: SplashModule by lazy {
-            SplashModule.Default(
+            buildSplashModule(
                 mainScope = coreModule.mainScope,
                 dispatchers = coreModule.dispatchers
             )
         }
 
         override fun createRootComponent(componentContext: ComponentContext): RootComponent {
-            return DefaultRootComponent(
-                componentContext = componentContext,
-                splashModule = splashModule
-            )
+            return buildRootComponent(componentContext, splashModule)
         }
     }
 }

@@ -20,6 +20,18 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.apk.sign")
     id("ru.astrainteractive.gradleplugin.android.compose")
     alias(libs.plugins.kotlin.compose.gradle)
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unitKind.set("entry-point")
+    rootPackage.set("examplepackage")
+}
+
+configurations.named("api") {
+    dependencies.removeIf { dependency ->
+        dependency.group == "org.jetbrains.kotlin" && dependency.name == "kotlin-stdlib"
+    }
 }
 
 tasks.register<SecretFileTask>("exportKeystore") {
@@ -79,6 +91,7 @@ android {
 
 dependencies {
     // Kotlin
+    implementation(kotlin("stdlib"))
     implementation(libs.kotlin.serialization.json)
     // Coroutines
     implementation(libs.kotlin.coroutines.core)
@@ -111,10 +124,14 @@ dependencies {
     implementation(libs.decompose.core)
     implementation(libs.decompose.compose)
     implementation(libs.decompose.android)
+    implementation(libs.essenty)
     // Local
     implementation(projects.modules.features.root.impl)
     implementation(projects.modules.features.root.ui)
+    implementation(projects.modules.features.splash.impl)
+    implementation(projects.modules.features.theme.impl)
     implementation(projects.modules.features.theme.ui)
+    implementation(projects.modules.services.core.common)
     implementation(projects.modules.services.core.ui.common)
     implementation(projects.modules.services.core.ui.theme)
     implementation(projects.modules.services.core.resources)

@@ -1,0 +1,58 @@
+package examplepackage.features.info.composable.screen
+
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import com.makeevrserg.applicationtemplate.modules.services.core.build.konfig.BuildKonfig
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.ic_bolt
+import com.makeevrserg.applicationtemplate.modules.services.core.resources.info_more_links
+import examplepackage.core.ui.composable.component.RowSettingTextInfo
+import examplepackage.core.ui.theme.LocalAppTheme
+import examplepackage.core.ui.util.asComposableString
+import examplepackage.core.ui.util.asPainter
+import examplepackage.features.info.composable.component.LinkWidget
+import examplepackage.features.info.composable.component.rememberLinkBrowser
+import examplepackage.features.info.link.api.LinkBrowser
+import examplepackage.features.info.util.buildInfoScreenLinks
+
+@Composable
+fun InfoScreen(modifier: Modifier = Modifier) {
+    val linkBrowser: LinkBrowser = rememberLinkBrowser()
+    val models = remember { buildInfoScreenLinks() }
+    LazyColumn(
+        modifier = modifier.padding(horizontal = LocalAppTheme.current.dimens.S)
+    ) {
+        item {
+            Text(
+                text = CoreR.strings.info_more_links.asComposableString(),
+                style = MaterialTheme.typography.h5,
+                color = MaterialTheme.colors.onPrimary,
+            )
+        }
+        items(models) { linkModel ->
+            LinkWidget(
+                linkBrowser = linkBrowser,
+                linkModel = linkModel
+            )
+        }
+        item {
+            RowSettingTextInfo(
+                modifier = Modifier.padding(vertical = LocalAppTheme.current.dimens.XS),
+                painter = CoreR.images.ic_bolt.asPainter(),
+                text = "Version",
+                endText = "${BuildKonfig.VERSION_CODE} (${BuildKonfig.VERSION_NAME})"
+            )
+        }
+        item {
+            Spacer(modifier = Modifier.navigationBarsPadding())
+        }
+    }
+}

@@ -8,6 +8,12 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.android.java")
     id("ru.astrainteractive.gradleplugin.android.namespace")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unitKind.set("library")
+    rootPackage.set("examplepackage.features")
 }
 
 kotlin {
@@ -25,11 +31,11 @@ kotlin {
                 implementation(libs.mppsettings)
                 // klibs
                 implementation(libs.klibs.mikro.core)
-                api(libs.klibs.mikro.platform)
+                implementation(libs.klibs.mikro.platform)
                 implementation(libs.klibs.kstorage)
                 // Decompose
-                api(libs.decompose.core)
-                api(libs.essenty)
+                implementation(libs.decompose.core)
+                implementation(libs.essenty)
                 // Ktor
                 implementation(libs.ktor.client.core)
                 implementation(libs.ktor.client.contentNegitiation)
@@ -46,10 +52,10 @@ kotlin {
                 // MVIKotlin
                 implementation(libs.mvikotlin)
                 // Local
-                api(projects.modules.services.core.resources)
-                api(projects.modules.services.core.common)
-                api(projects.modules.features.splash.impl)
-                api(projects.modules.features.theme.impl)
+                implementation(projects.modules.services.core.resources)
+                implementation(projects.modules.services.core.common)
+                implementation(projects.modules.features.splash.impl)
+                implementation(projects.modules.features.theme.impl)
             }
         }
         val androidMain by getting {
