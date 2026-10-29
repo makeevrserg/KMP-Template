@@ -52,6 +52,7 @@ mppsettings = "1.3.0" # https://github.com/russhwolf/multiplatform-settings
 
 # klibs
 klibs-gradleplugin = "2.8.0" # https://github.com/makeevrserg/gradle-plugin
+klibs-rules = "0.7.0" # https://github.com/Astra-Interactive/rules-architecture
 
 # buildkonfig
 buildkonfig = "6.1.0" # https://github.com/gmazzo/gradle-buildconfig-plugin
@@ -146,6 +147,7 @@ gradle-buildconfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buil
 moko-resources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "moko-resources" }
 
 # klibs - core
+klibs-rules = { id = "ru.astrainteractive.klibs.rules.gradle.linter", version.ref = "klibs-rules" }
 klibs-gradle-detekt = { id = "ru.astrainteractive.gradleplugin.detekt", version.ref = "klibs-gradleplugin" }
 klibs-gradle-dokka = { id = "ru.astrainteractive.gradleplugin.dokka", version.ref = "klibs-gradleplugin" }
 klibs-gradle-java-version = { id = "ru.astrainteractive.gradleplugin.java.version", version.ref = "klibs-gradleplugin" }

@@ -13,6 +13,11 @@ plugins {
     id("ru.astrainteractive.gradleplugin.java.version")
     id("org.jetbrains.kotlin.plugin.compose")
     id("org.jetbrains.compose")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unitKind.set("entry-point")
 }
 
 kotlin {
@@ -21,6 +26,9 @@ kotlin {
     js(IR) {
         browser {
             useCommonJs()
+            commonWebpackConfig {
+                configDirectory = File("instances/cmp/webpack.config.d")
+            }
         }
         binaries.executable()
     }
@@ -46,10 +54,14 @@ kotlin {
                 // Decompose
                 implementation(libs.decompose.core)
                 implementation(libs.decompose.compose)
+                implementation(libs.essenty)
                 // Local
                 implementation(projects.modules.features.root.impl)
                 implementation(projects.modules.features.root.ui)
+                implementation(projects.modules.features.splash.impl)
+                implementation(projects.modules.features.theme.impl)
                 implementation(projects.modules.features.theme.ui)
+                implementation(projects.modules.services.core.common)
                 implementation(projects.modules.services.core.ui.common)
                 implementation(projects.modules.services.core.ui.theme)
                 implementation(projects.modules.services.core.resources)
@@ -73,24 +85,48 @@ compose.desktop {
     application {
         mainClass = "MainKt"
         nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            targetFormats(
+                TargetFormat.Dmg,
+                TargetFormat.Msi,
+                TargetFormat.Deb
+            )
             packageName = "jvm"
             packageVersion = requireProjectInfo.versionString
         }
     }
 }
 
+val jsPackageDirectory = rootProject.layout.buildDirectory
+    .dir("js")
+    .map { dir -> dir.dir("packages") }
+    .map { dir -> dir.dir("Application-Template-instances-cmp") }
+    .map { dir -> dir.dir("kotlin") }
+
 val copySharedResources = project.tasks.register<Copy>("copyJsResources") {
+    dependsOn("jsProductionExecutableCompileSync")
     from(
         project.project(projects.modules.services.core.resources.path)
             .layout.buildDirectory
             .dir("generated/moko-resources/jsMain/res")
     )
-    into(
-        rootProject.layout.buildDirectory
-            .dir("js")
-            .map { dir -> dir.dir("packages") }
-            .map { dir -> dir.dir("Application-Template-instances-cmp") }
-            .map { dir -> dir.dir("kotlin") },
+    into(jsPackageDirectory)
+}
+
+val copySkikoReexportSymbols = project.tasks.register<Copy>("copySkikoReexportSymbols") {
+    dependsOn(
+        "jsProductionExecutableCompileSync",
+        "jsDevelopmentExecutableCompileSync",
+        copySharedResources
     )
+    from(jsPackageDirectory.map { dir -> dir.file("js-reexport-symbols.mjs") })
+    into(jsPackageDirectory)
+    rename { "js-skiko-reexport-symbols.mjs" }
+}
+
+tasks.named("jsBrowserProductionWebpack") {
+    dependsOn(copySkikoReexportSymbols)
+}
+
+tasks.named("jsBrowserDevelopmentWebpack") {
+    dependsOn(copySkikoReexportSymbols)
 }

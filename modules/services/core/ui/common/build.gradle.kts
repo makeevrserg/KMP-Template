@@ -9,6 +9,12 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.android.java")
     id("ru.astrainteractive.gradleplugin.android.namespace")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unitKind.set("library")
+    rootPackage.set("examplepackage.core.ui")
 }
 kotlin {
     applyDefaultHierarchyTemplate()

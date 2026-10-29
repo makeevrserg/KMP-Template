@@ -1,7 +1,6 @@
 package examplepackage.services.core.di
 
 import com.russhwolf.settings.Settings
-import examplepackage.services.core.di.factory.SettingsFactory
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.kotlinx.json.json
@@ -39,7 +38,7 @@ interface CoreModule {
         }
 
         override val settings by lazy {
-            SettingsFactory(platformConfiguration).create()
+            createSettings(platformConfiguration)
         }
 
         override val dispatchers = DefaultKotlinDispatchers

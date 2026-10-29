@@ -12,10 +12,10 @@ import com.arkivanov.decompose.extensions.compose.lifecycle.LifecycleController
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
 import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
 import com.makeevrserg.applicationtemplate.modules.services.core.resources.ic_esmp
-import examplepackage.features.modal.ui.RootDialogContent
+import examplepackage.features.modal.composable.component.RootDialogContent
 import examplepackage.features.root.di.RootModule
-import examplepackage.features.screen.ui.RootScreenContent
-import examplepackage.features.theme.ui.ApplicationTheme
+import examplepackage.features.screen.composable.screen.RootScreenContent
+import examplepackage.features.theming.composable.layout.ApplicationTheme
 import ru.astrainteractive.klibs.mikro.platform.DefaultJVMPlatformConfiguration
 
 fun main() {
