@@ -24,7 +24,7 @@ plugins {
 }
 
 linter {
-    unitKind.set("entry-point")
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.EntryPoint())
     rootPackage.set("examplepackage")
 }
 
@@ -43,7 +43,7 @@ tasks.register<SecretFileTask>("exportKeystore") {
 }
 
 android {
-    namespace = "${requireProjectInfo.group}"
+    namespace = "examplepackage"
     if (file("google-services.json").exists()) {
         apply(plugin = "com.google.gms.google-services")
         apply(plugin = "com.google.firebase.crashlytics")
@@ -93,6 +93,7 @@ dependencies {
     // Kotlin
     implementation(kotlin("stdlib"))
     implementation(libs.kotlin.serialization.json)
+    implementation(libs.mppsettings)
     // Coroutines
     implementation(libs.kotlin.coroutines.core)
     implementation(libs.kotlin.coroutines.android)
@@ -129,6 +130,7 @@ dependencies {
     implementation(projects.modules.features.root.impl)
     implementation(projects.modules.features.root.ui)
     implementation(projects.modules.features.splash.impl)
+    implementation(projects.modules.features.splash.api)
     implementation(projects.modules.features.theme.impl)
     implementation(projects.modules.features.theme.ui)
     implementation(projects.modules.services.core.common)

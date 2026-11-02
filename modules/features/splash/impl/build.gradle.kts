@@ -11,8 +11,8 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
-    rootPackage.set("examplepackage.features.splash")
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.Impl())
+    rootPackage.set("examplepackage.features.splash.impl")
 }
 
 kotlin {
@@ -35,6 +35,7 @@ kotlin {
                 // Decompose
                 implementation(libs.decompose.core)
                 // Local
+                implementation(projects.modules.features.splash.api)
                 implementation(projects.modules.services.core.common)
             }
         }

@@ -12,8 +12,8 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
-    rootPackage.set("examplepackage.features")
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.Impl())
+    rootPackage.set("examplepackage.features.root.impl")
 }
 
 kotlin {
@@ -54,9 +54,11 @@ kotlin {
                 // Local
                 implementation(projects.modules.services.core.resources)
                 implementation(projects.modules.services.core.common)
-                implementation(projects.modules.features.splash.impl)
-                implementation(projects.modules.features.theme.impl)
+                implementation(projects.modules.features.splash.api)
             }
+        }
+        commonTest.dependencies {
+            implementation(kotlin("test"))
         }
         val androidMain by getting {
             dependencies {

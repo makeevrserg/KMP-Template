@@ -5,16 +5,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.ComposeViewport
 import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
-import examplepackage.features.modal.composable.component.RootDialogContent
-import examplepackage.features.root.di.RootModule
-import examplepackage.features.screen.composable.screen.RootScreenContent
-import examplepackage.features.theming.composable.layout.ApplicationTheme
+import di.RootModule
+import examplepackage.features.root.ui.modal.composable.component.RootDialogContentComposable
+import examplepackage.features.root.ui.screen.composable.screen.RootScreenComposable
+import examplepackage.features.theme.ui.composable.layout.ApplicationTheme
 import org.jetbrains.skiko.wasm.onWasmReady
 import ru.astrainteractive.klibs.mikro.platform.DefaultJSPlatformConfiguration
 
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
-    val rootModule = RootModule.Default()
+    val rootModule = RootModule()
     rootModule.coreModule.platformConfigurationInternal = DefaultJSPlatformConfiguration()
     val lifecycle = LifecycleRegistry()
     val componentContext = DefaultComponentContext(lifecycle)
@@ -24,8 +24,8 @@ fun main() {
     onWasmReady {
         ComposeViewport("root") {
             ApplicationTheme(rootModule.themeSwitcherModule.themeSwitcherComponent) {
-                RootDialogContent(rootBottomSheetComponent)
-                RootScreenContent(
+                RootDialogContentComposable(rootBottomSheetComponent)
+                RootScreenComposable(
                     rootComponent = rootComponent,
                     modifier = Modifier
                 )

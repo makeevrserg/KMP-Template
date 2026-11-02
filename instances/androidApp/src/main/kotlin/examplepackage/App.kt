@@ -4,13 +4,13 @@ import android.app.Application
 import android.content.Context
 import com.google.firebase.Firebase
 import com.google.firebase.initialize
-import examplepackage.features.root.di.RootModule
+import examplepackage.di.RootModule
 import kotlinx.coroutines.cancel
 import ru.astrainteractive.klibs.mikro.platform.DefaultAndroidPlatformConfiguration
 
 class App : Application() {
-    val rootModule by lazy {
-        RootModule.Default()
+    internal val rootModule by lazy {
+        RootModule()
     }
 
     override fun onTerminate() {

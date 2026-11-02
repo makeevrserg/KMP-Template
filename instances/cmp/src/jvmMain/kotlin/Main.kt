@@ -12,14 +12,14 @@ import com.arkivanov.decompose.extensions.compose.lifecycle.LifecycleController
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
 import com.makeevrserg.applicationtemplate.modules.services.core.resources.CoreR
 import com.makeevrserg.applicationtemplate.modules.services.core.resources.ic_esmp
-import examplepackage.features.modal.composable.component.RootDialogContent
-import examplepackage.features.root.di.RootModule
-import examplepackage.features.screen.composable.screen.RootScreenContent
-import examplepackage.features.theming.composable.layout.ApplicationTheme
+import di.RootModule
+import examplepackage.features.root.ui.modal.composable.component.RootDialogContentComposable
+import examplepackage.features.root.ui.screen.composable.screen.RootScreenComposable
+import examplepackage.features.theme.ui.composable.layout.ApplicationTheme
 import ru.astrainteractive.klibs.mikro.platform.DefaultJVMPlatformConfiguration
 
 fun main() {
-    val rootModule = RootModule.Default()
+    val rootModule = RootModule()
     rootModule.coreModule.platformConfigurationInternal = DefaultJVMPlatformConfiguration()
     val lifecycle = LifecycleRegistry()
     val componentContext = DefaultComponentContext(lifecycle)
@@ -43,8 +43,8 @@ fun main() {
     ) {
         LifecycleController(lifecycle, windowState)
         ApplicationTheme(rootModule.themeSwitcherModule.themeSwitcherComponent) {
-            RootDialogContent(rootBottomSheetComponent)
-            RootScreenContent(
+            RootDialogContentComposable(rootBottomSheetComponent)
+            RootScreenComposable(
                 rootComponent = rootComponent,
                 modifier = Modifier
             )

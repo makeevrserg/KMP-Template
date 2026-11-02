@@ -2,9 +2,7 @@
 import javax.swing.SwingUtilities
 
 internal fun <T> runOnUiThread(block: () -> T): T {
-    if (SwingUtilities.isEventDispatchThread()) {
-        return block.invoke()
-    }
+    if (SwingUtilities.isEventDispatchThread()) return block.invoke()
 
     var error: Throwable? = null
     var result: T? = null

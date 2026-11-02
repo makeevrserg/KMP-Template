@@ -13,8 +13,8 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
-    rootPackage.set("examplepackage.features")
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.ImplUi())
+    rootPackage.set("examplepackage.features.theme.ui")
 }
 
 kotlin {

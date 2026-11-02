@@ -17,7 +17,7 @@ plugins {
 }
 
 linter {
-    unitKind.set("entry-point")
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.EntryPoint())
 }
 
 kotlin {
@@ -43,6 +43,7 @@ kotlin {
             dependencies {
                 // Kotlin
                 implementation(libs.kotlin.serialization.json)
+                implementation(libs.mppsettings)
                 // Coroutines
                 implementation(libs.kotlin.coroutines.core)
                 // klibs
@@ -59,6 +60,7 @@ kotlin {
                 implementation(projects.modules.features.root.impl)
                 implementation(projects.modules.features.root.ui)
                 implementation(projects.modules.features.splash.impl)
+                implementation(projects.modules.features.splash.api)
                 implementation(projects.modules.features.theme.impl)
                 implementation(projects.modules.features.theme.ui)
                 implementation(projects.modules.services.core.common)

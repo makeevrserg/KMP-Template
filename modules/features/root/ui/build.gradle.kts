@@ -13,8 +13,12 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
-    rootPackage.set("examplepackage.features")
+    unit(
+        ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.ImplUi(
+            composition = ru.astrainteractive.klibs.rules.core.unit.model.UiComposition.HOST
+        )
+    )
+    rootPackage.set("examplepackage.features.root.ui")
 }
 
 kotlin {
@@ -47,7 +51,7 @@ kotlin {
                 implementation(projects.modules.services.core.ui.common)
                 implementation(projects.modules.services.core.ui.theme)
                 implementation(projects.modules.services.core.buildKonfig)
-                implementation(projects.modules.features.splash.impl)
+                implementation(projects.modules.features.splash.api)
                 implementation(projects.modules.features.splash.ui)
                 implementation(projects.modules.features.root.impl)
                 implementation(projects.modules.features.info.ui)

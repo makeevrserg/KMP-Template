@@ -13,8 +13,8 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
-    rootPackage.set("examplepackage.core.ui")
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.CoreUi())
+    rootPackage.set("examplepackage.core.ui.theme")
 }
 kotlin {
     applyDefaultHierarchyTemplate()

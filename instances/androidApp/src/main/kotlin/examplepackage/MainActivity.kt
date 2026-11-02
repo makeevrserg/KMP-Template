@@ -8,10 +8,10 @@ import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.arkivanov.decompose.defaultComponentContext
 import examplepackage.App.Companion.asMyApplication
-import examplepackage.features.modal.composable.component.RootDialogContent
-import examplepackage.features.root.di.RootModule
-import examplepackage.features.screen.composable.screen.RootScreenContent
-import examplepackage.features.theming.composable.layout.ApplicationTheme
+import examplepackage.di.RootModule
+import examplepackage.features.root.ui.modal.composable.component.RootDialogContentComposable
+import examplepackage.features.root.ui.screen.composable.screen.RootScreenComposable
+import examplepackage.features.theme.ui.composable.layout.ApplicationTheme
 
 class MainActivity : ComponentActivity() {
     private val rootModule: RootModule
@@ -27,8 +27,8 @@ class MainActivity : ComponentActivity() {
         val rootBottomSheetComponent = rootComponent.rootBottomSheetComponent
         setContent {
             ApplicationTheme(rootModule.themeSwitcherModule.themeSwitcherComponent) {
-                RootDialogContent(rootBottomSheetComponent)
-                RootScreenContent(
+                RootDialogContentComposable(rootBottomSheetComponent)
+                RootScreenComposable(
                     rootComponent = rootComponent,
                     modifier = Modifier
                 )
