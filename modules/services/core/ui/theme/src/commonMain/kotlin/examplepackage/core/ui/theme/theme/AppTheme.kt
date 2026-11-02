@@ -9,7 +9,8 @@ class AppTheme(
     val dimens: Dimens = DefaultDimens,
     val customColors: CustomColors = CustomColors.Companion.Dark
 ) {
-    @Suppress("ConstructorParameterNaming")
+    // Theme spacing is configurable as a single set of tokens.
+    @Suppress("ConstructorParameterNaming", "LongParameterList")
     class Dimens(
         val XXS: Dp = 4.dp,
         val XS: Dp = 8.dp,

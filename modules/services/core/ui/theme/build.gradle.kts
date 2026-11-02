@@ -51,6 +51,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(libs.google.accompanist.flowlayout)
+                implementation(libs.google.accompanist.systemuicontroller)
             }
         }
     }

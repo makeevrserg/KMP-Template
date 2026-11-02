@@ -11,7 +11,7 @@ import examplepackage.App.Companion.asMyApplication
 import examplepackage.di.RootModule
 import examplepackage.features.root.ui.modal.composable.component.RootDialogContentComposable
 import examplepackage.features.root.ui.screen.composable.screen.RootScreenComposable
-import examplepackage.features.theme.ui.composable.layout.ApplicationTheme
+import examplepackage.features.theme.ui.theme.ApplicationTheme
 
 class MainActivity : ComponentActivity() {
     private val rootModule: RootModule

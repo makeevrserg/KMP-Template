@@ -15,7 +15,7 @@ import com.makeevrserg.applicationtemplate.modules.services.core.resources.ic_es
 import di.RootModule
 import examplepackage.features.root.ui.modal.composable.component.RootDialogContentComposable
 import examplepackage.features.root.ui.screen.composable.screen.RootScreenComposable
-import examplepackage.features.theme.ui.composable.layout.ApplicationTheme
+import examplepackage.features.theme.ui.theme.ApplicationTheme
 import ru.astrainteractive.klibs.mikro.platform.DefaultJVMPlatformConfiguration
 
 fun main() {
