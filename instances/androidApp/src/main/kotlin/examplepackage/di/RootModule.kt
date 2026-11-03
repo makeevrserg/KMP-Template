@@ -3,15 +3,15 @@ package examplepackage.di
 import com.arkivanov.decompose.ComponentContext
 import examplepackage.features.root.impl.component.RootComponent
 import examplepackage.features.root.impl.di.RootFeatureModule
-import examplepackage.features.splash.impl.di.buildSplashModule
-import examplepackage.features.theme.impl.di.buildThemeSwitcherModule
-import examplepackage.services.core.di.buildCoreModule
+import examplepackage.features.splash.impl.di.SplashModule
+import examplepackage.features.theme.impl.di.ThemeSwitcherModule
+import examplepackage.services.core.di.CoreModule
 
 internal class RootModule {
-    val coreModule = buildCoreModule()
-    val themeSwitcherModule by lazy { buildThemeSwitcherModule(coreModule.settings) }
-    val splashModule by lazy {
-        buildSplashModule(
+    val coreModule: CoreModule = CoreModule.Default()
+    val themeSwitcherModule: ThemeSwitcherModule by lazy { ThemeSwitcherModule.Default(coreModule.settings) }
+    val splashModule: SplashModule by lazy {
+        SplashModule.Default(
             mainScope = coreModule.mainScope,
             dispatchers = coreModule.dispatchers
         )
