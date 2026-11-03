@@ -3,13 +3,10 @@ package examplepackage.core.ui.theme.theme
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
-private val DefaultDimens = AppTheme.Dimens()
-
 class AppTheme(
-    val dimens: Dimens = DefaultDimens,
-    val customColors: CustomColors = CustomColors.Companion.Dark
+    val dimens: Dimens = Dimens(),
+    val customColors: CustomColors = CustomColors.Dark
 ) {
-    // Theme spacing is configurable as a single set of tokens.
     @Suppress("ConstructorParameterNaming", "LongParameterList")
     class Dimens(
         val XXS: Dp = 4.dp,
