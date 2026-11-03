@@ -35,38 +35,30 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(libs.jetbrains.compose.runtime)
+                implementation(libs.decompose.compose)
+                implementation(libs.decompose.core)
+                implementation(libs.essenty)
                 implementation(libs.jetbrains.compose.foundation)
                 implementation(libs.jetbrains.compose.material)
+                implementation(libs.jetbrains.compose.runtime)
                 implementation(libs.jetbrains.compose.ui)
-            }
-            dependencies {
-                // Kotlin
-                implementation(libs.kotlin.serialization.json)
-                implementation(libs.mppsettings)
-                // Coroutines
-                implementation(libs.kotlin.coroutines.core)
-                // klibs
+                implementation(libs.klibs.kstorage)
                 implementation(libs.klibs.mikro.core)
                 implementation(libs.klibs.mikro.platform)
-                implementation(libs.klibs.kstorage)
-                // moko
+                implementation(libs.kotlin.coroutines.core)
+                implementation(libs.kotlin.serialization.json)
                 implementation(libs.moko.resources.core)
-                // Decompose
-                implementation(libs.decompose.core)
-                implementation(libs.decompose.compose)
-                implementation(libs.essenty)
-                // Local
+                implementation(libs.mppsettings)
                 implementation(projects.modules.features.root.impl)
                 implementation(projects.modules.features.root.ui)
-                implementation(projects.modules.features.splash.impl)
                 implementation(projects.modules.features.splash.api)
+                implementation(projects.modules.features.splash.impl)
                 implementation(projects.modules.features.theme.impl)
                 implementation(projects.modules.features.theme.ui)
                 implementation(projects.modules.services.core.common)
+                implementation(projects.modules.services.core.resources)
                 implementation(projects.modules.services.core.ui.common)
                 implementation(projects.modules.services.core.ui.theme)
-                implementation(projects.modules.services.core.resources)
             }
         }
         val jvmMain by getting {

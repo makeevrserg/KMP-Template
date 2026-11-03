@@ -27,25 +27,20 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // klibs
-                implementation(libs.klibs.mikro.core)
-                implementation(libs.klibs.mikro.platform)
-                implementation(libs.klibs.kstorage)
-                // Decompose
-                implementation(libs.decompose.core)
                 implementation(libs.decompose.compose)
-                // Moko
-                implementation(libs.moko.resources.core)
-                implementation(libs.moko.resources.compose)
-                // Compose
-                implementation(libs.jetbrains.compose.runtime)
+                implementation(libs.decompose.core)
                 implementation(libs.jetbrains.compose.foundation)
                 implementation(libs.jetbrains.compose.material)
                 implementation(libs.jetbrains.compose.material3)
+                implementation(libs.jetbrains.compose.runtime)
                 implementation(libs.jetbrains.compose.ui)
-                // Local
-                implementation(projects.modules.services.core.resources)
+                implementation(libs.klibs.kstorage)
+                implementation(libs.klibs.mikro.core)
+                implementation(libs.klibs.mikro.platform)
+                implementation(libs.moko.resources.compose)
+                implementation(libs.moko.resources.core)
                 implementation(projects.modules.services.core.common)
+                implementation(projects.modules.services.core.resources)
             }
         }
         val androidMain by getting {

@@ -22,8 +22,8 @@ kotlin {
     }
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.kotlin.coroutines.core)
             implementation(libs.decompose.core)
+            implementation(libs.kotlin.coroutines.core)
         }
     }
 }

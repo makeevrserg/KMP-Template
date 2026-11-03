@@ -33,8 +33,8 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation(libs.androidx.splash)
                 implementation(libs.android.material)
+                implementation(libs.androidx.splash)
             }
         }
     }

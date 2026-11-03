@@ -26,15 +26,11 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // klibs
-                implementation(libs.klibs.mikro.core)
-                implementation(libs.klibs.kstorage)
-                // Settings
-                implementation(libs.mppsettings)
-                // Decompose
                 implementation(libs.decompose.core)
-                // Coroutines
+                implementation(libs.klibs.kstorage)
+                implementation(libs.klibs.mikro.core)
                 implementation(libs.kotlin.coroutines.core)
+                implementation(libs.mppsettings)
             }
         }
     }

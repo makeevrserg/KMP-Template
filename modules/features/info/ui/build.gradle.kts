@@ -28,18 +28,15 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // Compose MPP
-                implementation(libs.jetbrains.compose.runtime)
                 implementation(libs.jetbrains.compose.foundation)
                 implementation(libs.jetbrains.compose.material)
+                implementation(libs.jetbrains.compose.runtime)
                 implementation(libs.jetbrains.compose.ui)
-                // Moko
                 implementation(libs.moko.resources.core)
-                // Local
+                implementation(projects.modules.services.core.buildKonfig)
                 implementation(projects.modules.services.core.resources)
                 implementation(projects.modules.services.core.ui.common)
                 implementation(projects.modules.services.core.ui.theme)
-                implementation(projects.modules.services.core.buildKonfig)
             }
         }
     }

@@ -32,34 +32,28 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // Compose MPP
-                implementation(libs.jetbrains.compose.runtime)
+                implementation(libs.decompose.compose)
+                implementation(libs.decompose.core)
                 implementation(libs.jetbrains.compose.foundation)
                 implementation(libs.jetbrains.compose.material)
+                implementation(libs.jetbrains.compose.runtime)
                 implementation(libs.jetbrains.compose.ui)
-                // klibs
+                implementation(libs.klibs.kstorage)
                 implementation(libs.klibs.mikro.core)
                 implementation(libs.klibs.mikro.platform)
-                implementation(libs.klibs.kstorage)
-                // Moko
                 implementation(libs.moko.resources.core)
-                // Decompose
-                implementation(libs.decompose.core)
-                implementation(libs.decompose.compose)
-                // Local
+                implementation(projects.modules.features.info.ui)
+                implementation(projects.modules.features.root.impl)
+                implementation(projects.modules.features.splash.api)
+                implementation(projects.modules.features.splash.ui)
+                implementation(projects.modules.services.core.buildKonfig)
                 implementation(projects.modules.services.core.resources)
                 implementation(projects.modules.services.core.ui.common)
                 implementation(projects.modules.services.core.ui.theme)
-                implementation(projects.modules.services.core.buildKonfig)
-                implementation(projects.modules.features.splash.api)
-                implementation(projects.modules.features.splash.ui)
-                implementation(projects.modules.features.root.impl)
-                implementation(projects.modules.features.info.ui)
             }
         }
         val androidMain by getting {
             dependencies {
-                // Accompanist
                 implementation(libs.google.accompanist.systemuicontroller)
             }
         }

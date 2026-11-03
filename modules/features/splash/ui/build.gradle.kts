@@ -28,22 +28,16 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // Compose MPP
-                implementation(libs.jetbrains.compose.runtime)
+                implementation(libs.decompose.core)
                 implementation(libs.jetbrains.compose.foundation)
                 implementation(libs.jetbrains.compose.material)
+                implementation(libs.jetbrains.compose.runtime)
                 implementation(libs.jetbrains.compose.ui)
-                // Moko
                 implementation(libs.moko.resources.core)
-                // Decompose
-                implementation(libs.decompose.core)
-                // klibs
-//                implementation(libs.klibs.mikro.extensions)
-                // Local
+                implementation(projects.modules.features.splash.api)
                 implementation(projects.modules.services.core.resources)
                 implementation(projects.modules.services.core.ui.common)
                 implementation(projects.modules.services.core.ui.theme)
-                implementation(projects.modules.features.splash.api)
             }
         }
     }

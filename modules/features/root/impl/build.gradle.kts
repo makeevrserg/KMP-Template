@@ -27,34 +27,25 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // Settings
-                implementation(libs.mppsettings)
-                // klibs
-                implementation(libs.klibs.mikro.core)
-                implementation(libs.klibs.mikro.platform)
-                implementation(libs.klibs.kstorage)
-                // Decompose
                 implementation(libs.decompose.core)
                 implementation(libs.essenty)
-                // Ktor
-                implementation(libs.ktor.client.core)
-                implementation(libs.ktor.client.contentNegitiation)
-                implementation(libs.ktor.client.serialization)
-                implementation(libs.ktor.client.json)
-                implementation(libs.ktor.serialization.json)
-                implementation(libs.ktor.logging)
-                // Moko
-                implementation(libs.moko.resources.core)
-                // Serialization
-                implementation(libs.kotlin.serialization.json)
-                // Coroutines
+                implementation(libs.klibs.kstorage)
+                implementation(libs.klibs.mikro.core)
+                implementation(libs.klibs.mikro.platform)
                 implementation(libs.kotlin.coroutines.core)
-                // MVIKotlin
+                implementation(libs.kotlin.serialization.json)
+                implementation(libs.ktor.client.contentNegitiation)
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.json)
+                implementation(libs.ktor.client.serialization)
+                implementation(libs.ktor.logging)
+                implementation(libs.ktor.serialization.json)
+                implementation(libs.moko.resources.core)
+                implementation(libs.mppsettings)
                 implementation(libs.mvikotlin)
-                // Local
-                implementation(projects.modules.services.core.resources)
-                implementation(projects.modules.services.core.common)
                 implementation(projects.modules.features.splash.api)
+                implementation(projects.modules.services.core.common)
+                implementation(projects.modules.services.core.resources)
             }
         }
         commonTest.dependencies {
@@ -71,10 +62,5 @@ kotlin {
                 implementation(libs.ktor.client.cio)
             }
         }
-//        val iosMain by getting {
-//            dependencies {
-//                implementation(libs.ktor.client.darwin)
-//            }
-//        }
     }
 }

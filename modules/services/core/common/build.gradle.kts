@@ -26,24 +26,18 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // Settings
-                implementation(libs.mppsettings)
-                // klibs
+                implementation(libs.decompose.core)
+                implementation(libs.klibs.kstorage)
                 implementation(libs.klibs.mikro.core)
                 implementation(libs.klibs.mikro.platform)
-                implementation(libs.klibs.kstorage)
-                // Ktor
-                implementation(libs.ktor.client.core)
-                implementation(libs.ktor.client.contentNegitiation)
-                implementation(libs.ktor.client.serialization)
-                implementation(libs.ktor.client.json)
-                implementation(libs.ktor.serialization.json)
-                // Serialization
-                implementation(libs.kotlin.serialization.json)
-                // Coroutines
                 implementation(libs.kotlin.coroutines.core)
-                // Decompose
-                implementation(libs.decompose.core)
+                implementation(libs.kotlin.serialization.json)
+                implementation(libs.ktor.client.contentNegitiation)
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.json)
+                implementation(libs.ktor.client.serialization)
+                implementation(libs.ktor.serialization.json)
+                implementation(libs.mppsettings)
             }
         }
     }
