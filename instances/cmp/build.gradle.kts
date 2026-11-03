@@ -33,44 +33,38 @@ kotlin {
         binaries.executable()
     }
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(libs.decompose.compose)
-                implementation(libs.decompose.core)
-                implementation(libs.essenty)
-                implementation(libs.jetbrains.compose.foundation)
-                implementation(libs.jetbrains.compose.material)
-                implementation(libs.jetbrains.compose.runtime)
-                implementation(libs.jetbrains.compose.ui)
-                implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.mikro.core)
-                implementation(libs.klibs.mikro.platform)
-                implementation(libs.kotlin.coroutines.core)
-                implementation(libs.kotlin.serialization.json)
-                implementation(libs.moko.resources.core)
-                implementation(libs.mppsettings)
-                implementation(projects.modules.features.root.impl)
-                implementation(projects.modules.features.root.ui)
-                implementation(projects.modules.features.splash.api)
-                implementation(projects.modules.features.splash.impl)
-                implementation(projects.modules.features.theme.impl)
-                implementation(projects.modules.features.theme.ui)
-                implementation(projects.modules.services.core.common)
-                implementation(projects.modules.services.core.resources)
-                implementation(projects.modules.services.core.ui.common)
-                implementation(projects.modules.services.core.ui.theme)
-            }
+        commonMain.dependencies {
+            implementation(libs.decompose.compose)
+            implementation(libs.decompose.core)
+            implementation(libs.essenty)
+            implementation(libs.jetbrains.compose.foundation)
+            implementation(libs.jetbrains.compose.material)
+            implementation(libs.jetbrains.compose.runtime)
+            implementation(libs.jetbrains.compose.ui)
+            implementation(libs.klibs.kstorage)
+            implementation(libs.klibs.mikro.core)
+            implementation(libs.klibs.mikro.platform)
+            implementation(libs.kotlin.coroutines.core)
+            implementation(libs.kotlin.serialization.json)
+            implementation(libs.moko.resources.core)
+            implementation(libs.mppsettings)
+            implementation(projects.modules.features.root.impl)
+            implementation(projects.modules.features.root.ui)
+            implementation(projects.modules.features.splash.api)
+            implementation(projects.modules.features.splash.impl)
+            implementation(projects.modules.features.theme.impl)
+            implementation(projects.modules.features.theme.ui)
+            implementation(projects.modules.services.core.common)
+            implementation(projects.modules.services.core.resources)
+            implementation(projects.modules.services.core.ui.common)
+            implementation(projects.modules.services.core.ui.theme)
         }
-        val jvmMain by getting {
-            dependencies {
-                implementation(compose.desktop.currentOs)
-            }
+        jvmMain.dependencies {
+            implementation(compose.desktop.currentOs)
         }
-        val jsMain by getting {
-            dependencies {
-                implementation(compose.html.core)
-                implementation(compose.runtime)
-            }
+        jsMain.dependencies {
+            implementation(compose.html.core)
+            implementation(compose.runtime)
         }
     }
 }

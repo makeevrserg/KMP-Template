@@ -26,15 +26,13 @@ kotlin {
         binaries.executable()
     }
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(libs.jetbrains.compose.foundation)
-                implementation(libs.jetbrains.compose.runtime)
-                implementation(libs.jetbrains.compose.ui)
-                implementation(projects.modules.features.theme.impl)
-                implementation(projects.modules.services.core.ui.common)
-                implementation(projects.modules.services.core.ui.theme)
-            }
+        commonMain.dependencies {
+            implementation(libs.jetbrains.compose.foundation)
+            implementation(libs.jetbrains.compose.runtime)
+            implementation(libs.jetbrains.compose.ui)
+            implementation(projects.modules.features.theme.impl)
+            implementation(projects.modules.services.core.ui.common)
+            implementation(projects.modules.services.core.ui.theme)
         }
     }
 }

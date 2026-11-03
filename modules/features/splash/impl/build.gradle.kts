@@ -24,24 +24,20 @@ kotlin {
         binaries.executable()
     }
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(libs.decompose.core)
-                implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.mikro.core)
-                implementation(libs.klibs.mikro.platform)
-                implementation(libs.kotlin.coroutines.core)
-                implementation(projects.modules.features.splash.api)
-                implementation(projects.modules.services.core.common)
-            }
+        commonMain.dependencies {
+            implementation(libs.decompose.core)
+            implementation(libs.klibs.kstorage)
+            implementation(libs.klibs.mikro.core)
+            implementation(libs.klibs.mikro.platform)
+            implementation(libs.kotlin.coroutines.core)
+            implementation(projects.modules.features.splash.api)
+            implementation(projects.modules.services.core.common)
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-                implementation(libs.kotlin.coroutines.test)
-                implementation(libs.tests.assertk)
-                implementation(libs.tests.turbine)
-            }
+        commonTest.dependencies {
+            implementation(kotlin("test"))
+            implementation(libs.kotlin.coroutines.test)
+            implementation(libs.tests.assertk)
+            implementation(libs.tests.turbine)
         }
     }
 }

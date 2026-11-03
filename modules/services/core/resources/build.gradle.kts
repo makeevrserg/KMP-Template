@@ -26,16 +26,12 @@ kotlin {
         browser()
     }
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(libs.moko.resources.core)
-            }
+        commonMain.dependencies {
+            implementation(libs.moko.resources.core)
         }
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.android.material)
-                implementation(libs.androidx.splash)
-            }
+        androidMain.dependencies {
+            implementation(libs.android.material)
+            implementation(libs.androidx.splash)
         }
     }
 }

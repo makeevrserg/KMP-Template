@@ -25,29 +25,25 @@ kotlin {
         binaries.executable()
     }
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(libs.decompose.compose)
-                implementation(libs.decompose.core)
-                implementation(libs.jetbrains.compose.foundation)
-                implementation(libs.jetbrains.compose.material)
-                implementation(libs.jetbrains.compose.material3)
-                implementation(libs.jetbrains.compose.runtime)
-                implementation(libs.jetbrains.compose.ui)
-                implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.mikro.core)
-                implementation(libs.klibs.mikro.platform)
-                implementation(libs.moko.resources.compose)
-                implementation(libs.moko.resources.core)
-                implementation(projects.modules.services.core.common)
-                implementation(projects.modules.services.core.resources)
-            }
+        commonMain.dependencies {
+            implementation(libs.decompose.compose)
+            implementation(libs.decompose.core)
+            implementation(libs.jetbrains.compose.foundation)
+            implementation(libs.jetbrains.compose.material)
+            implementation(libs.jetbrains.compose.material3)
+            implementation(libs.jetbrains.compose.runtime)
+            implementation(libs.jetbrains.compose.ui)
+            implementation(libs.klibs.kstorage)
+            implementation(libs.klibs.mikro.core)
+            implementation(libs.klibs.mikro.platform)
+            implementation(libs.moko.resources.compose)
+            implementation(libs.moko.resources.core)
+            implementation(projects.modules.services.core.common)
+            implementation(projects.modules.services.core.resources)
         }
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.google.accompanist.flowlayout)
-                implementation(libs.google.accompanist.systemuicontroller)
-            }
+        androidMain.dependencies {
+            implementation(libs.google.accompanist.flowlayout)
+            implementation(libs.google.accompanist.systemuicontroller)
         }
     }
 }

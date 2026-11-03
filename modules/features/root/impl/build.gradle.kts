@@ -25,42 +25,36 @@ kotlin {
         binaries.executable()
     }
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(libs.decompose.core)
-                implementation(libs.essenty)
-                implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.mikro.core)
-                implementation(libs.klibs.mikro.platform)
-                implementation(libs.kotlin.coroutines.core)
-                implementation(libs.kotlin.serialization.json)
-                implementation(libs.ktor.client.contentNegitiation)
-                implementation(libs.ktor.client.core)
-                implementation(libs.ktor.client.json)
-                implementation(libs.ktor.client.serialization)
-                implementation(libs.ktor.logging)
-                implementation(libs.ktor.serialization.json)
-                implementation(libs.moko.resources.core)
-                implementation(libs.mppsettings)
-                implementation(libs.mvikotlin)
-                implementation(projects.modules.features.splash.api)
-                implementation(projects.modules.services.core.common)
-                implementation(projects.modules.services.core.resources)
-            }
+        commonMain.dependencies {
+            implementation(libs.decompose.core)
+            implementation(libs.essenty)
+            implementation(libs.klibs.kstorage)
+            implementation(libs.klibs.mikro.core)
+            implementation(libs.klibs.mikro.platform)
+            implementation(libs.kotlin.coroutines.core)
+            implementation(libs.kotlin.serialization.json)
+            implementation(libs.ktor.client.contentNegitiation)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.json)
+            implementation(libs.ktor.client.serialization)
+            implementation(libs.ktor.logging)
+            implementation(libs.ktor.serialization.json)
+            implementation(libs.moko.resources.core)
+            implementation(libs.mppsettings)
+            implementation(libs.mvikotlin)
+            implementation(projects.modules.features.splash.api)
+            implementation(projects.modules.services.core.common)
+            implementation(projects.modules.services.core.resources)
         }
         commonTest.dependencies {
             implementation(kotlin("test"))
         }
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.androidx.room.ktx)
-                implementation(libs.ktor.client.cio)
-            }
+        androidMain.dependencies {
+            implementation(libs.androidx.room.ktx)
+            implementation(libs.ktor.client.cio)
         }
-        val jvmMain by getting {
-            dependencies {
-                implementation(libs.ktor.client.cio)
-            }
+        jvmMain.dependencies {
+            implementation(libs.ktor.client.cio)
         }
     }
 }

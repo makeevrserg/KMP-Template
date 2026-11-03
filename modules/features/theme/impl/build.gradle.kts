@@ -24,14 +24,12 @@ kotlin {
         binaries.executable()
     }
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(libs.decompose.core)
-                implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.mikro.core)
-                implementation(libs.kotlin.coroutines.core)
-                implementation(libs.mppsettings)
-            }
+        commonMain.dependencies {
+            implementation(libs.decompose.core)
+            implementation(libs.klibs.kstorage)
+            implementation(libs.klibs.mikro.core)
+            implementation(libs.kotlin.coroutines.core)
+            implementation(libs.mppsettings)
         }
     }
 }
