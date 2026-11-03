@@ -9,34 +9,30 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.android.java")
     id("ru.astrainteractive.gradleplugin.android.namespace")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.ImplUi())
+    rootPackage.set("examplepackage.features.theme.ui")
 }
 
 kotlin {
     applyDefaultHierarchyTemplate()
     jvm()
-    androidLibrary {}
-    js(IR) {
+    android {}
+    js {
         browser()
         binaries.executable()
     }
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                // Compose MPP
-                implementation(libs.jetbrains.compose.runtime)
-                implementation(libs.jetbrains.compose.foundation)
-                implementation(libs.jetbrains.compose.ui)
-                // Local
-                implementation(projects.modules.services.core.ui.common)
-                implementation(projects.modules.services.core.ui.theme)
-                implementation(projects.modules.features.theme.impl)
-            }
-        }
-        val androidMain by getting {
-            dependencies {
-                // Accompanist
-                implementation(libs.google.accompanist.systemuicontroller)
-            }
+        commonMain.dependencies {
+            implementation(libs.jetbrains.compose.foundation)
+            implementation(libs.jetbrains.compose.runtime)
+            implementation(libs.jetbrains.compose.ui)
+            implementation(projects.modules.features.theme.impl)
+            implementation(projects.modules.services.core.ui.common)
+            implementation(projects.modules.services.core.ui.theme)
         }
     }
 }

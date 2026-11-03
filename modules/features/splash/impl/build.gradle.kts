@@ -7,38 +7,37 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.android.java")
     id("ru.astrainteractive.gradleplugin.android.namespace")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.Impl())
+    rootPackage.set("examplepackage.features.splash.impl")
 }
 
 kotlin {
     applyDefaultHierarchyTemplate()
     jvm()
-    androidLibrary {}
-    js(IR) {
+    android {}
+    js {
         browser()
         binaries.executable()
     }
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                // Coroutines
-                implementation(libs.kotlin.coroutines.core)
-                // klibs
-                implementation(libs.klibs.mikro.core)
-                implementation(libs.klibs.mikro.platform)
-                implementation(libs.klibs.kstorage)
-                // Decompose
-                implementation(libs.decompose.core)
-                // Local
-                implementation(projects.modules.services.core.common)
-            }
+        commonMain.dependencies {
+            implementation(libs.decompose.core)
+            implementation(libs.klibs.kstorage)
+            implementation(libs.klibs.mikro.core)
+            implementation(libs.klibs.mikro.platform)
+            implementation(libs.kotlin.coroutines.core)
+            implementation(projects.modules.features.splash.api)
+            implementation(projects.modules.services.core.common)
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-                implementation(libs.tests.assertk)
-                implementation(libs.tests.turbine)
-                implementation(libs.kotlin.coroutines.test)
-            }
+        commonTest.dependencies {
+            implementation(kotlin("test"))
+            implementation(libs.kotlin.coroutines.test)
+            implementation(libs.tests.assertk)
+            implementation(libs.tests.turbine)
         }
     }
 }

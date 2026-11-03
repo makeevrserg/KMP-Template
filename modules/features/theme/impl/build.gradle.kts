@@ -7,29 +7,29 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.android.java")
     id("ru.astrainteractive.gradleplugin.android.namespace")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.Impl())
+    rootPackage.set("examplepackage.features.theme.impl")
 }
 
 kotlin {
     applyDefaultHierarchyTemplate()
     jvm()
-    androidLibrary {}
-    js(IR) {
+    android {}
+    js {
         browser()
         binaries.executable()
     }
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                // klibs
-                implementation(libs.klibs.mikro.core)
-                implementation(libs.klibs.kstorage)
-                // Settings
-                implementation(libs.mppsettings)
-                // Decompose
-                implementation(libs.decompose.core)
-                // Coroutines
-                implementation(libs.kotlin.coroutines.core)
-            }
+        commonMain.dependencies {
+            implementation(libs.decompose.core)
+            implementation(libs.klibs.kstorage)
+            implementation(libs.klibs.mikro.core)
+            implementation(libs.kotlin.coroutines.core)
+            implementation(libs.mppsettings)
         }
     }
 }

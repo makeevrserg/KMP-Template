@@ -10,26 +10,28 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.java")
     id("ru.astrainteractive.gradleplugin.android.namespace")
     alias(libs.plugins.moko.resources)
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.Core())
+    rootPackage.set("com.makeevrserg.applicationtemplate.modules.services.core.resources")
 }
 
 kotlin {
     applyDefaultHierarchyTemplate()
     jvm()
-    androidLibrary {}
-    js(IR) {
+    android {}
+    js {
         browser()
     }
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(libs.moko.resources.core)
-            }
+        commonMain.dependencies {
+            implementation(libs.moko.resources.core)
         }
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.androidx.splash)
-                implementation(libs.android.material)
-            }
+        androidMain.dependencies {
+            implementation(libs.android.material)
+            implementation(libs.androidx.splash)
         }
     }
 }

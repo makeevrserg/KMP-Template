@@ -13,6 +13,12 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.java")
     id("ru.astrainteractive.gradleplugin.android.namespace")
     id("com.github.gmazzo.buildconfig")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.Core())
+    rootPackage.set("com.makeevrserg.applicationtemplate.modules.services.core.build.konfig")
 }
 
 buildConfig {
@@ -34,8 +40,8 @@ buildConfig {
 kotlin {
     applyDefaultHierarchyTemplate()
     jvm()
-    androidLibrary {}
-    js(IR) {
+    android {}
+    js {
         browser()
     }
 }
