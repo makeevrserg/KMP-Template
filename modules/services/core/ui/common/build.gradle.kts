@@ -19,8 +19,8 @@ linter {
 kotlin {
     applyDefaultHierarchyTemplate()
     jvm()
-    androidLibrary {}
-    js(IR) {
+    android {}
+    js {
         browser()
         binaries.executable()
     }

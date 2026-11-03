@@ -23,7 +23,7 @@ linter {
 kotlin {
     applyDefaultHierarchyTemplate()
     jvm()
-    js(IR) {
+    js {
         browser {
             useCommonJs()
             commonWebpackConfig {
