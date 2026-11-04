@@ -52,7 +52,7 @@ mppsettings = "1.3.0" # https://github.com/russhwolf/multiplatform-settings
 
 # klibs
 klibs-gradleplugin = "2.8.0" # https://github.com/makeevrserg/gradle-plugin
-klibs-rules = "0.23.1" # https://github.com/Astra-Interactive/rules-architecture
+klibs-rules = "0.24.0" # https://github.com/Astra-Interactive/rules-architecture
 
 # buildkonfig
 buildkonfig = "6.1.0" # https://github.com/gmazzo/gradle-buildconfig-plugin
