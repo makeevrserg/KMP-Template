@@ -20,4 +20,4 @@ jobs:
       - name: "Make gradlew Executable"
         run: chmod +x gradlew
       - name: "Run Full Lint"
-        run: ./gradlew architectureLint --continue
+        run: ./gradlew architectureLint --continue --no-configure-on-demand
